@@ -222,7 +222,7 @@ $contatos = carregarContatos($arquivo_contatos);
                         <td>
                             <?php echo htmlspecialchars($contato['telefone']); ?>
                             <a href="https://api.whatsapp.com/send/?phone=55<?php echo htmlspecialchars($contato['telefone']); ?>" target="_blank">
-                                <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon">
+                                <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon" style="width:16px; height:16px;">
                             </a>
                         </td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>

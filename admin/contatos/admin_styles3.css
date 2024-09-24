@@ -99,8 +99,6 @@ table a.delete-btn:hover {
 
 /* Ícone do WhatsApp */
 .whatsapp-icon {
-    width: 20px;
-    height: 20px;
     margin-left: 10px;
     vertical-align: middle;
     cursor: pointer;
