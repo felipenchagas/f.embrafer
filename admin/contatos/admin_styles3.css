@@ -167,7 +167,8 @@ table a.delete-btn:hover {
 }
 
 .add-contact-form .input-group input[type="text"],
-.add-contact-form .input-group input[type="email"] {
+.add-contact-form .input-group input[type="email"],
+.add-contact-form .input-group textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #424242;
@@ -177,24 +178,14 @@ table a.delete-btn:hover {
     font-size: 16px;
 }
 
-.add-contact-form .input-group input::placeholder {
+.add-contact-form .input-group input::placeholder,
+.add-contact-form .input-group textarea::placeholder {
     color: #9e9e9e;
 }
 
-.add-contact-form .radio-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.add-contact-form .radio-group input[type="radio"] {
-    margin: 0;
-}
-
-.add-contact-form .radio-group label {
-    margin-right: 20px;
-    color: #e0e0e0;
+.add-contact-form textarea {
+    resize: vertical;
+    height: 100px;
 }
 
 .add-contact-form button[type="submit"] {
@@ -212,6 +203,11 @@ table a.delete-btn:hover {
 
 .add-contact-form button[type="submit"]:hover {
     background-color: #388e3c;
+}
+
+/* Removendo estilos relacionados a radio-group */
+.add-contact-form .radio-group {
+    display: none;
 }
 
 /* Estilos para a página de login */
@@ -296,6 +292,17 @@ table a.delete-btn:hover {
     table th, table td {
         white-space: nowrap;
     }
+
+    /* Ajustar largura da coluna de descrição */
+    table th:nth-child(6),
+    table td:nth-child(6) {
+        width: 300px;
+    }
+
+    /* Melhorar a visualização da descrição */
+    table td:nth-child(6) {
+        white-space: pre-wrap;
+    }
 }
 
 /* Ajustes para telas menores que 600px */
@@ -313,7 +320,8 @@ table a.delete-btn:hover {
         font-size: 14px;
     }
     .add-contact-form .input-group input[type="text"],
-    .add-contact-form .input-group input[type="email"] {
+    .add-contact-form .input-group input[type="email"],
+    .add-contact-form .input-group textarea {
         font-size: 14px;
         padding: 10px;
     }
@@ -330,5 +338,11 @@ table a.delete-btn:hover {
     /* Ajuste na tabela para permitir rolagem horizontal */
     .table-container {
         overflow-x: auto;
+    }
+
+    /* Ajuste largura da coluna de descrição */
+    table th:nth-child(6),
+    table td:nth-child(6) {
+        width: 200px;
     }
 }
