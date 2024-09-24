@@ -1,0 +1,39 @@
+User-agent: *
+Allow: 
+User-agent: Googlebot
+Allow: 
+User-agent: Googlebot-Image
+Allow: 
+User-agent: Mediapartners-Google
+Allow: 
+User-agent: Adsbot-Google
+Allow: 
+
+Sitemap: https://www.embrafer.com/sitemap.xml
+Sitemap: https://www.embrafer.com/sitemap-ac.xml
+Sitemap: https://www.embrafer.com/sitemap-al.xml
+Sitemap: https://www.embrafer.com/sitemap-am.xml
+Sitemap: https://www.embrafer.com/sitemap-ap.xml
+Sitemap: https://www.embrafer.com/sitemap-ba.xml
+Sitemap: https://www.embrafer.com/sitemap-ce.xml
+Sitemap: https://www.embrafer.com/sitemap-df.xml
+Sitemap: https://www.embrafer.com/sitemap-es.xml
+Sitemap: https://www.embrafer.com/sitemap-go.xml
+Sitemap: https://www.embrafer.com/sitemap-ma.xml
+Sitemap: https://www.embrafer.com/sitemap-mg.xml
+Sitemap: https://www.embrafer.com/sitemap-ms.xml
+Sitemap: https://www.embrafer.com/sitemap-mt.xml
+Sitemap: https://www.embrafer.com/sitemap-pa.xml
+Sitemap: https://www.embrafer.com/sitemap-pb.xml
+Sitemap: https://www.embrafer.com/sitemap-pe.xml
+Sitemap: https://www.embrafer.com/sitemap-pi.xml
+Sitemap: https://www.embrafer.com/sitemap-pr.xml
+Sitemap: https://www.embrafer.com/sitemap-rj.xml
+Sitemap: https://www.embrafer.com/sitemap-rn.xml
+Sitemap: https://www.embrafer.com/sitemap-ro.xml
+Sitemap: https://www.embrafer.com/sitemap-rr.xml
+Sitemap: https://www.embrafer.com/sitemap-rs.xml
+Sitemap: https://www.embrafer.com/sitemap-sc.xml
+Sitemap: https://www.embrafer.com/sitemap-se.xml
+Sitemap: https://www.embrafer.com/sitemap-sp.xml
+Sitemap: https://www.embrafer.com/sitemap-to.xml

@@ -1,0 +1,107 @@
+<html>
+ <head>
+  <title>Formul&aacute;rio para envio de mensagens atrav&eacute;s da Fun&ccedil;&atilde;o mail() do PHP</title>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+ <link rel="stylesheet" href="../stylescontato.css"></head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="../processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+ <body style="background-color: #ffffff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333;">
+  <form action="envia.php" method="post">
+   <table width="40%" border="1">
+    <tr>
+     <td>
+ 
+      <p><center><b>Formul&aacute;rio para envio de mensagens atrav&eacute;s da Fun&ccedil;&atilde;o mail() do PHP</b></center></p>
+      <b>Remetente</b><br>
+      Nome:<br>
+      <input name="nomeremetente" type="text" size="100">
+      <br>
+      E-mail(*):<br>
+      <input name="emailremetente" type="text" size="100">
+ 
+      <font size="-2">Este e-mail ser&aacute; usado no campo Reply-To, o script automaticamente definir&aacute; o e-mail do remetente com base no seu dom&iacute;nio</font>
+      <br><br>
+      <strong>Destinat&aacute;rio</strong><br>
+      E-mail:<br>
+      <input name="emaildestinatario" type="text" id="emaildestinatario" size="100">
+      Com C&oacute;pia(cc):<br>
+ 
+      <input name="comcopia" type="text" id="comcopia" size="100">
+      <br>
+      Com C&oacute;pia Oculta(cco):<br>
+      <input name="comcopiaoculta" type="text" id="comcopiaoculta" size="100">
+      Assunto:<br>
+      <input name="assunto" type="text" id="assunto" size="100">
+      <br>
+      Mensagem:<br>
+ 
+      <textarea name="mensagem" cols="75" rows="5" id="textarea"></textarea>
+      <br>
+      <input type="submit" name="Submit" value="Enviar">
+      <input type="reset" name="limpar" value="Limpar">
+     </td>
+    </tr>
+    <tr>
+     <td>
+    <b> Veja tamb&eacute;m: </b>
+ 
+    <br>
+    <a href="http://www.php.net/manual/pt_BR/function.mail.php" target="new">http://www.php.net/manual/pt_BR/function.mail.php</a>
+    <br>
+    <a href="http://ajuda.locaweb.com.br/pt-br/Como_enviar_e-mails_com_a_fun%C3%A7%C3%A3o_mail()_do_PHP" target="new">Fun&ccedil;&atilde;o para Envio de Mensagens mail()</a>
+    <br>
+    </td>
+    </tr>
+   </table>
+  </form>
+ </body>
+</html>

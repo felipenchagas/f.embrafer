@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Simple Stack Effects</title>
+		<meta name="description" content="Simple Stack Effects" />
+		<meta name="keywords" content="stack, effect, 3d, rotate, hover, creative, inspiration, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+	<body>
+		<div class="container">
+			<section>
+				<h2>Simple spread</h2>
+				<figure class="stack stack-spread active">
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/1.png" alt="img01"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Fan out</h2>
+				<figure class="stack stack-fanout active">
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/2.png" alt="img02"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Random rotation</h2>
+				<figure class="stack stack-randomrot active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/3.png" alt="img03"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Side Slide</h2>
+				<figure class="stack stack-sideslide active">
+					<img src="img/5.png" alt="img05"/>
+					<img src="img/6.png" alt="img06"/>
+					<img src="img/4.png" alt="img04"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Side Grid</h2>
+				<figure class="stack stack-sidegrid active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/2.png" alt="img02"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Peek-a-boo</h2>
+				<figure class="stack stack-peekaboo active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/3.png" alt="img03"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Preview Grid</h2>
+				<figure class="stack stack-previewgrid active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/5.png" alt="img05"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/4.png" alt="img04"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Corner Grid</h2>
+				<figure class="stack stack-cornergrid active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/5.png" alt="img05"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Bouncy Grid</h2>
+				<figure class="stack stack-bouncygrid active">
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/1.png" alt="img01"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Coverflow</h2>
+				<figure class="stack stack-coverflow active">
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/2.png" alt="img02"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Leaflet</h2>
+				<figure class="stack stack-leaflet active">
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/3.png" alt="img03"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Vertical spread</h2>
+				<figure class="stack stack-vertspread active">
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/4.png" alt="img04"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Elastic spread</h2>
+				<figure class="stack stack-vertelastic active">
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/1.png" alt="img01"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Fan</h2>
+				<figure class="stack stack-fan active">
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/4.png" alt="img04"/>
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/3.png" alt="img03"/>
+				</figure>
+			</section>
+			<section>
+				<h2>Queue</h2>
+				<figure class="stack stack-queue active">
+					<img src="img/2.png" alt="img02"/>
+					<img src="img/1.png" alt="img01"/>
+					<img src="img/3.png" alt="img03"/>
+					<img src="img/4.png" alt="img04"/>
+				</figure>
+			</section>
+		</div>
+		<script src="js/classie.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

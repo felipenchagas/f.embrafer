@@ -1,0 +1,18 @@
+/*Border Color Start*/
+.cp-columns h2, .customization-options h2, .cp-highlighter h2, .cp-testimonials h2, .blockquote-1, .blockquote-1:before, .syntaxhighlighter .gutter .line{
+	border-color:#29688a;
+}
+/*Border Color End*/
+
+/*Background Color Start*/
+.cp-accordion .accordion-heading:hover, .accordion-heading.active .accordion-toggle, .accordion-heading.active span.open{
+	background-color:#29688a;
+}
+/*Background Color End*/
+
+
+/*Buttons Background color Start*/
+.tabs-box .nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus, .tabs-box .nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .testimonial-box-1 .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .timline-project .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .cp-accordion .accordion-heading:hover span.open, .button-box a{
+	background-color:#29688a;
+}
+/*Buttons Background color End*/

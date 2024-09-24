@@ -1,0 +1,763 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EMBRAFER - Estruturas Metálicas - Cobertura - Projetos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--Custom Css-->
+<link href="css/custom.css" rel="stylesheet" type="text/css" />
+<!--Bootstrap Css-->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<!--Bootstrap Responsive Css-->
+<link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+<!--Color Css-->
+<link href="css/color.css" rel="stylesheet" type="text/css" />
+<!--Font Awesome Css-->
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!--Fevicon-->
+<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<!--Google Fonts-->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<!--Bxslider Css-->
+<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+<!--Pretty Photo Css-->
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen"/>
+<!--Html 5 Js-->
+<script src="js/html5.js" type="text/javascript"></script>
+<!-- Color Css Files Start -->
+<link rel="stylesheet" type="text/css" href="css/color-red.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-red.css" title="styles1" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-skyblue.css" title="styles2" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-orange.css" title="styles3" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-green.css" title="styles4" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-blue.css" title="styles5" media="screen" />
+<link rel="alternate stylesheet" type="text/css" href="css/color-brown.css" title="styles6" media="screen" />
+<!-- Color Css Files End -->
+<link rel="stylesheet" href="stylescontato.css"></head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--Wrapper Start-->
+<div id="wrapper"> 
+  <!--Headre Start-->
+  <header id="header"> 
+    <!--Head Topbar Start-->
+    <div class="head-topbar">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="left">
+            <ul>
+              <li><a href="estrutura-metalica.html">Estrutura Metálica</a></li>
+              <li><a href="contato-embrafer.html">Entre em Contato</a></li>
+              <li><strong class="number">(41) 3082 8850</strong> l <strong class="number">(41) 98406 1613</strong></li>
+            </ul>
+          </div>
+          <ul class="header-social">
+            <li><a href="https://www.facebook.com/metalicapr"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--Head Topbar End--> 
+    <!--Menu Row Start-->
+    <div class="menu-row">
+      <div class="container">
+        <div class="row-fluid"> <strong class="logo"><a href="index.html"><img src="images/logo.png" alt="img"></a></strong> </div>
+      </div>
+      <!--Navigation Area	Start-->
+      <section class="navigation-area">
+        <div class="container">
+          <div class="row-fluid"> <a href="contato-embrafer.html" class="btn-donate"><i></i>Orçamento</a> 
+            <!--Navbar Start-->
+            <div class="navbar margin-none">
+
+			  <!-- DELETAR -->
+			<div class="container">
+                <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <div class="nav-collapse collapse">
+                  <div id="navbar">
+                    <ul id="nav">
+                      <li class="active"><a href="index.html">Inicio</a></li>
+                      <li><a href="empresa-embrafer-estruturas-metalicas.html">Empresa</a></li>
+                      <li><a href="#">Serviços</a>
+                        <ul>
+                          <li><a href="estrutura-metalica.html">Estrutura Metálica</a></li>
+                          
+                          <li><a href="mezaninos-metalicos.html">Mezaninos</a></li>
+                          <li><a href="galpoes-barracoes-casas-estrutura-metalica.html">Galpões e Barracões</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="estrutura-metalica.html">Estrutura Metálica</a></li>
+                      
+                      <li><a href="obras-empresa-embrafer.html">Galeria de Obras</a></li>
+                      <li><a href="contato-embrafer.html">Contato</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+			  <!-- DELETAR -->
+             <!--USAR <div class="container">
+                <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <div class="nav-collapse collapse">
+                  <div id="navbar">
+                    <ul id="nav">
+                      <li class="active"><a href="index.html">Inicio</a></li>
+                      <li><a href="alambrados-instalacao-fabricacao.html">Alambrados</a></li>
+                      <li><a href="obras-empresa-embrafer.html">Obras</a></li>
+                      <li><a href="cidades-estados-atendidas.html">Serviços</a>
+                        <ul>
+                          <li><a href="estrutura-metalica.html">Estrutura Metálica</a></li>
+                          <li><a href="alambrados.html">Alambrados</a></li>
+                          <li><a href="Mezanino.html">Mezaninos</a></li>
+                          <li><a href="Galpoes-estrutura-metalica.html">Galpões e Barracões</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="estrutura-metalica.html">Estrutura Metálica</a></li>
+                      
+                      <li><a href="cidades-atendidas.html">Cidades Atendidas</a></li>
+                      <li><a href="contato-embrafer.html">Contato</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>  USAR -->
+             
+              <div class="search-box">
+                <input name="" type="text" class="top-search-input" placeholder="Procurar...">
+                <button value="" class="top-search-btn"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+            <!--Navbar End--> 
+          </div>
+        </div>
+      </section>
+      <!--Navigation Area	End--> 
+    </div>
+    <!--Menu Row End--> 
+  </header>
+  <!--Headre End-->
+
+ 
+
+
+  <div id="main"> 
+    <!--Banner Start-->
+    <div id="banner">
+      <ul id="home-banner">
+        <li> <img src="images/estrutura-metalica2.jpg" alt="Estrutura Metálica Embrafer">
+          <div class="holder">
+            <div class="caption">
+              <h1>EMBRAFER Estruturas Metálicas</h1>
+              <h2>Atendemos todo o  Brasil .</h2>
+           <a href="estrutura-metalica.html" class="view">Estrutura Metálica</a> </div>
+          </div>
+        </li>
+        <li> <img src="images/estrutura-metalica.jpg" alt="Estrutura Metálica">
+          <div class="holder">
+            <div class="caption">
+              <h1>Mezaninos Metálicos</h1>
+              <h2>Mezaninos são adotados por grandes empresas.</h2>
+              <a href="mezaninos.html" class="view">Mezaninos</a> </div>
+          </div>
+        </li>
+        <li> <img src="images/banner-img3.jpg" alt="img">
+          <div class="holder">
+            <div class="caption">
+              <h1>Barracões e galpões em estrutura metálica</h1>
+              <h2>A forma mais fácil e mais seguro de se construir.</h2>
+              <a href="#" class="view">Galpões e Barracões</a> </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!--Banner End--> 
+    <!--Widget Box Start-->
+   
+    <!--Widget Box End--> 
+    <!--Latest News Box Start-->
+    
+    <!--Latest News Box End--> 
+    <!--Upcoming Events Start-->
+	
+    <section class="our-project">
+
+      <div class="upcoming-heading">
+        <h3>Obras Concluidas</h3>
+        <ul id="upcoming-news-slider">
+          <li>
+            <div class="container">
+              <div class="row-fluid">
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/events-img-1.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Londrina</strong><strong class="mnt"><span>18 Fevereiro, 2015</span></strong></div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/events-img-2.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Maringa</strong> <strong class="mnt"><span>10 Outrubro, 2013</span></strong> </div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/events-img-3.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Osório</strong> <strong class="mnt"><span>02 Fevereiro, 2014</span></strong> </div>
+                  </div>
+                </div>
+                <a href="obras-empresa-embrafer.html" class="btn-view">Mais Obras</a> </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="row-fluid">
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/mezanino.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Santos</strong><strong class="mnt"><span>13 Março, 2015</span></strong></div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/estrutura-metalica.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Foz do Iguaçu</strong> <strong class="mnt"><span>10 Janeiro, 2015</span></strong> </div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/barracao-estrutura-metalica.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Curitiba</strong> <strong class="mnt"><span>02 Junho, 2014</span></strong> </div>
+                  </div>
+                </div>
+                <a href="obras-empresa-embrafer.html" class="btn-view">Mais Obras</a> </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="row-fluid">
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/cobertura-metalica.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Londrina</strong><strong class="mnt"><span>07 Abril, 2012</span></strong></div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/barracao.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">São Paulo</strong> <strong class="mnt"><span>23 Agosto, 2014</span></strong> </div>
+                  </div>
+                </div>
+                <div class="span4">
+                  <div class="upcoming-box">
+                    <div class="frame"><img src="images/inicial/barracao-mezanino.jpg" alt="img"></div>
+                    <div class="caption">
+
+                      <strong class="title">Rio de Janeiro</strong> <strong class="mnt"><span>09 Setembro, 2014</span></strong> </div>
+                  </div>
+                </div>
+                <a href="obras-empresa-embrafer.html" class="btn-view">Mais Obras</a> </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!--Upcoming Events End--> 
+    <!--Our Project Start-->
+    <section class="upcoming-events-box">
+      <div class="container">
+        <h3>Serviços</h3>
+        <div class="product-gallery"> 
+          <!-- Gallery Filter Nav Start -->
+         
+          <!-- Gallery Filter Nav End --> 
+          
+          <!-- Gallery Start -->
+          <ul id="portfolio-list" class="gallery">
+            <li class="product_info 3 portfolio-item item alpha 1">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/mezanino-construir-instalar-fabricar.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="galpoes-barracoes-casas-estrutura-metalica.html" class="link"><i class="fa fa-link"></i></a> <a href="images/mezanino-construir-instalar-fabricarg.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Mezanino</strong> </div>
+              </div>
+            </li>
+
+			
+			            <li class="product_info 4 portfolio-item item alpha 1">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/escada-metalica.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="estrutura-metalica.html" class="link"><i class="fa fa-link"></i></a> <a href="images/escada-metalicag.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Escada</strong> </div>
+              </div>
+            </li>
+			
+            <li class="product_info 5 portfolio-item item alpha 1">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/cobertura-metalica.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="estrutura-metalica.html" class="link"><i class="fa fa-link"></i></a> <a href="images/cobertura-metalicag.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Cobertura Metálica</strong> </div>
+              </div>
+            </li>
+
+			</ul>
+			</div>
+			
+			  <div class="product-gallery"> 
+			<ul id="portfolio-list" class="gallery">
+            <li class="product_info 1 portfolio-item item alpha 2">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/barracao-estrutura-metalica.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="estrutura-metalica.html" class="link"><i class="fa fa-link"></i></a> <a href="images/barracao-estrutura-metalicag.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Estrutura Metálica</strong> </div>
+              </div>
+            </li>
+
+			
+			            <li class="product_info 4 portfolio-item item alpha 1">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/estrutura-metalica-instalacao.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="escadas-metalicas.html" class="link"><i class="fa fa-link"></i></a> <a href="images/estrutura-metalica-instalacaog.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Estrutura Metálica</strong> </div>
+              </div>
+            </li>
+            <li class="product_info 3 portfolio-item item alpha 1">
+              <div class="gallery-box">
+                <div class="frame"><img src="images/mezanino-embrafer.jpg" alt="img"></div>
+                <div class="caption">
+                  <div class="link-box"> <a href="mezaninos-metalicos.html" class="link"><i class="fa fa-link"></i></a> <a href="images/mezanino-embraferg.jpg" class="plus" data-rel="prettyPhoto[gallery1]"><i class="fa fa-plus"></i></a> </div>
+                  <strong class="title">Mezanino</strong> </div>
+              </div>
+            </li>
+
+          </ul>
+          
+          <!-- Gallery End --> 
+        </div>
+		</div>
+		
+		
+        <a href="obras-empresa-embrafer.html" class="btn-view">Ver Mais</a> 
+    </section>
+    <!--Our Project End--> 
+ 
+    <!--Project Timeline Start-->
+    <section class="project-timeline">
+      <div class="container">
+        <div class="timeline-box">
+		   <br /><br />
+          <h3>Projeto</h3>
+          <ul id="flexiselDemo1">
+            <li>
+              <div class="tim-line-container">
+                <div class="timeline-head color-1"><strong class="mnt">Orçamento</strong></div>
+                <div class="timeline-frame-outer">
+                  <div class="timeline-frame"><a href="contato-embrafer.html"><img src="images/timeline-img-1.jpg" alt="img"></a></div>
+                  <div class="caption">
+                    <h4>Orçamento</h4>
+                    <p>Fazemos todas as cotações e orçamentos com o máximo de transparencia. Não podem haver dúvidas.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tim-line-container">
+                <div class="timeline-head color-2"><strong class="mnt">Projeto</strong></div>
+                <div class="timeline-frame-outer">
+                  <div class="timeline-frame"><a href="obras-empresa-embrafer.html"><img src="images/timeline-img-2.jpg" alt="img"></a></div>
+                  <div class="caption">
+                    <h4>Projeto</h4>
+                    <p>O projeto é avalida e estudado junto ao nosso engenheiro. Calculos tudo bem aberto.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tim-line-container">
+                <div class="timeline-head color-3"><strong class="mnt">Metas</strong></div>
+                <div class="timeline-frame-outer">
+                  <div class="timeline-frame"><a href="empresa-embrafer-estruturas-metalicas.html"><img src="images/timeline-img-3.jpg" alt="img"></a></div>
+                  <div class="caption">
+                    <h4>Metas</h4>
+                    <p>É levado em consideração fatores para traçar metas. Tudo é combindado de acordo.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tim-line-container">
+                <div class="timeline-head color-4"><strong class="mnt">Tempo</strong></div>
+                <div class="timeline-frame-outer">
+                  <div class="timeline-frame"><a href="estrutura-metalica.html"><img src="images/timeline-img-4.jpg" alt="img"></a></div>
+                  <div class="caption">
+                    <h4>Tempo</h4>
+                    <p>Estipulado prazos, iniciação fabricação, instalação e finalmente conclusão da Obra.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tim-line-container">
+                <div class="timeline-head color-5"><strong class="mnt">Entrega</strong></div>
+                <div class="timeline-frame-outer">
+                  <div class="timeline-frame"><a href="mezaninos-metalicos.html"><img src="images/timeline-img-5.jpg" alt="img"></a></div>
+                  <div class="caption">
+                    <h4>Entrega</h4>
+                    <p>Tudo é revisado avaliado e entregue com segurança ao cliente. Nosso diferencial é o menor prazo.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+           
+
+
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!--Project Timeline End--> 
+    
+    <!--Blog Post Section Start-->
+    <section class="blog-post">
+      <h3>Velocidade</h3>
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span6">
+            <div class="blog-post-box">
+              <div class="frame-area">
+                <div class="frame"><img src="images/blog-post-home-img-1.jpg" alt="img"></div>
+                <div class="caption"> <strong class="type"><i class="fa fa-picture-o"></i></strong>  </div>
+              </div>
+              <div class="text"> <strong class="title"><i class="fa fa-tags"></i>Estrutura metálica, mezaninos, alambrados, escadas metálicas</strong>
+                <h4>O grande diferencial de trabalhar com o poder do aço.</h4>
+                <p>Em grandes ou pequenas obras é fácil ver a diferença de se trabalhar com <a href="estrutura-metalica.html">Estrutura metálica</a> ou alvenaria. Sem falar do menor prazo a organização e praticidade no canteiro de obras é evidente.</p>
+                <a href="cidades-estados-atendidas.html" class="readmore">Mais</a>
+                <div class="blog-post-share"> <strong class="title1">Compartilhe:</strong>
+                  <ul>
+                    <li><a href="https://www.facebook.com/metalicapr"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <div class="blog-post-box">
+              <div class="frame-area">
+                <div class="frame"><img src="images/blog-post-home-img-2.jpg" alt="img"></div>
+                <div class="caption"> <strong class="type"><i class="fa fa-picture-o"></i></strong> </div>
+              </div>
+              <div class="text"> <strong class="title"><i class="fa fa-tags"></i>Segurança, Praticidade, Sustentável, correto</strong>
+                <h4>A estrutura metálica é ecologicamente correta</h4>
+                <p>A estrutura metálica é 100% reaproveitável. Sim! ela pode ser reutilizada. Caso de mudança por algum motivo a estrutura pode ser desmontada e montada em outro local. O aço pode ser reaproveitado 100%, mesmo após Vários anos.</p>
+                <a href="estrutura-metalica.html" class="readmore">Mais</a>
+                <div class="blog-post-share"> <strong class="title1">Compartilhe:</strong>
+                  <ul>
+                    <li><a href="https://www.facebook.com/metalicapr"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+	 <section class="widget-box">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span4">
+            <div class="widget-box-inner">
+              <div class="round"><a href="estrutura-metalica.html" class="inner"><i class="fa fa-user"></i></a></div>
+              <h2>Estrutura Metálica</h2>
+              <p>As estruturas metálicas já estão presentes em grande parte das Obras. É muito dificil vermos hoje uma grande obra que não esteja sendo executada utilizando-se da estrutura metálica.</p>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="widget-box-inner">
+              <div class="round"><a href="contato-embrafer.html" class="inner"><i class="fa fa-globe"></i></a></div>
+              <h2>Atendemos todo o Brasil</h2>
+              <p>Nossa empresa está presente no mercado fazem algumas décadas. Nossa experiência irá lhe garantir um excelente projeto bem executado.</p>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="widget-box-inner">
+              <div class="round"><a href="empresa-embrafer-estruturas-metalicas.html" class="inner"><i class="fa fa-users"></i></a></div>
+              <h2>Equipe</h2>
+              <p>Uma equipe bem treinada e gerida igualmente é a chave para o sucesso. Temos orgulho de ter um dos melhores times montadores e executantes de Estrutura Metálica do País.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	<section class="latest-news-box">
+      <div class="container">
+        <div class="latest_posts acc-style">
+          <h3>Projetos</h3>
+          <div class="css3accordion">
+            <ul>
+              <li>
+                <div class="inner-acc"> <a href="obras-empresa-embrafer.html" class="thumb hoverBorder"> <img src="images/latest-news-img-1.jpg" alt=""> </a>
+                  <div class="content">
+                    <div class="top"> </div>
+                    <p>Nossos projetos de <b>Estrutura Metálica</b> são acompanhados sempre do nosso engenheiro. Bem calcuado e levando em consideração todas os contratempos</p>
+                    <strong class="title">Nossos projetos.</strong>
+                   </div>
+                </div>
+              </li>
+              <li>
+                <div class="inner-acc"> <a href="mezaninos-metalicos.html" class="thumb hoverBorder plus"> <img src="images/latest-news-img-2.jpg" alt=""> </a>
+                  <div class="content">
+                    <div class="top">  </div>
+                    <strong class="title">Velocidade.</strong>
+                    <p>Uma das vantagens de se útilizar a Estrutura metálica é a velocidade com que as peças são confeccionadas e a precisão que é montada no campo.</p>
+                </div>
+                </div>
+              </li>
+              <li class="last">
+                <div class="inner-acc"> <a href="estrutura-metalica.html" class="thumb hoverBorder plus"> <img src="images/latest-news-img-3.jpg" alt="Flexibilidade Estrutura Metálica"> </a>
+                  <div class="content">
+                    <div class="top">  </div>
+                    <strong class="title">Flexibilidade.</strong>
+					 <p>A estrutura metálica tem por uma de suas muitas caracteristicas a flexibilidade de formas para aplicação no projeto.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- end CSS3 Accordion --> 
+        </div>
+        <!-- end acc-style --> 
+      </div>
+    </section>
+    <!--Blog Post Section End--> 
+    
+    <!--Twitter Area Start-->
+
+    <!--Twitter Area End--> 
+    
+    <!--Footer Start-->
+    <section id="footer"> 
+      <!--Footer Top Start-->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row-fluid">
+            <div class="span3">
+              <div class="box-1">
+                <h4>Sobre</h4>
+                <p>Atuamos no mercado de Estrutura Metálica e todo o Brasil. Serviços, fabricação e instalação de Mezaninos, coberturas metálicas, galpões, barracões e edificações.</p>
+                <a href="cidades-estados-atendidas.html" class="btn-readmore">Cidades Atendidas</a> </div>
+            </div>
+            <div class="span3">
+              <div class="box-1">
+                <h4>Rapidinhas</h4>
+                <ul>
+                  <li>
+                    <div class="post-area">
+                      <div class="frame"><img src="images/recent-blog-img-1.jpg" alt="img"></div>
+                      <div class="text"> <strong class="title">Planejamento em equipe e orientação na obra...</strong> <strong class="mnt"><i class="fa fa-clock-o"></i>Janeiro 15, 2016</strong> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="post-area">
+                      <div class="frame"><img src="images/recent-blog-img-2.jpg" alt="img"></div>
+                      <div class="text"> <strong class="title">Trabalho em equipe e um bom relacionamento com os colaboradores...</strong> <strong class="mnt"><i class="fa fa-clock-o"></i>Junho 01, 2014</strong> </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="post-area">
+                      <div class="frame"><img src="images/recent-blog-img-3.jpg" alt="img"></div>
+                      <div class="text"> <strong class="title">Reciclagem de todos os funcionários...</strong> <strong class="mnt"><i class="fa fa-clock-o"></i>Junho 06, 2014</strong> </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div   class="span3">
+              <div class="box-1">
+                <h4>Galeria</h4>
+                <div class="flicker">
+                  <ul>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-1.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-2.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-3.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-4.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-5.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-6.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-7.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-8.jpg" alt="img"></a></li>
+                    <li><a href="obras-empresa-embrafer.html"><img src="images/flicker-img-9.jpg" alt="img"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="box-1">
+                <h4>Entre em Contato</h4>
+                <p>Entre em contato conosco, orçamento sem compromisso ou dúvidas da área.</p>
+                <form class="get-touch-form">
+
+                  <strong class="title">Não se preocupe, nós cuidamos de tudo!</strong>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Footer Top End--> 
+      <!--Footer Social Start-->
+      <div class="footer-social">
+        <div class="container">
+          <div> <strong class="footer-logo"><a href="index.html">EMBRAFER</a></strong>
+            <div class="footer-social-box">
+              <ul>
+                <li><a href="https://www.facebook.com/metalicapr"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+              </ul>
+            </div>
+            <div class="menu">
+              <div id="page">
+                <div class="header-nav" id="no-bottom-active-btn"> <a href="#menu"></a> <i class="fa fa-bars"></i> </div>
+                <ul class="footer-menu" >
+                  <li><a href="index.html">Inicio</a></li>
+                  <li><a href="alambrados-instalacao-fabricacao.html">Alambrados</a></li>
+                  <li><a href="contato-embrafer.html">Contato</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Footer Social End--> 
+      <!--Footer Copyright Start-->
+      <div class="footer-copyright"><strong class="copy">Todos os direitos reservados &amp; Desenvolvimento próprio: <a href="https://embrafer.com/" class="web" target="_blank">EMBRAFER</a></strong></div>
+      <!--Footer Copyright End--> 
+    </section>
+    <!--Footer End--> 
+  </div>
+</div>
+<!--Wrapper End--> 
+<!--Jquery Js--> 
+<script src="js/jquery.js" type="text/javascript"></script> 
+<!--Bootstrap Js--> 
+<script src="js/bootstrap.js" type="text/javascript"></script> 
+<!--Upcoming News Times Js--> 
+<script src="js/jquery.plugin.js"></script> 
+<!--Upcoming News Times Js--> 
+<script src="js/jquery.countdown.js"></script> 
+<!--Bxslider Js--> 
+<script src="js/jquery.bxslider.min.js"></script> 
+<!--Filterable JS--> 
+<script type="text/javascript" src="js/jquery-filterable.js"></script> 
+<!--Flex Timeline JS--> 
+<script type="text/javascript" src="js/jquery.flexisel.js"></script> 
+<!--Pretty Photo Js--> 
+<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script> 
+<!-- Style Switcher --> 
+<script type="text/javascript" src="js/styleswitch.js"></script> 
+<script type="text/javascript" src="js/jquery.tabSlideOut.v1.3.js"></script> 
+<!--Costom Js--> 
+<script src="js/custom.js" type="text/javascript"></script>
+<!--Start of Tawk.to Script-->
+  <script src="scriptcontato.js"></script>
+
+</body>
+</html>

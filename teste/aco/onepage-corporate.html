@@ -1,0 +1,1140 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/onepage-corporate.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:23:54 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leo Hunt - Responsive MultiPurpose HTML5 Template</title>
+
+<!-- Meta -->
+<meta name="keywords" content="" />
+<meta name="author" content="">
+<meta name="robots" content="" />
+<meta name="description" content="" />
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Web Fonts  -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800|Roboto:400,300,500,700,900|Raleway:400,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- stylesheets -->
+<link rel="stylesheet" media="screen" href="js/bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="js/mainmenu/menu-8.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-default.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-style.css" type="text/css" />
+<link rel="stylesheet" href="css/shortcodes.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/masterslider/style/masterslider.css" />
+<link href="js/animations/css/animations.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="css/responsive-style.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="js/bootstrap/css/bootstrap-combined.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/tabs/assets/css/responsive-tabs.css">
+<link rel="stylesheet" href="js/ytplayer/ytplayer.css" />
+<link rel="stylesheet" type="text/css" href="js/cubeportfolio/cubeportfolio.min.css">
+<link rel="stylesheet" type="text/css" href="js/smart-forms/smart-forms.css">
+
+<!--Style Swicher-->
+<link rel="stylesheet" href="js/style-swicher/style-swicher.css" type="text/css" />
+
+<!-- Remove the below comments to use your color option -->
+<link rel="stylesheet" href="css/colors/default.css" />
+<!--<link rel="stylesheet" href="css/colors/lightblue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/orange.css" />-->
+<!--<link rel="stylesheet" href="css/colors/green.css" />-->
+<!--<link rel="stylesheet" href="css/colors/pink.css" />-->
+<!--<link rel="stylesheet" href="css/colors/red.css" />-->
+<!--<link rel="stylesheet" href="css/colors/purple.css" />-->
+<!--<link rel="stylesheet" href="css/colors/bridge.css" />-->
+<!--<link rel="stylesheet" href="css/colors/yellow.css" />-->
+<!--<link rel="stylesheet" href="css/colors/violet.css" />-->
+<!--<link rel="stylesheet" href="css/colors/blue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/mossgreen.css" />-->
+
+<link rel="stylesheet" href="../stylescontato.css"></head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="../processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<body style="background-color: #ffffff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333;">
+<div class="wrapper-boxed">
+<div class="site_wrapper font-style5">
+<div id="section-1"></div>
+<div class="menu-main">
+  <div id="header10">
+  
+ 
+<div class="container">
+<div class="navbar navbar-default orange2 yamm dark">
+
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"><img src="images/logo-4.png" alt=""/></a>
+          </div>
+          
+          <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
+            <ul class="nav orange2 navbar-nav">
+            
+             <li><a href="javascript:void(0);" class="current dropdown-toggle" onclick="$('#section-1').animatescroll();">Home</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-2').animatescroll();">About</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-3').animatescroll();">Team</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-4').animatescroll();">Services</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-5').animatescroll();">Portfolio</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-6').animatescroll();">Blog</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-7').animatescroll();">Testimonials</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-8').animatescroll();">Contact</a></li>
+          </ul>
+          </div>
+        </div>
+</div></div></div>
+<!--end menu-->
+<div class="clearfix"></div>
+  
+
+  <!-- masterslider -->
+  <div class="master-slider ms-skin-default" id="masterslider5"> 
+    
+    <!-- slide 1 -->
+    <div class="ms-slide slide-1" data-delay="9">
+      
+      <img src="js/masterslider/blank.gif" data-src="images/slider/slide24.jpg" alt=""/>
+      
+      <h3 class="ms-layer text18 dark "
+			style="left:200px; top: 300px;"
+			data-type="text"
+			data-delay="500"
+		 	data-duration="2000"
+		 	data-ease="easeOutExpo"
+		 	data-effect="rotatefront(-40,900,tr)">Creative Solutions That</h3>
+
+        <h3 class="ms-layer text19 dark"
+			style="left:200px; top: 360px;"
+			data-type="text"
+			data-delay="1000"
+		 	data-duration="2000"
+		 	data-ease="easeOutExpo"
+		 	data-effect="rotate3dright(10,50,0,100)">Grow Your Business</h3>
+            
+      <h3 class="ms-layer text20"
+        	style="left:205px; top: 440px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et<br>justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue.<br>Cras tellus. In pulvinar lectus a est. Curabitur eget orci.  </h3>
+        
+      <a class="ms-layer sbut5 white2"
+			style="left: 380px; top: 530px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Get started </a>
+            
+            <a class="ms-layer sbut5 orange2"
+			style="left: 205px; top: 530px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Buy Now! </a>
+             
+            
+            </div>
+    <!-- end slide 1 -->
+    
+    <div class="ms-slide" data-delay="10">
+		
+        <video data-autopause="false" data-mute="true" data-loop="true"  data-start="05"  data-fill-mode="fill">
+                <source type="video/webm" src="videos/video3.html">
+                 <source type="video/mp4" src="videos/video4.mp4" >
+             <!-- <source type="video/mp4" src="http://Rapid Themes.net/videos/video-2.mp4">-->
+              <source type="video/ogg" src="videos/video3-2.html">
+            </video>
+            <img src="js/masterslider/blank.gif" data-src="images/slider/video-cover2.jpg" alt="lorem ipsum dolor sit">  
+        
+        <h3 class="ms-layer text52"
+			style="top:290px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="500"
+		 	data-duration="1400"
+		 	data-effect="skewleft(30,80)"> Add Your Own </h3>
+            
+      <h3 class="ms-layer text53"
+			style="top:345px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="1000"
+		 	data-duration="1400"
+		 	data-effect="skewright(30,80)"> Video Backgrounds </h3>
+            
+      <h3 class="ms-layer text54"
+        	style="top: 413px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo <br />
+        Praesent mattis commodo augue Aliquam ornare. </h3>
+ 
+            
+            <a class="ms-layer sbut5 white2"
+			style="left: 710px; top: 495px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Purchase now ! </a>
+        			       
+    </div><!-- end slide -->
+    
+     <!-- slide 2 -->
+    <div class="ms-slide slide-2" data-delay="9">
+      
+      <img src="js/masterslider/blank.gif" data-src="images/slider/slide15.jpg" alt=""/>
+      
+      <h3 class="ms-layer text52 text-center"
+			style="top: 310px;"
+			data-type="text"
+			data-delay="500"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)"> We Help You to</h3>
+            
+      <h3 class="ms-layer text52 text-center"
+			style="top: 360px;"
+			data-type="text"
+			data-delay="1000"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)"> Grow Your <span class="text-orange-2">Business</span> </h3>
+            
+      <h3 class="ms-layer text6 text-center"
+        	style="top: 420px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo <br />
+        Praesent mattis commodo augue Aliquam ornare. </h3>
+        
+      <a class="ms-layer sbut5 orange2"
+			style="left: 820px; top:520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Get started </a>
+            
+            <a class="ms-layer sbut5 white2"
+			style="left: 640px; top: 520px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Read more </a>
+             
+            
+            </div>
+    <!-- end slide 2 -->
+    
+    
+     
+    
+  </div>
+  <!-- end of masterslider -->
+  <div class="clearfix"></div>
+
+<div id="section-2"></div>
+ <section class="section_category32">
+<div class="container">
+<div class="row">
+ <div class="col-lg-12  center">
+ <div class="sec_title3"><h1>About Us</h1></div>
+ <p class="mt-20">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et. Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et.</p>
+ </div></div>
+
+ 
+ <div class="clearfix margin-top3"></div> 
+
+<div class="row">
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><img class="img-responsive padding-bottom-2" src="images/img24.jpg"></div>
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+
+<h3 class="">Who We Are?</h3>
+<p class="">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+<div class="margin-top2"></div>
+<ul>
+<li><i class="fa fa-check-square-o"></i>Sed massa tellus aliquam rhoncus venenatis quis.</li>
+<li><i class="fa fa-check-square-o"></i>Development dolor sit amet consectetur adipiscing elit Phasellus</li>
+<li><i class="fa fa-check-square-o"></i>Etiam dictum Nunc enim Sed massa tellus aliquam rhoncus venenatis.</li>
+<li><i class="fa fa-check-square-o"></i>Magna eget scelerisque metus massa in neque sit consectetur </li>
+</ul>
+<div class="margin-top3"></div>
+
+<div class="row ">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6" >
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-headphones"></i>
+</div>
+<p>Customer Support</p>
+</div></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-paint-brush"></i>
+</div>
+<p>Unlimited Colors</p>
+</div></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-plug"></i>
+</div>
+<p>Powerful Templates</p>
+</div></div>
+
+</div>
+<div class="clearfix"></div>
+<div class="margin-top3"></div>
+<p><a href="#" class="btn btn-border orange-5 uppercase" ><span>Read More</span></a> 
+<a href="#" class="btn btn-border dark  uppercase margin-left-2" data-anim-type="fade-in-right" data-anim-delay="100"><span>Buy Now</span></a></p>
+<div class="margin-top3"></div>
+</div>
+
+</div>
+
+ </div>
+</section>
+ 
+ <!--end section-->
+  <div class="clearfix"></div>
+
+<div id="section-3"></div>
+<section class="parallax-section31">
+<div class="container">
+<div class="row center">
+<div class="sec_title3"><h1>Meet Our Team</h1></div>
+<p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. <br>
+Praesent mattis commodo augue. Aliquam ornare hendrerit augue. </p>
+</div>
+<div class="clearfix margin-top5"></div>
+
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="img-container2"><div class="leoteam-item-image-container"><div class="leoteam-item-overlay ">
+<div class="leo-leoteam-caption"><div class="leo-leoteam-caption-wrapper">
+<p class="leo-leoteam-caption-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></div></div>
+<div class="inner" onclick="#">
+<ul>
+<li><a target="_blank" class="leo-thumb-icon leo-icon1 leo-size1 leo-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon2 leo-size2 leo-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon3 leo-size3 leo-icon-google" href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon4 leo-size4 leo-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+<li><a class="leo-thumb-icon leo-icon5 leo-size5 leo-icon-mail" href="#"><i class="fa fa-envelope-o"></i></a></li>
+</ul></div></div><img src="images/team-img11.jpg" class="img-circle" alt="LeoHunt"></div></div>
+<div class="leo-leoteam-caption-wrapper2"><h3 class="leo-leoteam-caption-title2"><a href="#">Louis Wells</a></h3>
+<p class="leo-leoteam-caption-description2">CEO of LeoHunt</p></div></div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="img-container2"><div class="leoteam-item-image-container"><div class="leoteam-item-overlay ">
+<div class="leo-leoteam-caption"><div class="leo-leoteam-caption-wrapper">
+<p class="leo-leoteam-caption-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></div></div>
+<div class="inner" onclick="#">
+<ul>
+<li><a target="_blank" class="leo-thumb-icon leo-icon1 leo-size1 leo-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon2 leo-size2 leo-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon3 leo-size3 leo-icon-google" href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon4 leo-size4 leo-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+<li><a class="leo-thumb-icon leo-icon5 leo-size5 leo-icon-mail" href="#"><i class="fa fa-envelope-o"></i></a></li>
+</ul></div></div><img src="images/team-img12.jpg" class="img-circle" alt="LeoHunt"></div></div>
+<div class="leo-leoteam-caption-wrapper2"><h3 class="leo-leoteam-caption-title2"><a href="#">Mellisa Jean</a></h3>
+<p class="leo-leoteam-caption-description2">Co-Founder</p></div></div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="img-container2"><div class="leoteam-item-image-container"><div class="leoteam-item-overlay ">
+<div class="leo-leoteam-caption"><div class="leo-leoteam-caption-wrapper">
+<p class="leo-leoteam-caption-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></div></div>
+<div class="inner" onclick="#">
+<ul>
+<li><a target="_blank" class="leo-thumb-icon leo-icon1 leo-size1 leo-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon2 leo-size2 leo-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon3 leo-size3 leo-icon-google" href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon4 leo-size4 leo-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+<li><a class="leo-thumb-icon leo-icon5 leo-size5 leo-icon-mail" href="#"><i class="fa fa-envelope-o"></i></a></li>
+</ul></div></div><img src="images/team-img13.jpg" class="img-circle" alt="LeoHunt"></div></div>
+<div class="leo-leoteam-caption-wrapper2"><h3 class="leo-leoteam-caption-title2"><a href="#">Tayla Parker</a></h3>
+<p class="leo-leoteam-caption-description2">Administrator</p></div></div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<div class="img-container2"><div class="leoteam-item-image-container"><div class="leoteam-item-overlay ">
+<div class="leo-leoteam-caption"><div class="leo-leoteam-caption-wrapper">
+<p class="leo-leoteam-caption-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p></div></div>
+<div class="inner" onclick="#">
+<ul>
+<li><a target="_blank" class="leo-thumb-icon leo-icon1 leo-size1 leo-icon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon2 leo-size2 leo-icon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon3 leo-size3 leo-icon-google" href="#"><i class="fa fa-google-plus"></i></a></li>
+<li><a target="_blank" class="leo-thumb-icon leo-icon4 leo-size4 leo-icon-youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+<li><a class="leo-thumb-icon leo-icon5 leo-size5 leo-icon-mail" href="#"><i class="fa fa-envelope-o"></i></a></li>
+</ul></div></div><img src="images/team-img14.jpg" class="img-circle" alt="LeoHunt"></div></div>
+<div class="leo-leoteam-caption-wrapper2"><h3 class="leo-leoteam-caption-title2"><a href="#">Julia Smith</a></h3>
+<p class="leo-leoteam-caption-description2">Lead Developer</p></div></div>
+
+
+</div>
+</div></section>
+
+<div class="clearfix"></div>
+
+<div id="section-4" class="margin-top8"></div>
+<section class="section_category33">
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 nopadding ">
+<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 nopadding "></div>
+<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 nopadding ">
+<div class="feature-box">
+<div class="sec_title3"><h1>Awesome Features</h1></div>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci.</p>
+<ul>
+<li><i class="fa fa-check"></i>Sed massa tellus aliquam rhoncus venenatis quis enim.</li>
+<li><i class="fa fa-check"></i>Development dolor sit amet consectetur adipiscing elit Phasellus</li>
+<li><i class="fa fa-check"></i>Etiam dictum Nunc enim Sed massa tellus aliquam rhoncus.</li>
+<li><i class="fa fa-check"></i>Magna eget scelerisque metus dictum Nunc enim Sed.</li>
+</ul>
+<p class="text-right"><a href="#" class="btn uppercase"><span>Read More</span></a></p>
+</div>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 nopadding">
+<img class="img-responsive" src="images/img6.jpg">
+</div>
+ <!-- end section -->
+<div class="clearfix"></div>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-1 col-md-1"></div>
+<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding">
+<img class="img-responsive" src="images/img7.jpg">
+</div>
+
+<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 nopadding">
+<div class="feature-box">
+<div class="sec_title3"><h1>Our Services</h1></div>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus.</p>
+<div class="row ">
+<div class="col-md-4 col-sm-4 col-xs-4" data-anim-type="zoom-in" data-anim-delay="100">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-headphones"></i>
+</div>
+<p>Analysis</p>
+</div></div>
+
+<div class="col-md-4 col-sm-4 col-xs-4" data-anim-type="zoom-in" data-anim-delay="200">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-paint-brush"></i>
+</div>
+<p>Quality</p>
+</div></div>
+
+<div class="col-md-4 col-sm-4 col-xs-4" data-anim-type="zoom-in" data-anim-delay="300">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-plug"></i>
+</div>
+<p>SEO Friendly</p>
+</div></div>
+
+</div>
+</div>
+</div>
+<div class="col-lg-1 col-md-1"></div>
+
+</div></div>
+
+</section>
+<!--end section-->
+
+<div class="clearfix"></div>
+<div id="section-5"></div>
+<section class="section_category16 center">
+<div class="portfolio">
+<div class="sec_title3 white"><h1 class="text-white">Our Portfolio</h1></div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis ut ligula quis ultricies. Integer fusce fringilla venenatis vulputate. </p>
+</div>
+<div class="clearfix"></div>
+
+      <div class="container">
+        <div class="row">
+
+          
+          <div class="demo-full-width">
+            <div id="grid-container" class="cbp">
+            
+           <div class="cbp-item identity logos"> <a href="images/media/024.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/024.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Suspendisse Imperdiet<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+      <div class="cbp-item web-design"> <a href="images/media/025.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/025.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Magna Tempus Urna<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+      <div class="cbp-item motion identity"> <a href="images/media/026.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/026.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Maecenas Sed<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+      <div class="cbp-item identity graphic"> <a href="images/media/027.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/027.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Hendrerit Condimentum<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+      <div class="cbp-item motion logos"> <a href="images/media/028.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/028.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Donec Dapibus Placerat<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+      <div class="cbp-item web-design"> <a href="images/media/029.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/029.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Quisque Ornare<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+     
+      <div class="cbp-item web-design"> <a href="images/media/023.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/023.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Donec Dapibus Placerat<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+                
+      <div class="cbp-item identity graphic"> <a href="images/media/020.jpg" class="cbp-caption cbp-lightbox" data-title="Quisque Ornare <br>by Rapid Themes">
+      <div class="cbp-caption-defaultWrap"> <img src="images/media/020.jpg" alt=""> </div>
+      <div class="cbp-caption-activeWrap">
+      <div class="cbp-l-caption-alignLeft">
+      <div class="cbp-l-caption-body">
+      <a href="portfolio-1.html" rel="nofollow">Hendrerit Condimentum<br>by LeoHunt</a>
+      </div>
+      </div>
+      </div>
+      </a> </div><!-- end item -->
+      
+                </div>
+            </div>
+          </div>
+        </div>
+
+</section>
+
+ <!-- end section -->
+<div class="clearfix"></div>
+
+<section class="parallax-section12">
+<div class="parallax-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12 col-md-offset-1">
+        <div class="margin-top8"></div>
+          <h1 class="uppercase text-center raleway text-white">news letter form</h1>
+          <p class="text-white" data-anim-type="fade-in-left" data-anim-delay="100">Use this section to display subscription form of any newsletter service</p>
+<div class="clearfix margin-top3"></div>
+<div class="newsletter2">
+<form>
+<input name="" placeholder="Enter Your Email Address" class="email_input" type="text">
+<input name="" value="Subscribe" class="email_submit" type="button">
+</form>
+ <div class="margin-top6"></div>
+</div> </div> </div>
+</div></div>
+</section>
+
+
+<!--end section-->
+<div class="clearfix"></div>
+
+<div id="section-6"></div>
+<section class="section_category34">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+<div class="sec_title3"><h1>From the Blog</h1></div>
+<div class="margin-top2"></div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="blog-post2">
+<div class="post-img"><a href="#"><img src="images/blog-img15.jpg" alt=" "></a></div>
+<div class="post-text"><div class="date"><span class="post-date">26</span><span class="month">Oct<br>2017</span></div>
+<h4><a href="#">Aliquam ornare hendrerit</a></h4>
+<p>Lorem ipsum dolor sit amet, consectetuer adipi elit. Suspendisse et justo. Praesent mattis commodo. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est sit amet, consectetuer. </p>
+<a href="#" class="read-more">View More</a>
+</div></div>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="blog-post2">
+<div class="post-img"><a href="#"><img src="images/blog-img16.jpg" alt=" "></a></div>
+<div class="post-text">
+<div class="date">
+<span class="post-date">26</span>
+<span class="month">Oct<br>2017</span>
+</div>
+<h4><a href="#">Nullam turpis Cras </a></h4>
+<p>Lorem ipsum dolor sit amet, consectetuer adipi elit. Suspendisse et justo. Praesent mattis commodo. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est sit amet, consectetuer. </p>
+<a href="#" class="read-more">View More</a>
+</div></div>
+
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<div class="sec_title3"><h1>What We Offer</h1></div>
+<div class="margin-top2"></div>
+<div class="accordion_holder" data-anim-type="fade-in-up" data-anim-delay="100">
+          <div class="accordion_example1 smk_accordion acc_with_icon"> 
+            
+            <!-- Section 1 -->
+            <div class="accordion_in three acc_active">
+              <div class="acc_head"><div class="acc_icon_expand"></div>Creative Design</div>
+              <div class="acc_content"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci. </div>
+            </div>
+            
+            <!-- Section 2 -->
+            <div class="accordion_in three ">
+              <div class="acc_head"><div class="acc_icon_expand"></div>Graphic Design</div>
+              <div class="acc_content" style="display: none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci.</div>
+            </div>
+            
+            <!-- Section 3 -->
+            <div class="accordion_in three ">
+              <div class="acc_head"><div class="acc_icon_expand"></div>User Analysis</div>
+              <div class="acc_content" style="display: none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci.</div>
+            </div>
+            
+             <!-- Section 4 -->
+            <div class="accordion_in three ">
+              <div class="acc_head"><div class="acc_icon_expand"></div>Web Development</div>
+              <div class="acc_content" style="display: none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci.</div>
+            </div>
+            
+             <!-- Section 5 -->
+            <div class="accordion_in three ">
+              <div class="acc_head"><div class="acc_icon_expand"></div>Our Skills</div>
+              <div class="acc_content" style="display: none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Curabitur eget orci.</div>
+            </div>
+            
+             
+          </div>
+        </div>
+</div>
+
+</div></div>
+</section>
+ <!-- end section -->
+ 
+ <div class="clearfix"></div>
+
+<div id="section-7"></div>
+ <section class="section_category parallax-section27">
+<div class="parallax-overlay">
+<div class="container">
+
+<div class="testimonials2 slide-controls-color-4 pink">
+<h2 class="text-center uppercase text-white">What Our Client Say</h2>
+<div class="margin-top2"></div>
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-10 text-center">
+<div id="owl-demo2" class="owl-carousel ">
+<div class="item">
+<div class="testimonials4 ">
+<div class="image-left">
+<div class="client-img">
+<div class="img-inner overflow-hidden"><img src="images/testi-img12.jpg" alt=""/></div>
+</div>
+</div>
+<div class="description">
+<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus 
+In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit 
+Suspendisse et justo Praesent mattis commodo.</p>
+</div>
+<div class="clearfix"></div>
+<h5>Sam Rivers<br><span>CEO</span></h5>
+</div>
+</div>
+<!--end item-->
+
+<div class="item">
+<div class="testimonials4">
+<div class="image-left">
+<div class="client-img">
+<div class="img-inner overflow-hidden"><img src="images/team-img11.jpg" alt=""/></div>
+</div>
+</div>
+<div class="description">
+<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus 
+In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit 
+Suspendisse et justo Praesent mattis commodo.</p></div>                  
+<div class="clearfix"></div>
+<h5>Michel John <br><span>Manager</span></h5>
+</div>
+</div>
+<!--end item-->
+
+<div class="item">
+<div class="testimonials4">
+<div class="image-left">
+<div class="client-img">
+<div class="img-inner overflow-hidden"><img src="images/team-img1.jpg" alt=""/></div>
+</div>
+</div>
+<div class="description">
+<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus 
+In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit 
+Suspendisse et justo Praesent mattis commodo.</p></div>
+<div class="clearfix"></div>                  
+<h5>John William<br><span>Director</span></h5>
+</div>
+</div>
+<!--end item--> 
+
+<div class="item">
+<div class="testimonials4">
+<div class="image-left">
+<div class="client-img">
+<div class="img-inner overflow-hidden"><img src="images/team-img14.jpg" alt=""/></div>
+</div>
+</div>
+<div class="description">
+<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus 
+In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit 
+Suspendisse et justo Praesent mattis commodo.</p></div>
+<div class="clearfix"></div>                
+<h5>Brick Wall<br><span>Senior Manager</span></h5>
+</div>
+</div>
+<!--end item-->
+
+</div>
+  
+  </div>
+  </div>
+
+</div>
+
+</div>
+</div>
+</section>
+<!--end section-->
+
+<div class="clearfix"></div>
+
+<section class="margin-top3 padding-bottom-3">
+<div class="container">
+<div class="clientlogo-list white" >
+
+	<div class="row">
+		<div class="col-md-12">
+    	    <div class="well"> 
+                <div id="myCarousel" class="carousel slide">              
+                 
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                	<div class="row-fluid">
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/019.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/020.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/021.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/022.png" alt="Image" style="max-width:100%;" /></a></div>
+                      <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/023.png" alt="Image" style="max-width:100%;" /></a></div>
+                      <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/024.png" alt="Image" style="max-width:100%;" /></a></div>
+                	</div><!--/row-fluid-->
+                </div><!--/item-->
+                 
+                <div class="item">
+                	<div class="row-fluid">
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/019.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/020.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/021.png" alt="Image" style="max-width:100%;" /></a></div>
+                	  <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/022.png" alt="Image" style="max-width:100%;" /></a></div>
+                      <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/023.png" alt="Image" style="max-width:100%;" /></a></div>
+                      <div class="span2"><a href="#" class="thumbnail"><img src="images/clients/024.png" alt="Image" style="max-width:100%;" /></a></div>
+                	</div><!--/row-fluid-->
+                </div><!--/item-->
+                 
+             
+                 
+                </div><!--/carousel-inner-->
+                 
+                <a class="left carousel-control pink" href="#myCarousel" data-slide="prev"><i class="fa fa-caret-left"></i></a>
+                <a class="right carousel-control pink" href="#myCarousel" data-slide="next"><i class="fa fa-caret-right"></i></a>
+                </div><!--/myCarousel-->
+                 
+            </div><!--/well-->   
+		</div>
+
+</div>
+
+</div></div>
+</section>
+<!--end section-->
+<div class="clearfix"></div>
+  
+<div id="section-8"></div>
+<section class="section-dark three light sec-padding">
+<div class="container">
+<div class="sec_title3"><h1>Contact Info</h1></div>
+<p class="text-center">Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse <br>
+et justo Praesent mattis commodo augue.</p>
+
+<div class="clearfix margin-top3"></div>
+
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 colmargin " >
+<div class="iconbox-medium round left"><i class="fa fa-map-marker"></i></div>
+<h1 class="text-white">Address</h1>
+<p>1111 Quiet Farm, Royal Bend, 
+Ryoming, 99999-9999 UK.</p>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 colmargin " >
+<div class="iconbox-medium round left"><i class="fa fa-phone"></i></div>
+<h1 class="text-white">Phone</h1>
+<p>+ 1 (234) 999 9999,<br>
++ 1 (234) 999 9999 </p>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 colmargin " >
+<div class="iconbox-medium round left"><i class="fa fa-envelope"></i></div>
+<h1 class="text-white">e-Mail</h1>
+<p><a href="mailto:info@yourdomain.com">info@yourdomain.com</a><br>
+<a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+</div>
+        
+</div>
+</div>
+</section>
+ <!-- end section -->
+ 
+ <section class="parallax-section29">
+    <div class="section-overlay bg-opacity-8">
+      <div class="container sec-tpadding-2 sec-bpadding-2">
+        <div class="row">
+         <form method="post" action="http://codelayers.net/leohunt/corporate/boxed/php/smartprocess.php" id="smart-form" novalidate>
+           <div class="smart-forms transparent-1 bmargin">
+          <div class="col-md-6 col-sm-6">
+          
+             
+                <div>
+                  <div class="section">
+                    <label class="field prepend-icon">
+                      <input name="sendername" id="sendername" class="gui-input" placeholder="Enter name" type="text">
+                      <span class="field-icon"><i class="fa fa-user"></i></span> </label>
+                  </div>
+                  <!-- end section -->
+                  
+                  <div class="section">
+                    <label class="field prepend-icon">
+                      <input name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address" type="email">
+                      <span class="field-icon"><i class="fa fa-envelope"></i></span> </label>
+                  </div>
+                  <!-- end section -->
+                  
+                  <div class="section">
+                    <label class="field prepend-icon">
+                      <input name="sendersubject" id="sendersubject" class="gui-input" placeholder="Enter subject" type="text">
+                      <span class="field-icon"><i class="fa fa-lightbulb-o"></i></span> </label>
+                  </div>
+                  <!-- end section -->
+                  
+                  
+                  
+                </div>
+              
+           
+          </div>
+          <!--end item-->
+          
+          <div class="col-md-6 col-sm-6 text-left">
+          <div class="section">
+                    <label class="field prepend-icon">
+                      <textarea class="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
+                      <span class="field-icon"><i class="fa fa-comments"></i></span> <span class="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span> </label>
+                  </div>
+                  <!-- end section -->
+                  
+                  <div class="result"></div>
+                  <!-- end .result  section --> 
+          
+          </div>
+          <!--end item--> 
+          
+          <div class="clearfix"></div>
+          
+            <!-- end .form-body section -->
+            <div class="col-md-12">
+                <div class="form-footer">
+                  <button type="submit" data-btntext-sending="Sending..." class="btn btn-border orange-5 uppercase button btn-primary pull-left">Submit</button>
+                  <button type="reset" class="button btn-white pull-left"> Cancel </button>
+                </div>
+                </div>
+                <!-- end .form-footer section -->
+            
+          
+           </div>
+            <!-- end .smart-forms section --> 
+            </form>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="clearfix"></div>
+
+<section class="section-copyrights fulldark4">
+    <div class="container">
+      <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><span class="margin-top1">Copyright © 2017 | <span class="text-white">yourdomain.com</span>. All rights reserved.</span></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <ul class="social-icons-3 dark pull-right">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+           </ul>
+          <div class="clearfix"></div>
+         </div>
+      </div>
+    </div>
+  </section>
+ <!-- end section -->
+
+<a href="#" class="scrollup orange2"><i class="fa fa-angle-up"></i></a>
+</div>
+</div>
+
+<!-- ========== Style swicher ========== -->
+
+<div id="style-selector" class="text-center"> <a href="javascript:void(0);" class="btn-close"><i class="fa fa-wrench"></i></a>
+  <h5 class="title-big">Choose Theme Options</h5>
+  <div class="style-selector-wrapper">
+    <h5 class="title">Choose Layout</h5>
+    <div class="clearfix"></div>
+   <a class="btn-gray active" href="http://codelayers.net/leohunt/corporate/fullwidth/onepage-corporate.html">Wide</a> 
+   <a class="btn-gray" href="onepage-corporate.html">Boxed</a>
+    
+    <div class="clearfix"></div>
+    <br/>
+    <h5 class="title align-left">Predefined Color Skins</h5>
+    <ul class="pre-colors-list">
+      <li><a title="default" href="css/colors/default.css"><span class="pre-color-skin-1"></span></a></li>
+      <li><a title="light blue" href="css/colors/lightblue.css"><span class="pre-color-skin-2"></span></a></li>
+      <li><a title="orange" href="css/colors/orange.css"><span class="pre-color-skin-4"></span></a></li>
+      <li><a title="green" href="css/colors/green.css"><span class="pre-color-skin-3"></span></a></li>
+      <li><a title="pink" href="css/colors/pink.css"><span class="pre-color-skin-5"></span></a></li>
+      <li class="last"><a title="red" href="css/colors/red.css"><span class="pre-color-skin-6"></span></a></li>
+      <li><a title="purple" href="css/colors/purple.css"><span class="pre-color-skin-7"></span></a></li>
+      <li><a title="bridge" href="css/colors/bridge.css"><span class="pre-color-skin-8"></span></a></li>
+      <li><a title="yellow" href="css/colors/yellow.css"><span class="pre-color-skin-9"></span></a></li>
+      <li><a title="violet" href="css/colors/violet.css"><span class="pre-color-skin-10"></span></a></li>
+      <li><a title="blue" href="css/colors/blue.css"><span class="pre-color-skin-11"></span></a></li>
+      <li class="last"><a title="moss green" href="css/colors/mossgreen.css"><span class="pre-color-skin-12"></span></a></li>
+    </ul>
+    <h5 class="title align-left">BG Patterns for Boxed</h5>
+    <ul class="bg-pattrens-list">
+      <li><a href="css/bg-patterns/pattern-1.css"><span class="bg-pattren-1"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-2.css"><span class="bg-pattren-2"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-3.css"><span class="bg-pattren-3"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-4.css"><span class="bg-pattren-4"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-5.css"><span class="bg-pattren-5"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-6.css"><span class="bg-pattren-6"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-7.css"><span class="bg-pattren-7"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-8.css"><span class="bg-pattren-8"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-9.css"><span class="bg-pattren-9"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-10.css"><span class="bg-pattren-10"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-11.css"><span class="bg-pattren-11"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-12.css"><span class="bg-pattren-12"></span></a></li>
+    </ul>
+  </div>
+</div>
+<!-- ========== end style swicher ========== --> 
+
+<!-- ========== Js Files ========== --> 
+
+<script type="text/javascript" src="js/universal/jquery.js"></script> 
+<script src="js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+<script src="js/mainmenu/customeUI.js"></script>
+<script src="js/mainmenu/jquery.sticky2.js"></script> 
+<script src="js/masterslider/jquery.easing.min.js"></script> 
+<script src="js/masterslider/masterslider.min.js"></script> 
+<script>
+(function($) {
+  "use strict";	
+	    var slider = new MasterSlider();
+		slider.control('arrows' ,{insertTo:'#masterslider'});	
+		slider.control('bullets');	
+		slider.setup('masterslider5' , {
+			width:1600,
+			height:1000,
+			space:2,
+			view:'basic',
+			layout:'fillscreen',
+			fullscreenMargin:0,
+			speed:20
+		});
+		$('#myTab a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		});
+})(jQuery);
+</script>
+<script>
+$(function(){
+   // Add click-event listener
+   $("#header10 .navbar-nav li a").on("click",function(){
+      // Remove the current class from all a tags
+      $("#header10 .navbar-nav li a").removeClass("current");
+      // Add the current class to the clicked a
+      $(this).addClass("current");
+   });
+   
+});
+</script>
+<script type="text/javascript" src="js/ytplayer/jquery.mb.YTPlayer.js"></script> 
+<script type="text/javascript" src="js/ytplayer/elementvideo-custom.js"></script> 
+<script type="text/javascript" src="js/ytplayer/play-pause-btn.js"></script>
+<script type="text/javascript" src="js/cubeportfolio/jquery.cubeportfolio.min.js"></script> 
+<script type="text/javascript" src="js/cubeportfolio/main-four-col.js"></script>  
+<script src="js/animations/js/animations.min.js" type="text/javascript"></script> 
+<script src="js/animations/js/appear.min.js" type="text/javascript"></script> 
+<script src="js/scrolltotop/totop.js"></script>
+<script type="text/javascript" src="js/smart-forms/jquery.form.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/jquery.validate.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/additional-methods.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/smart-form.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script> 
+<script src="js/owl-carousel/custom.js"></script> 
+<script src="js/tabs/assets/js/responsive-tabs.min.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/tabs/smk-accordion.js"></script>
+<script type="text/javascript" src="js/tabs/custom.js"></script>
+<script src="js/pagescroll/animatescroll.js"></script>
+<script src="js/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script src="js/style-swicher/style-swicher.js"></script> 
+<script src="js/style-swicher/custom.js"></script> 
+<script src="js/scripts/functions.js" type="text/javascript"></script>
+
+</body>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/onepage-corporate.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:24:17 GMT -->
+</html>

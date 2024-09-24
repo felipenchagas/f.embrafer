@@ -1,0 +1,36 @@
+
+As tabelas devem ser criadas com script tables.sql localizado na pasta src
+após criar o banco, configure os dados de acesso no arquivo database/connect.php
+exemplo nome do banco de dados, senha, usuário etc...   
+
+painel administrativo 
+localizado na url /admin
+login: admin
+senha: admin
+
+
+
+Lista de exemplos de Efeitos do Álbuns
+http://tympanus.net/Development/StackEffects/
+
+Para testar os efeitos disponíveis no sistema, acesse o arquivo demo.php  ex: http://localhost/dream2/demo.php
+
+
+LEIA ESSE TRECHO COM ATENÇÃO 
+
+PARA RODAR O SCRIPT LOCALMENTE (EM SEU PC), VOCÊ PRECISA HABILITAR NO SERVIDOR OS ITENS ABAIXO:
+- short_open_tag
+
+
+No arquivo php.ini do seu ambiente, altere o valor da propriedade “short_open_tag” para “On”.
+Conforme exemplo abaixo:
+short_open_tag=On
+
+ATENÇÃO
+ALGUMAS VERSÕES DO ARQUIVO PHP.INI PODEM POSSUIR MAIS DE UM LOCAL COM ESSA INFORMAÇÃO
+UTILIZE O LOCALIZAR DO EDITOR DE TEXTO PARA TER CERTEZA DE QUE ESSA FUNÇÃO ESTEJA HABILITADA.
+
+
+
+
+

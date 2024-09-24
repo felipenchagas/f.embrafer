@@ -1,0 +1,35 @@
+/*Background Color Start*/
+.head-topbar, strong.logo, .widget-box-inner:hover .round a.inner, .blog-post-box .caption strong.type, .timeline-frame-outer .caption, .text-d, .btn, .our-facts, #inner-banner, .optionsDivVisible a:hover, .timeline-project-box .holder .heading-area, .event-heading, .navigation-area a.btn-donate3, a.btn-donate5, .upcoming-events-box, .news-box .frame .caption:before, .gallery-box:before, .gallery-frame .caption:before, .other-project .caption:before, .event-row .frame .caption:before, .event-row ul li:hover a.location, .related-box .frame .caption:before, .team-box .frame .caption:before, .accordition-box .accordion-heading .accordion-toggle:hover, .donate-form ul li:hover a:before, .upcoming-box .caption strong.mnt:before, .color-2:after, .color-3:after, .color-4:after, .color-5:after, .color-1, .sidebar-member a.member-icon:before, .accordition-box .accordion-heading .accordion-toggle:hover span, .cp-accordion .accordion-heading:hover, .grid .caption:before, .accordion-heading.active .accordion-toggle, .accordion-heading.active .accordion-toggle span, #banner .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active{
+	background-color:#ba131a;
+}
+/*Background Color End*/
+
+/*Border Color Start*/
+strong.logo:before, #nav li.active a:before, #nav li:hover > a:before, .widget-box-inner:hover .round a.inner:before, .timeline-project-box .holder .heading-area:before, .event-heading:before, #nav li:hover > a, .color-1:before, #nav li.active > a, .color-2:before, .color-3:before, .color-4:before, .color-5:before {
+	border-top-color:#ba131a;
+}
+/*Border Color End*/
+
+/*Text Color Start*/
+.upcoming-events-box .bx-wrapper .bx-prev:before, .upcoming-events-box .bx-wrapper .bx-next:before, .text-b, .event-row ul li:hover h2, #banner .caption h1, #banner .caption h2 {
+	color:#ba131a;
+}
+/*Text Color End*/
+
+/*Border Color Start*/
+.our-project h3, .latest-news-box h3, .blog-post h3, .timeline-box h3, .welcome-text-box h2, .about-me-text h3, .about-me-text blockquote, .about-me-text blockquote:before, .team-member-box h3, .our-detail-box h4, .blog-content .pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .blog-content .pagination ul > .active > a, .pagination ul > .active > span, .sidebar-recent-post h3, .blog-box-1 .text blockquote, .blog-box-1 .text blockquote:before, .blog-detail-form h3, .donate-page h2, .pagination-all.pagination ul > .active > a, .pagination ul > .active > span, .pagination-all.pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .comment-box h3, .related-event-box h3, .other-project h3, .sidebar-member a.member-text:before, .event-row ul li:hover a.location, .get-touch-form input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:focus, .cp-columns h2, .customization-options h2, .cp-highlighter h2, .cp-testimonials h2, .blockquote-1, .blockquote-1:before, .syntaxhighlighter .gutter .line {
+ border-color:#ba131a;
+}
+/*Border Color End*/
+
+/*Button Color Start*/
+.our-project a.btn-view, .box-1 a.btn-readmore, .get-touch-form .btn-search, .blog-content .pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .blog-content .pagination ul > .active > a, .pagination ul > .active > span, .sidebar-member a.member-text, .detail-btn-sumbit, .donate-btn-submit, .detail-btn-sumbit2, .pagination-all.pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .pagination-all.pagination ul > .active > a, .pagination ul > .active > span, .timline-project .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .member-btn-submit, .facts-tab-box .nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus, .facts-tab-box .nav > li > a:hover, .nav > li > a:focus, .timline-project .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .donate-form ul li a:hover, .donate-form ul li:hover .inner, .head-topbar a.search:before, .btn, .navbar .btn-navbar, .tabs-box .nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus, .tabs-box .nav-tabs > li > a:hover, .nav-tabs > li > a:focus, .testimonial-box-1 .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .timline-project .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active, .cp-accordion .accordion-heading:hover span.open, .button-box a, #banner .caption a.view, #banner .bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active {
+	background-color:#ba131a;
+}
+/*Button Color End*/
+
+/*Box Shadow Color Start*/
+.pagination-all.pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .pagination-all.pagination ul > .active > a, .pagination ul > .active > span {
+	box-shadow:#950609 !important;
+
+/*Box Shadow Color End*/

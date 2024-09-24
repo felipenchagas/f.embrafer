@@ -1,0 +1,47 @@
+
+<?php header('Content-Type: text/html; charset=UTF-8; '); ?>
+<center>
+
+<h2> Teste de envio de emails</h2>
+<br />
+<table>
+  <tr>
+    <td>
+
+      <b>Envio para email fixo</b>:
+      <form id="form1" name="form1" method="post" action="enviaemail.php">
+      Seu nome:
+      <label>
+      <select id="nome" name="nome">
+        <option>Selecione o nome</option>
+        <option>Rafael</option>
+        <option>Jimy</option>
+        <option>Barrabas</option>
+        <option>Buls Men</option>
+        <option>Madimbu</option>
+        <option>Kiara</option>
+        <option>Jade</option>
+      </select>
+      </label> <br />
+      Seu e-mail:
+      <label>
+      <select id="email" name="email">
+        <option>Selecione o email</option>
+        <option>rafael_cbueno@yahoo.com.br</option>
+        <!--<option>rcampagnoli@tray.com.br</option>
+        <option>pro_websis@hotmail.com</option>-->
+      </select>
+      </label> <br />
+      Assunto da mensagem:  <label> <input type="text" name="assunto"  value="Em casa Tranquilos.!!!"/> </label> <br />
+      Mensagem:  <label> <textarea name="msg" cols="30" rows="5">
+      teste teste testes teste teste teste testes teste
+      teste teste teste teste teste tes testes tes
+      </textarea> </label> <br /> <br />
+      <label> <input type="submit" name="Submit" value="Enviar" /> </label>
+      </form>
+
+    </td>    
+  </tr>
+</table>
+
+</center>

@@ -1,0 +1,941 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/# by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:13:47 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embrafer Fornecedor de Aço</title>
+
+<!-- Meta -->
+<meta name="keywords" content="" />
+<meta name="author" content="">
+<meta name="robots" content="" />
+<meta name="description" content="" />
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Web Fonts  -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,600|Lato:400,300,700,900' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- stylesheets -->
+<link rel="stylesheet" media="screen" href="js/bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="js/mainmenu/menu-2.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-default.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-style.css" type="text/css" />
+<link rel="stylesheet" href="css/shortcodes.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/masterslider/style/masterslider.css" />
+<link href="js/animations/css/animations.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+<link rel="stylesheet" href="js/tabs/assets/css/responsive-tabs.css" />
+
+<!--Gallery-->
+<link href='js/simplelightbox/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" media="screen" href="css/responsive-style.css" type="text/css" />
+
+<!--Style Swicher-->
+<link rel="stylesheet" href="js/style-swicher/style-swicher.css" type="text/css" />
+
+<!-- Remove the below comments to use your color option -->
+<!--<link rel="stylesheet" href="css/colors/lightblue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/orange.css" />-->
+<!--<link rel="stylesheet" href="css/colors/green.css" />-->
+<!--<link rel="stylesheet" href="css/colors/pink.css" />-->
+<!--<link rel="stylesheet" href="css/colors/red.css" />-->
+<!--<link rel="stylesheet" href="css/colors/purple.css" />-->
+<!--<link rel="stylesheet" href="css/colors/bridge.css" />-->
+<!--<link rel="stylesheet" href="css/colors/yellow.css" />-->
+<!--<link rel="stylesheet" href="css/colors/violet.css" />-->
+<!--<link rel="stylesheet" href="css/colors/blue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/mossgreen.css" />-->
+
+<link rel="stylesheet" href="../stylescontato.css"></head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="../processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<body style="background-color: #ffffff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333;">
+<div class="wrapper-boxed">
+<div class="site_wrapper font-style2">
+
+<div class="topbar light">
+    <div class="container">
+      <div class="topbar-left-items">
+        <ul class="toplist pull-left">
+          <li class="lineright"><i class="fa fa-phone"></i>   (41) 3082 - 8850</li>
+          <li class="lineright"><i class="fa fa-phone"></i>   (41) 3082 - 8846</li>
+          <li><a href="#"><i class="fa fa-user"></i> Contato</a></li>
+         
+        </ul>
+      </div>
+      <!--end left-->
+      
+      <div class="topbar-right-items pull-right">
+        <ul class="toplist social-icons-1">          
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li class="last"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="clearfix"></div>
+
+<div id="header2">
+    <div class="container">
+      <div class="navbar navbar-default yamm">
+      
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle two three"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt=""/></a> </div>
+          
+        <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
+          <ul class="nav navbar-nav">
+            <li> <a href="index.html" class="dropdown-toggle active">Início</a></li>
+            
+            <li class="dropdown yamm-fw"> <a href="#" class="dropdown-toggle">Empresa</a></li>
+            <li class="dropdown yamm-fw"> <a href="#" class="dropdown-toggle">Produtos</a>
+              <ul class="dropdown-menu">
+                <li> 
+                  <!-- Content container to add padding -->
+                  <div class="yamm-content">
+                    <div class="row">
+                      <ul class="col-sm-6 col-md-3 list-unstyled ">
+                        <li>
+                          <p> Tubos </p>
+                        </li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; Tubos Industriais Redondos</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; Tubos Industriais  Quadrados</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; Tubos Industriais  Retangulares</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; Tubos e Condução com costura</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; Tubos Mecânicos sem costura</a></li>          
+					  </ul>
+                   
+                      
+                       <ul class="col-sm-6 col-md-3 list-unstyled ">
+                      
+                      <li>
+                          <p> Barras </p>
+                        </li>
+                        <li><a href="#barra-chata" title="Barra Chata" id="menuBarra-Chata"><i class="fa fa-angle-right"></i>Barra Chata</a><ul></ul></li>
+                        <li><a href="#barra-quadrada" title="Barra Quadrada" id="menuBarra-Quadrada"><i class="fa fa-angle-right"></i>Barra Quadrada</a></li>
+                        <li><a href="#barra-quadrada-laminada" title="Barra Quadrada Laminada"><i class="fa fa-angle-right"></i>Barra Quadrada Laminada</a></li>
+                        <li><a href="#barra-quadrada-trefilada" title="Barra Quadrada Trefilada"><i class="fa fa-angle-right"></i>Barra Quadrada Trefilada</a></li>
+                        <li><a href="#barra-redonda" title="Barra Redonda" id="menuBarra-Redonda"><i class="fa fa-angle-right"></i>Barra Redonda</a></li>
+                        <li><a href="#barra-sextavada-trefilada" title="Barra Sextavada Trefilada" id="menuBarra-Sextavada-Trefilada"><i class="fa fa-angle-right"></i>Barra Sextavada Trefilada</a></li>
+                        <li><a href="#cantoneira-abas-iguais" title="Cantoneira Abas Iguais" id="menuCantoneira-Abas-Iguais"><i class="fa fa-angle-right"></i>Cantoneira Abas Iguais</a></li>
+                        </ul>
+                      
+                      <ul class="col-sm-6 col-md-4 list-unstyled ">
+                        <li>
+                          <p> Perfis </p>
+                        </li>
+                        <li><a href="#perfil-abas-inclinadas" title="Perfil Abas Inclinadas" id="menuPerfil-Abas-Inclinadas"><i class="fa fa-angle-right"></i>Perfil Abas Inclinadas</a></li>
+                        <li><a href="#perfil-i---abas-inclinadas" title="Perfil I - Abas Inclinadas"><i class="fa fa-angle-right"></i>Perfil I - Abas Inclinadas</a></li>
+                        <li><a href="#perfil-u---abas-inclinadas" title="Perfil U - Abas Inclinadas"><i class="fa fa-angle-right"></i>Perfil U - Abas Inclinadas</a></li>
+                        <li><a href="#perfil-i---abas-inclinadas" title="Perfil I - Abas Inclinadas"><i class="fa fa-angle-right"></i>Perfil W - Abas Inclinadas</a></li>
+                        <li><a href="#perfil-laminado-tee" title="Perfil Laminado Tee" id="menuPerfil-Laminado-Tee"><i class="fa fa-angle-right"></i>Perfil Laminado Tee</a></li>
+                        <li><a href="#perfil-u-estrutural" title="Perfil U Estrutural" id="menuPerfil-U-Estrutural"><i class="fa fa-angle-right"></i>Perfil U Estrutural</a></li>
+                        <li><a href="#perfil-u-estrutural---enrijecido" title="Perfil U Estrutural - Enrijecido"><i class="fa fa-angle-right"></i>Perfil U Estrutural - Enrijecido</a></li>
+                        <li><a href="#perfil-u-estrutural---simples" title="Perfil U Estrutural - Simples"><i class="fa fa-angle-right"></i>Perfil U Estrutural - Simples</a></li>
+                        <li><a href="#perfil-w-abas-paralelas" title="Perfil W Abas Paralelas" id="menuPerfil-W-Abas-Paralelas"><i class="fa fa-angle-right"></i>Perfil W Abas Paralelas</a>
+                        <li><a href="#perfil-w-abas-paralelas-ndash-perfil-w-h---hp" title="Perfil W Abas Paralelas – Perfil (W) H - HP"><i class="fa fa-angle-right"></i>Perfil W Abas Paralelas – Perfil (W) H - HP</a></li>
+                        <li><a href="#perfil-w-abas-paralelas-ndash-perfil-w-i" title="Perfil W Abas Paralelas – Perfil (W) I"><i class="fa fa-angle-right"></i>Perfil W Abas Paralelas – Perfil (W) I</a></li>                       
+                      </ul>
+                      <ul class="col-sm-6 col-md-2 list-unstyled ">
+                        <li>
+                          <p> Chapas </p>
+                        </li>
+                        <li><a href="#chapa-expandida" title="Chapa Expandida"><i class="fa fa-angle-right"></i>Chapa Expandida</a></li>
+                        <li><a href="#chapa-fina-a-frio" title="Chapa Fina a Frio"><i class="fa fa-angle-right"></i>Chapa Fina a Frio</a></li>
+                        <li><a href="#chapa-fina-a-quente" title="Chapa Fina a Quente"><i class="fa fa-angle-right"></i>Chapa Fina a Quente</a></li>
+                        <li><a href="#chapa-grossa" title="Chapa Grossa"><i class="fa fa-angle-right"></i>Chapa Grossa</a></li>
+                        <li><a href="#chapa-para-piso-xadrez" title="Chapa Para Piso (Xadrez)"><i class="fa fa-angle-right"></i>Chapa Para Piso (Xadrez)</a></li>
+                        <li><a href="#chapa-zincada-galvanizada" title="Chapa Zincada (Galvanizada)"><i class="fa fa-angle-right"></i>Chapa Zincada (Galvanizada)</a></li>
+                      </ul>
+                      
+                      
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li> <a href="#" class="dropdown-toggle">Portfolio</a></li>
+            <li> <a href="#" class="dropdown-toggle">News</a></li>
+
+            <li> <a href="#" class="dropdown-toggle align-1">Contato Tubos</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end menu-->
+ <div class="clearfix"></div>
+  
+  <div class="slider">
+  <!-- masterslider -->
+  <div class="master-slider ms-skin-default" id="masterslider"> 
+    
+    <!-- slide 1 -->
+    <div class="ms-slide slide-1 text-center" data-delay="9"> 
+    <img src="js/masterslider/blank.gif" data-src="images/slider/slide1.jpg" alt=""/>
+         
+      <h3 class="ms-layer text79"
+			style="left: 0px;top: 160px;"
+			data-type="text"
+			data-delay="500"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="left(250)"> Embrafer Fornecedor de Aço</h3>
+            
+      <h3 class="ms-layer text80"
+			style="left:0px;top: 230px;"
+			data-type="text"
+			data-delay="1000"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)">Fornecemos os mais variados tipos de ferragens</h3>
+            
+                 
+      <h3 class="ms-layer text78"
+        	style="left:0px; top: 300px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> A Solução para sua obra você encontra aqui em um só lugar, EMBRAFER. </h3>
+            
+             <a class="ms-layer sbut4"
+			style="left: 708px; top: 400px;"
+			data-type="text"
+			data-delay="2000"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="left(250)"> <span>Orçamento</span> </a> 
+            
+           
+            
+     
+    </div>
+    <!-- end slide 1 --> 
+    
+    <!-- slide 2 -->
+    <div class="ms-slide slide-3" data-delay="9">
+         
+        <!-- slide background -->
+        <img src="js/masterslider/blank.gif" data-src="images/slider/slide2.jpg" alt=""/>
+        
+		<h3 class="ms-layer text1"
+			style="right:230px;top:160px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="500"
+		 	data-duration="1400"
+		 	data-effect="skewleft(30,80)"> Empresa Fornecedora de Aço</h3>
+            
+      <h3 class="ms-layer text2"
+			style="right:230px;top:215px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="1000"
+		 	data-duration="1400"
+		 	data-effect="skewright(30,80)"> Fornecemos Perfil U - W - I </h3>
+            
+      <h3 class="ms-layer text4"
+        	style="right: 230px; top: 283px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Conte conosco, tudo em perfis de aço <br /> material da mais alta qualidade. </h3>
+        
+      <a class="ms-layer sbut5 blue"
+			style="right: 220px; top: 365px;"
+			data-type="text"
+			data-delay="2000"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Perfils de Aço </a> 
+            
+            <a class="ms-layer sbut5"
+			style="right: 390px; top: 365px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Contato </a> 
+		
+
+		
+
+
+    </div>
+    <!-- end slide 2 -->
+	
+    <!-- slide 3 -->
+    <div class="ms-slide slide-3" data-delay="9">
+      
+      <img src="js/masterslider/blank.gif" data-src="images/slider/slide3.jpg" alt=""/>
+      
+      <h3 class="ms-layer text44"
+			style="right: 230px;top: 180px;"
+			data-type="text"
+			data-delay="500"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)"> Tubos Metálicos </h3>
+            
+      <h3 class="ms-layer text45"
+			style="right: 230px;top: 245px;"
+			data-type="text"
+			data-delay="1000"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(5.5,1.6)"> Tubos de Aço Quadrados, Redondos e Retangulares </h3>
+            
+
+            
+            <a class="ms-layer sbut7"
+			style="right: 390px; top: 420px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Orçamento </a> 
+            
+            </div>
+    <!-- end slide 3 -->
+    
+  </div>
+  <!-- end of masterslider -->
+   </div>
+  <div class="clearfix"></div>
+
+ <section class="section_category12">
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 lineright">
+ <div class="services">
+ <div class="ser_icon"><i class="fa fa-circle-thin "></i><span></span> 
+ <h3>Tubos Industriais<br><small>Diversos modelos</small></h3></div>
+    <p>Tubos industriais são necessidade em várias obras industriais, temos muitos modelos de tubos.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Tubos</span></a>
+</div></div>
+ 
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 lineright" >
+<div class="services">
+ <div class="ser_icon"><i class="fa fa-magnet"></i><span></span> 
+ <h3>Pefis<br><small>Trabalhamos com I U e W</small></h3></div>
+    <p>Temos em nosso portfólio todos os perfis que sua obra vai precisar, conte conosco.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Pefil Metálico</span></a>
+</div></div>
+ 
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+<div class="services">
+ <div class="ser_icon"><i class="fa fa-sort-numeric-asc"></i><span></span> 
+ <h3>Vigas<br><small>Vigas Sob Medida</small></h3></div>
+    <p>Fornecemos e entregamos bobinas sob medidas, nossos vendedores vão auxiliar em suas dúvidas.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Vigas Metálicas</span></a>
+</div></div>
+
+<hr>
+
+
+ <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 lineright">
+ <div class="services">
+ <div class="ser_icon"><i class="fa fa-cubes"></i><span></span> 
+ <h3>Ferros<br><small>Ferros Variados</small></h3></div>
+    <p>Temos em nossos produtos ferros para os mais variados fins, solicite um orçamento sem compromisso.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Ferros</span></a>
+</div></div>
+ 
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 lineright">
+<div class="services">
+ <div class="ser_icon"><i class="fa fa-bars"></i><span></span> 
+ <h3>Barras<br><small>Barras Várias Medidas</small></h3></div>
+    <p>Nossas barras metálicas são da mais alta qualidade, conte com o material da Embrafer em sua obra.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Barras Metálicas</span></a>
+</div></div>
+ 
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+<div class="services">
+ <div class="ser_icon"><i class="fa fa-clone"></i><span></span> 
+ <h3>Chapas<br><small>Chapas variadas</small></h3></div>
+    <p>Chapas metálicas são fornecidadas para nossos clientes com garantia de qualidade Embrafer.</p>
+ <a href="#"><span><i class="fa fa-caret-right"></i></span> <span>Chapa Metálica</span></a>
+</div></div>
+ 
+ </div> 
+ </div>
+ </section>
+ 
+ <!--end section-->
+  <div class="clearfix"></div>
+
+<section class="section_category13">
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-12  center">
+ <div  class="sec_title2"><h1>Nossos Produtos</h1></div>
+ <p>Nossa empresa trabalha com fabricação, corte e fornecimento de vários produtos de ferragens e aço o quais você pode precisar ou estar procurando, são eles tais como: tubos industriais, chapas, perfis, vigas, aços e ferros para muitos fins. Aqui na Embrafer nossos clientes encontram responsabilidade e tradição no ramo de aço, a necessidade de um parceiro de confiança e qualidade no fornecimento de peças, tubos, perfis e outros fez com que a gente inicie nessa área com o foco no cliente em um atendimento diferenciado, ágil e de altissima qualidade para todo o território nacional.</p>
+ </div>
+</div>
+<div class="margin-top4"></div>
+</div>
+</section>
+<!--end section-->
+
+<div class="container">
+
+<div class="team_box">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" data-anim-type="bounce-in-down" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/inicio/perfil-u.jpg" width="100%">
+</div>
+<h3>Pefil de aço</h3>
+<p>Trabalhamos com I U e W</p>
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" data-anim-type="bounce-in-up" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/inicio/tubos.jpg" width="100%">
+</div>
+<h3>Tubos de aço</h3>
+<p>Diversos Tubos</p>
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" data-anim-type="bounce-in-down" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/inicio/tubos-quadrados.jpg" width="100%">
+</div>
+<h3>Tubos Quadrados</h3>
+<p>Acesso nossos Produtos</p>
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" data-anim-type="bounce-in-up" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/inicio/barras.jpg" width="100%">
+</div>
+<h3>Barras</h3>
+<p>Várias Barras de Aço</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!--end section-->
+<div class="clearfix margin-top5"></div>
+
+<section class="section_category14">
+<div class="container">
+<div class="row">
+ <div class="col-lg-12  center">
+ <div class="sec_title2 mb-25"><h1>Fornecedor de aço</h1></div>
+ <p>Confie na Embrafer, solicite um orçamento sem compromisso.</p>
+ </div></div>
+
+ <div class="margin-top5"></div>
+ <div class="clearfix"></div> 
+
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+<h2>Compromisso e qualidade do aço</h2>
+<p>Temos o compromisso de trabalhar apenas com material de qualidade, junte o poder do aço com uma empresa a qual você pode confiar como a Embrafer, isso é garantia dos mais confiáveis produtos metálicos, com sede em Curitiba atendemos todo o território nacional, hoje estamos presentes em inúmeras obras.</p>
+<div class="margin-top2"></div>
+<ul>
+<li><i class="fa fa-check-square-o"></i>Qualidade do aço.</li>
+<li><i class="fa fa-check-square-o"></i>Garantia e Confiança</li>
+<li><i class="fa fa-check-square-o"></i>Agilidade da entrega.</li>
+<li><i class="fa fa-check-square-o"></i>Sustentabilidade e responsabilidade </li>
+</ul>
+<div class="margin-top3"></div>
+
+<div class="row ">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-industry"></i>
+</div>
+<p>Obras Industriais</p>
+</div></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-home"></i>
+</div>
+<p>Obras Residenciais</p>
+</div></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="info-box center">
+<div class="info-box-icon">
+<i class="fa fa-building-o"></i>
+</div>
+<p>Obras Corporativas</p>
+</div></div>
+
+</div>
+<div class="clearfix"></div>
+<div class="margin-top3"></div>
+<p><a href="#" class="btn btn-border blue uppercase"><span>Orçamento</span></a> <a href="#" class="btn btn-border white uppercase margin-left-2"><span>Mais Produtos</span></a></p>
+<div class="margin-top3"></div>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 animate-in" data-anim-type="zoom-in" data-anim-delay="100"><img class="img-responsive padding-bottom-2" src="images/inicio/aco-ferro-revenda.png"></div>
+
+</div>
+
+ </div>
+</section>
+
+
+
+<!--end section-->
+<div class="clearfix"></div>
+
+<section class="section_category16 center">
+<div class="portfolio">
+<div class="sec_title2">
+<h1>Principais Produtos</h1> 
+</div>
+<p>Em nosso leque de produtos, temos alguns que são mais procurados por nossos clientes. </p>
+</div>
+<div class="clearfix"></div>
+
+<div class="container">
+<div class="row ">
+<div class="portfolio-items">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/perfil-redondo.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Tubos Redondos</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in">
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/tubos-quadrados.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Tubos Quadrado</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in">
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/tubos-retanguladres.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Tubos Retangulares</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in">
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/ferros.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Ferros</h5>
+</div></div></div></a></div>
+</div>
+
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" >
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/perfis-metalicos.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Perfis Metálicos</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" >
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/barra-metalica.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Barra Metálica</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in" >
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/perfil-w.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Perfil W</h5>
+</div></div></div></a></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 animate-in">
+<div class="portfolio-grid">
+<a href="#" class="portfolio-content">
+<img src="images/inicio/galeria/perfil-u.jpg" class="img-responsive" alt="">
+<div class="portfolio-hover">
+<div class="hover-content"><div>
+<h5 class="portfolio-title">Perfil U</h5>
+</div></div></div></a></div>
+</div>
+
+
+</div>
+<a href="#" class="btn btn-border white uppercase margin-left-2"><span>Mais Produtos</span></a>
+
+</div>
+</div>
+</section>
+
+<!--end section-->
+<div class="clearfix"></div>
+
+<section class="section_category17">
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left">
+<div class="l-news">
+<div  class="sec_title2"><h1>News</h1></div>
+<div class="clearfix"></div>
+<div class="clearfix margin-top2"></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animate-in" data-anim-type="zoom-in" data-anim-delay="100">
+<div class="news-box">
+<div class="v-line"></div>
+<div class="thumb"><img src="images/inicio/tubo-metalico-pr.jpg" class="img-responsive" alt=""></div>
+<div class="date"><span class="day">20</span> Jul</div>
+</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<div class="news-text">
+<h3>Tubos Metálicos</h3>
+<p> Fornecedor / Fabricante / sob medida</p> 
+<p>Os tubos metálicos aqui na Embrafer são um de nossos produtos que mais saem, devido a alta qualidade dos nossos tubos. A qualidade do tubo metálico se faz necessário devido ao seu uso... </p>
+<a href="#">Tubos Metálicos</a>
+</div></div>
+
+<div class="clearfix margin-top4"></div>
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 animate-in" data-anim-type="zoom-in" data-anim-delay="100">
+<div class="news-box">
+<div class="v-line"></div>
+<div class="thumb"><img src="images/inicio/perfil-metalico-pr.jpg" class="img-responsive" alt=""></div>
+<div class="date"><span class="day">17</span> Fev</div>
+</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<div class="news-text">
+<h3>Perfils de Aço</h3>
+<p> Perfil U / Perfil I  / Perfil W</p> 
+<p>Aqui temos em nossa gama de produtos muitos tipos de perfil, sendo que são todos entregue sob medida de acordo com a necessidade do cliente, nossa garantia de qualidade se faz necessária devido ao respeito a nossa marca. </p>
+<a href="#">Perfis Metálicos</a>
+</div></div>
+
+</div>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 right">
+<div class="choose">
+<div  class="sec_title2"><h1>Por que Escolher a Embrafer</h1></div>
+<div class="clearfix margin-top2"></div>
+ <div class="accordion_holder">
+          <div class="accordion_example1"> 
+            
+            <!-- Section 1 -->
+            <div class="accordion_in two acc_active">
+              <div class="acc_head">Qualidade e Garantia</div>
+              <div class="acc_content">Temos uma garantia diferenciada em nossos produtos, visando sempre a necessidade da alta durabilidade das peças em campo, ninguém quer passar por imprevistos na hora da instalação. Com isso em mente nosso material passa por um rigoroso critério de qualidade. </div>
+            </div>
+            
+            <!-- Section 2 -->
+            <div class="accordion_in two">
+              <div class="acc_head">O Melhor do Aço</div>
+              <div class="acc_content">O Aço é um dos materiais mais confiáveis existentes para obras e afins, logo a necessidade dele se faz por todo o Brasil, com isso a Embrafer participa e está presente nas mais diversas obras.</div>
+            </div>
+            
+            <!-- Section 3 -->
+            <div class="accordion_in two">
+              <div class="acc_head">A Melhor Equipe</div>
+              <div class="acc_content">Nossos colaboradores são respeitados por serem especialistas em sua área, de nada adianta o melhor produto se eles não forem acompanhados dos melhores profissionais, para fabricar e também na área profissional para tirar dúvidas e dar suporte pró ativo aos clientes.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Accordion end -->
+        
+ <div class="clearfix margin-top3"></div> 
+ 
+ <div class="sec_title2"><h1>Parceiros</h1></div>
+<div class="clearfix margin-top1"></div>
+<div class="clearfix"></div>
+
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="100"><img src="images/clients/07.png"></div>
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="200"><img src="images/clients/08.png"></div>
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="300"><img src="images/clients/09.png"></div>
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="300"><img src="images/clients/09.png"></div>
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="100"><img src="images/clients/07.png"></div>
+<div class="client-box " data-anim-type="zoom-in-up" data-anim-delay="200"><img src="images/clients/08.png"></div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+<div class="clearfix"></div>
+
+
+<section class="section-dark sec-padding">
+<div class="container">
+<div class="row">
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 colmargin " >
+          <div class="footer-logo2"><img src="images/footer-logo.png" alt=""></div>
+          <ul class="address-info-2 no-border">
+            <li><i class="fa fa-map-marker"></i>Endereço: Rua Gino Benuzzi, 47</li>
+             <li><i class="fa fa-map-marker "></i> Curitiba PR - Cep 81350-070</li>
+            <li><i class="fa fa-phone-square"></i> Tel. (41) 3082 - 8850</li>
+            <li><i class="fa fa-mobile"></i> Tel. (41) 3082 - 8846</li>
+            
+            <li class="last"><i class="fa fa-envelope"></i>contato@embrafer.com.br </li>
+          </ul>
+         <div class="clearfix"></div> 
+          <ul class="social-icons-3">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+            </ul>
+        </div>
+        
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 colmargin" >
+<h3 class="footer-title2">Acesso Rápido</h3>
+<div class="footer-title2-bottomstrip"></div>
+<div class="clearfix"></div>
+<ul class="usefull-links-2 tex-left ">
+<li><a href="#"><i class="fa fa-angle-right"></i>Início</a></li>
+<li><a href="#"><i class="fa fa-angle-right"></i>Tubos</a></li>
+<li><a href="#"><i class="fa fa-angle-right"></i>Perfil Metálico</a></li>
+<li><a href="#"><i class="fa fa-angle-right"></i>Vigas Metálicas</a></li>
+<li><a href="#"><i class="fa fa-angle-right"></i>Barras Metálicas</a></li>
+<li><a href="#"><i class="fa fa-angle-right"></i>Contato</a></li>
+</ul>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 colmargin" >
+<h3 class="footer-title2">Empresa</h3>
+<div class="footer-title2-bottomstrip"></div>
+<div class="clearfix"></div>
+<p class="text-center">Nossa empresa está no mercado do aço já a anos e com isso nossa experiencia e atendimento ao cliente especializado</p>
+<div class="newsletter">
+<input name="" type="text" placeholder="Seu Nome" class="email_input2">
+<input name="" type="text" placeholder="Assunto" class="email_input2">
+<input name="" type="text" placeholder="Seu Telefone" class="email_input2">
+<input name="" type="button" value="Me Ligue" class="input_submit2">
+</div>
+<div class="clearfix margin-top6"></div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 colmargin" >
+<h3 class="footer-title2">Portfolio</h3>
+<div class="footer-title2-bottomstrip"></div>
+<div class="clearfix"></div>
+          <div class="image-left">
+            <div class="fo-postimg-inner2 overflow-hidden"><img src="images/rodape/perfil.jpg" alt=""></div>
+          </div>
+          <div class="text-box-right">
+            <h5 class="text-white less-mar3"><a href="#">Perfil Metálico</a></h5>
+            <span>Perfil U, W e I</span>
+            
+          </div>
+          <div class="divider-line dashed dark-2 margin "></div>
+          <div class="image-left">
+            <div class="fo-postimg-inner2 overflow-hidden"><img src="images/rodape/tubos.jpg" alt=""></div>
+          </div>
+          <div class="text-box-right">
+            <h5 class="text-white less-mar3"><a href="#">Tubos Metálicos</a></h5>
+            <span>Redondos, Quadrados e Retangulares</span>
+           
+          </div>
+        </div>
+
+
+
+
+</div>
+</div>
+</section>
+<!--end section-->
+
+<section class="section-copyrights fulldark">
+    <div class="container">
+      <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><span class="margin-top1">Direitos Reservados © 2017 | Todos os direitos reservados.</span></div>
+        
+      </div>
+    </div>
+  </section>
+<!--end section-->
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+</div></div>
+
+<!-- ========== Style swicher ========== -->
+
+<div id="style-selector" class="text-center"> <a href="javascript:void(0);" class="btn-close"><i class="fa fa-wrench"></i></a>
+  <h5 class="title-big">Choose Theme Options</h5>
+  <div class="style-selector-wrapper">
+    <h5 class="title">Choose Layout</h5>
+    <div class="clearfix"></div>
+   <a class="btn-gray" href="http://codelayers.net/leohunt/corporate/fullwidth/#">Wide</a> 
+   <a class="btn-gray active" href="#">Boxed</a>
+    
+    <div class="clearfix"></div>
+    <br/>
+    <h5 class="title align-left">Predefined Color Skins</h5>
+    <ul class="pre-colors-list">
+      <li><a title="default" href="css/colors/default.css"><span class="pre-color-skin-1"></span></a></li>
+      <li><a title="light blue" href="css/colors/lightblue.css"><span class="pre-color-skin-2"></span></a></li>
+      <li><a title="orange" href="css/colors/orange.css"><span class="pre-color-skin-4"></span></a></li>
+      <li><a title="green" href="css/colors/green.css"><span class="pre-color-skin-3"></span></a></li>
+      <li><a title="pink" href="css/colors/pink.css"><span class="pre-color-skin-5"></span></a></li>
+      <li class="last"><a title="red" href="css/colors/red.css"><span class="pre-color-skin-6"></span></a></li>
+      <li><a title="purple" href="css/colors/purple.css"><span class="pre-color-skin-7"></span></a></li>
+      <li><a title="bridge" href="css/colors/bridge.css"><span class="pre-color-skin-8"></span></a></li>
+      <li><a title="yellow" href="css/colors/yellow.css"><span class="pre-color-skin-9"></span></a></li>
+      <li><a title="violet" href="css/colors/violet.css"><span class="pre-color-skin-10"></span></a></li>
+      <li><a title="blue" href="css/colors/blue.css"><span class="pre-color-skin-11"></span></a></li>
+      <li class="last"><a title="moss green" href="css/colors/mossgreen.css"><span class="pre-color-skin-12"></span></a></li>
+    </ul>
+    <h5 class="title align-left">BG Patterns for Boxed</h5>
+    <ul class="bg-pattrens-list">
+      <li><a href="css/bg-patterns/pattern-1.css"><span class="bg-pattren-1"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-2.css"><span class="bg-pattren-2"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-3.css"><span class="bg-pattren-3"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-4.css"><span class="bg-pattren-4"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-5.css"><span class="bg-pattren-5"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-6.css"><span class="bg-pattren-6"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-7.css"><span class="bg-pattren-7"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-8.css"><span class="bg-pattren-8"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-9.css"><span class="bg-pattren-9"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-10.css"><span class="bg-pattren-10"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-11.css"><span class="bg-pattren-11"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-12.css"><span class="bg-pattren-12"></span></a></li>
+    </ul>
+  </div>
+</div>
+<!-- ========== end style swicher ========== --> 
+
+<!-- ========== Js Files ========== --> 
+
+<script type="text/javascript" src="js/universal/jquery.js"></script> 
+<script src="js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+<script src="js/mainmenu/customeUI.js"></script>
+<script type="text/javascript" src="js/tabs/smk-accordion.js"></script>
+<script type="text/javascript" src="js/tabs/custom.js"></script> 
+<script src="js/mainmenu/jquery.sticky.js"></script> 
+<script src="js/masterslider/masterslider.min.js"></script> 
+
+<script type="text/javascript" src="js/ytplayer/jquery.mb.YTPlayer.js"></script> 
+<script type="text/javascript" src="js/ytplayer/elementvideo-custom.js"></script> 
+<script type="text/javascript" src="js/ytplayer/play-pause-btn.js"></script>
+<script type="text/javascript" src="js/cubeportfolio/jquery.cubeportfolio.min.js"></script> 
+<script type="text/javascript" src="js/cubeportfolio/main.js"></script> 
+<script src="js/animations/js/animations.min.js" type="text/javascript"></script> 
+<script src="js/animations/js/appear.min.js" type="text/javascript"></script> 
+<script src="js/scrolltotop/totop.js"></script> 
+<script src="js/owl-carousel/owl.carousel.js"></script> 
+<script src="js/owl-carousel/custom.js"></script> 
+<script src="js/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script src="js/style-swicher/style-swicher.js"></script> 
+<script src="js/style-swicher/custom.js"></script> 
+<script src="js/scripts/functions.js" type="text/javascript"></script>
+
+</body>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/# by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:16:00 GMT -->
+</html>

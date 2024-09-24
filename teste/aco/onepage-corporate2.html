@@ -1,0 +1,1044 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/onepage-corporate2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:24:17 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leo Hunt - Responsive MultiPurpose HTML5 Template</title>
+
+<!-- Meta -->
+<meta name="keywords" content="" />
+<meta name="author" content="">
+<meta name="robots" content="" />
+<meta name="description" content="" />
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- Web Fonts  -->
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|PT+Sans:400,700" rel="stylesheet"> 
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- stylesheets -->
+<link rel="stylesheet" media="screen" href="js/bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="js/mainmenu/menu-9.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-default.css" type="text/css" />
+<link rel="stylesheet" href="css/theme-style.css" type="text/css" />
+<link rel="stylesheet" href="css/shortcodes.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/masterslider/style/masterslider.css" />
+<link rel="stylesheet" type="text/css" href="js/cubeportfolio/cubeportfolio.min.css">
+<link href="js/animations/css/animations.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="js/bootstrap/css/bootstrap-combined.css" type="text/css" />
+<link rel="stylesheet" media="screen" href="css/responsive-style.css" type="text/css" />
+<link rel="stylesheet" href="js/tabs/assets/css/responsive-tabs.css" />
+<link rel="stylesheet" type="text/css" href="js/smart-forms/smart-forms.css">
+
+<!--Style Swicher-->
+<link rel="stylesheet" href="js/style-swicher/style-swicher.css" type="text/css" />
+
+
+<!-- Remove the below comments to use your color option -->
+<link rel="stylesheet" href="css/colors/default-2.css" />
+<!--<link rel="stylesheet" href="css/colors/lightblue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/orange.css" />-->
+<!--<link rel="stylesheet" href="css/colors/green.css" />-->
+<!--<link rel="stylesheet" href="css/colors/pink.css" />-->
+<!--<link rel="stylesheet" href="css/colors/red.css" />-->
+<!--<link rel="stylesheet" href="css/colors/purple.css" />-->
+<!--<link rel="stylesheet" href="css/colors/bridge.css" />-->
+<!--<link rel="stylesheet" href="css/colors/yellow.css" />-->
+<!--<link rel="stylesheet" href="css/colors/violet.css" />-->
+<!--<link rel="stylesheet" href="css/colors/blue.css" />-->
+<!--<link rel="stylesheet" href="css/colors/mossgreen.css" />-->
+
+<link rel="stylesheet" href="../stylescontato.css"></head>
+
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
+<!-- Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="../processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<body style="background-color: #ffffff; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333;">
+<div class="wrapper-boxed">
+<div class="site_wrapper font-style4">
+<div id="section-1"></div>
+<div id="header11">
+    <div class="container">
+      <div class="navbar navbar-default orange3">
+      
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle two three"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a href="index.html" class="navbar-brand"><img src="images/logo-9.png" alt=""/></a> </div>
+          
+        <div id="navbar-collapse-grid" class="navbar-collapse collapse pull-right">
+          <ul class="nav orange3 navbar-nav">
+            
+            <li><a href="javascript:void(0);" class="dropdown-toggle current" onclick="$('#section-1').animatescroll();">Home</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-2').animatescroll();">About</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-3').animatescroll();">Team</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-4').animatescroll();">Services</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-5').animatescroll();">Portfolio</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-6').animatescroll();">Blog</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-7').animatescroll();">Testimonials</a></li>
+            <li><a href="javascript:void(0);" class="dropdown-toggle" onclick="$('#section-8').animatescroll();">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end menu-->
+ 
+  
+  <div class="slider">
+  <!-- masterslider -->
+  <div class="master-slider ms-skin-default" id="masterslider6"> 
+    
+    <!-- slide 1 -->
+    <div class="ms-slide slide-1 text-center" data-delay="9"> 
+    <img src="js/masterslider/blank.gif" data-src="images/slider/slide25.jpg" alt=""/>
+    
+     
+      <h3 class="ms-layer text8"
+			style="left:250px;top: 150px;"
+			data-type="text"
+			data-delay="1000"
+			data-duration="2000"
+            data-ease="easeOutExpo"
+			data-effect="rotatefront(-40,900,tr)"> Professional</h3>
+            
+      <h3 class="ms-layer text8"
+			style="left:250px;top: 200px;"
+			data-type="text"
+			data-delay="1500"
+			data-ease="easeOutExpo"
+			data-duration="2000"
+			data-effect="rotate3dleft(10,50,0,100)">Business Solutions</h3>
+            
+                 
+      <h3 class="ms-layer text9"
+        	style="left:250px; top: 270px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet, consectetur adipiscing<br> elit. Morbi sagittis, sem quis lacinia faucibus.</h3>
+            
+            <a class="ms-layer sbut5"
+			style="left: 250px; top: 360px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> View More </a> 
+            
+       </div>
+    <!-- end slide 1 --> 
+    
+    <!-- slide 2 -->
+    <div class="ms-slide slide-3" data-delay="9">
+         
+        <!-- slide background -->
+        <img src="js/masterslider/blank.gif" data-src="images/slider/slide6.jpg" alt=""/>
+        
+		<h3 class="ms-layer text1 orange"
+			style="right:180px;top:160px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="500"
+		 	data-duration="1400"
+		 	data-effect="skewleft(30,80)"> Video Layer With</h3>
+            
+      <h3 class="ms-layer text2 orange"
+			style="right:180px;top:215px;"
+			data-type="text"
+			data-ease="easeOutExpo"
+			data-delay="1000"
+		 	data-duration="1400"
+		 	data-effect="skewright(30,80)"> Video Custom Cover </h3>
+            
+      <h3 class="ms-layer text4"
+        	style="right: 180px; top: 283px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet consectetuer adipiscing <br /> elit Suspendisse et justo 
+        Praesent. </h3>
+        
+      <a class="ms-layer sbut7 orange"
+			style="right: 200px; top: 365px;"
+			data-type="text"
+			data-delay="2000"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> View More </a> 
+            
+            <a class="ms-layer sbut5"
+			style="right: 390px; top: 365px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Buy Now ! </a> 
+		
+		<img src="masterslider/blank.html" data-src="images/slider/video-shadow.png" alt="video shadow"
+		 	  style="left:160px; top:420px;"
+		 	  class="ms-layer"
+		 	  data-type="image"
+			  data-duration="3000"
+			  data-ease="easeOutExpo"
+		/>
+		
+		<div class="ms-layer video-box" style="left:210px; top:90px; width:662px; height:372px"
+			  data-type="video"
+			  data-effect="top(100)"
+			  data-duration="3000"
+			  data-ease="easeOutExpo"
+		>
+			<img src="masterslider/blank.html" data-src="images/slider/video-cover.jpg" alt="video shadow"/>
+            <iframe src="https://www.youtube.com/embed/dqHyXb5Okho?modestbranding=1&amp;autohide=1&amp;showinfo=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<!--<iframe src="http://player.vimeo.com/video/50672540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>-->
+		</div>
+
+    </div>
+    <!-- end slide 2 -->
+	
+    <!-- slide 3 -->
+    <div class="ms-slide slide-3" data-delay="9">
+      
+      <img src="js/masterslider/blank.gif" data-src="images/slider/slide26.jpg" alt=""/>
+      
+      <h3 class="ms-layer text85"
+			style="right: 230px;top: 180px;"
+			data-type="text"
+			data-delay="500"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(1.5,1.6)"> One Page Layouts & </h3>
+            
+      <h3 class="ms-layer text84"
+			style="right: 230px;top: 245px;"
+			data-type="text"
+			data-delay="1000"
+			data-ease="easeOutExpo"
+			data-duration="1230"
+			data-effect="scale(5.5,1.6)"> Many More Features </h3>
+            
+      <h3 class="ms-layer text7"
+        	style="right: 230px; top: 330px;"
+            data-type="text"
+            data-effect="top(45)"
+            data-duration="2000"
+            data-delay="1500"
+            data-ease="easeOutExpo"> Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo <br />
+        Praesent mattis commodo augue Aliquam ornare. </h3>
+        
+      <a class="ms-layer sbut5"
+			style="right: 220px; top: 420px;"
+			data-type="text"
+			data-delay="2000"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Read More </a> 
+            
+            <a class="ms-layer sbut7 orange"
+			style="right: 390px; top: 420px;"
+			data-type="text"
+			data-delay="2500"
+			data-ease="easeOutExpo"
+			data-duration="1200"
+			data-effect="scale(1.5,1.6)"> Buy Now ! </a> 
+            
+            </div>
+    <!-- end slide 3 -->
+    
+  </div>
+  <!-- end of masterslider -->
+   </div>
+  <div class="clearfix"></div>
+
+<div id="section-2"></div>
+<section class="section_category40 parallax-section20">
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-12  center">
+<h1 class="font-weight-3">About Our Site !</h1>
+ <p class="" data-anim-type="fade-in-left" data-anim-delay="100">Lorem ipsum dolor sit amet, consectetur adipiscing elit.In sit amet tortor sit amet quam dignissim euismod vitae a elit.<br>
+Curabitur tincidunt, sem nec blandit rhoncus, massa ligula hendrerit eros, et pulvinar nisl augue nec eros.<br>Donec sit amet nisi vitae nulla scelerisque consectetur non a neque.</p>
+ </div>
+</div>
+<div class="margin-top4"></div>
+
+<div class="row">
+ <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+ <div class="service_box">
+ <div class="icon"><i class="fa fa-paint-brush"></i></div>
+ <h3>Web Design</h3>
+ <p>Lorem ipsum dolor sit amet, consectetuer dipiscingelit. Suspendisse et  justo. Praesent mattis commodo augue Aliquam.</p>
+ <a href="#"><span>Read More</span>
+  <span><i class="fa fa-angle-right"></i></span></a>
+ </div></div>
+ 
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+ <div class="service_box">
+ <div class="icon"><i class="fa fa-support"></i></div>
+ <h3>Excellent Support</h3>
+ <p>Lorem ipsum dolor sit amet, consectetuer dipiscingelit. Suspendisse et  justo. Praesent mattis commodo augue Aliquam.</p>
+ <a href="#"><span>Read More</span>
+  <span><i class="fa fa-angle-right"></i></span></a>
+ </div></div>
+ 
+ <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+ <div class="service_box">
+ <div class="icon"><i class="fa fa-tablet"></i></div>
+ <h3>Full Responsive</h3>
+ <p>Lorem ipsum dolor sit amet, consectetuer dipiscingelit. Suspendisse et  justo. Praesent mattis commodo augue Aliquam.</p>
+ <a href="#"><span>Read More</span>
+  <span><i class="fa fa-angle-right"></i></span></a>
+ </div></div>
+ 
+ <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+ <div class="service_box">
+ <div class="icon"><i class="fa fa-gear"></i></div>
+ <h3>Web Development</h3>
+ <p>Lorem ipsum dolor sit amet, consectetuer dipiscingelit. Suspendisse et  justo. Praesent mattis commodo augue Aliquam.</p>
+ <a href="#"><span>Read More</span>
+ <span><i class="fa fa-angle-right"></i></span></a>
+ </div></div>
+ 
+ </div>
+
+</div>
+</section>
+<!--end section-->
+<div class="clearfix"></div>
+
+<section class="section_category31 mb-30">
+<div class="container">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-12" data-anim-type="fade-in-right" data-anim-delay="100">
+<h1 class="font-weight-3">Awesome Features</h1>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6" data-anim-type="fade-in-right" data-anim-delay="100">
+<img src="images/img5.jpg" class="img-responsive" alt="LeoHunt">
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6" data-anim-type="fade-in-right" data-anim-delay="100">
+<h6 class="uppercase text-orange-3">Lorem ipsum dolor sit amet consectetuer adipiscing</h6>
+<p>Cras enim ipsum, scelerisque ac tortor et, scelerisque lacinia justo. Integer leo nulla, rhoncu Sed lacinia, magna eget fringilla sodales, risus mauris consectetur ex, id rhoncus  justo lacus...</p>
+</div>
+<div class="margin-top2"></div>
+<div class="clearfix "></div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="button-link"><a href="#"><i class="fa fa-gear"></i>Easy Management</a></div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="button-link"><a href="#"><i class="fa fa-plug"></i>Powerful Templates</a></div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="button-link"><a href="#"><i class="fa fa-laptop"></i>Flexible Layouts</a></div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="button-link"><a href="#"><i class="fa fa-support"></i>Quick Support</a></div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-12" data-anim-type="fade-in-right" data-anim-delay="100">
+<h1 class="font-weight-3">Who We Are</h1>
+<div class="clearfix"></div>
+<ul class="tabs2">
+            <li ><a href="#example-2-tab-1" target="_self">Modern Design </a></li>
+            <li class=""><a href="#example-2-tab-2" target="_self">Retina Ready</a></li>
+            <li ><a href="#example-2-tab-3" target="_self">Responsive</a></li>
+            <li class=""><a class="last" href="#example-2-tab-4" target="_self">Layout Styles</a></li>
+          </ul>
+          
+<div class="tabs-content2">
+            <div style="display: none;" id="example-2-tab-1" class="tabs-panel2">
+              <p><img src="images/blog-img2.jpg" alt="" class="img-align-left">Lorem ipsum dolor sit amet sit Praesent justo consectetuer adipiscing elit. Suspendisse et justo.</p>
+              
+              <p>Lorem ipsum dolor sit amet sit et justo consectetuer adipiscing elit. Suspendisse et amet justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est Curabitur Suspendisse et amet.</p>
+              <p><a href="#" class="btn btn-border">View More</a></p>
+            </div>
+            <!-- end tab 1 -->
+            
+            <div style="display: none;" id="example-2-tab-2" class="tabs-panel2">
+             <img src="images/blog-img11.jpg" alt="" class="img-responsive">
+              
+              <p>Lorem ipsum dolor sit amet sit et justo consectetuer adipiscing elit. Suspendisse et amet justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est Curabitur Suspendisse et amet.</p>
+            </div>
+            <!-- end tab 2 -->
+            
+            <div  id="example-2-tab-3" class="tabs-panel2"> <h3>Multipurpose and Responsive</h3>
+              <p><img src="images/devices5.jpg" alt="" class="img-align-left">Development dolor sit amet, consectetur adipiscing elit. Phasellus ac fringilla nulla, sit amet consequat eros. Pellentesque pharetra blandit commyolk. Phasellus massa nisl, feugiat ac bibendum et, dictum.</p>
+              
+              <p><a href="#" class="btn btn-border">View More</a></p>
+            </div>
+            <!-- end tab 3 -->
+            
+             <div style="display: none;" id="example-2-tab-4" class="tabs-panel2"> <strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit ?</strong><br>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est Curabitur.</p>
+             
+              <p>Lorem ipsum dolor sit amet sit et justo consectetuer adipiscing elit. Suspendisse et amet justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. In pulvinar lectus a est Curabitur Suspendisse et amet.</p>
+               <p class="pull-right"><a href="#" class="btn btn-border">View More</a></p>
+            </div>
+            <!-- end tab 3 --> 
+            
+          </div>
+
+</div>
+
+</div>
+<div class="clearfix"></div>
+
+</div></section>
+<div class="clearfix"></div>
+
+<div id="section-3"></div>
+<section class="section_category13">
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-12  center">
+ <h1 class="font-weight-3 text-white">Our Team</h1>
+ <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augu Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est. Curabitur eget orci. Cras laoreet ligula. Etiam sit amet dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nullam tellus diam volutpat a laoreet vel bibendum. Curabitur eget orci. Cras laoreet ligula. Etiam sit amet dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere Curabitur eget orci. Cras laoreet ligula. Etiam sit amet dolor. Vestibulum ante ipsum primis in faucibus.</p>
+ </div>
+</div>
+<div class="margin-top4"></div>
+</div>
+</section>
+
+<div class="container">
+
+<div class="team_box">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" data-anim-type="bounce-in-down" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/team-img5.jpg" width="100%">
+</div>
+<h3>John William</h3>
+<p>Founder and CEO</p>
+<div class="social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" data-anim-type="bounce-in-up" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/team-img7.jpg" width="100%">
+</div>
+<h3>Brick Wall</h3>
+<p>Director</p>
+<div class="social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" data-anim-type="bounce-in-down" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/team-img6.jpg" width="100%">
+</div>
+<h3>Sno White</h3>
+<p>Senior Manager</p>
+<div class="social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" data-anim-type="bounce-in-up" data-anim-delay="100">
+<div class="team">
+<div class="team-img">
+<img src="images/team-img8.jpg" width="100%">
+</div>
+<h3>Spike Spiegel</h3>
+<p>Marketing Specialist</p>
+<div class="social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<!--end section-->
+<div class="clearfix"></div>
+
+<div id="section-4"></div>
+
+<div class="clearfix margin-top5"></div>
+
+<section class="section_category29 services">
+<div class="container text-center">
+<h1 class="font-weight-3 text-center">Our Services</h1>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam<br>ornare hendrerit augue. Cras tellus. In pulvinar lectus a est. Lorem ipsum dolor sit amet .</p>
+ <div class="margin-top5"></div>
+ <div class="clearfix"></div> 
+ <div id="diamond3"><div class="diamond3 color1"><div class="icon"><i class="fa fa-wechat"></i><br><span>Support</span></div></div></div>
+ <div id="diamond3"><div class="diamond3"><div class="icon"><i class="fa fa-wrench"></i><br><span>Maintenance</span></div></div></div>
+ <div id="diamond3"><div class="diamond3 color2"><div class="icon"><i class="fa fa-bullhorn"></i><br><span>Marketing</span></div></div></div>
+ <div id="diamond3"><div class="diamond3 color1 last-child"><div class="icon"><i class="fa fa-search"></i><br><span>SEO</span></div></div></div>
+<div class="clearfix"></div>
+
+<div id="diamond3" class="col-md-offset-1 less-mar4"><div class="diamond3 color2 margin-left-5 top-less-margin" ><div class="icon"><i class="fa fa-magic"></i><br><span>Shortcodes</span></div></div></div>
+ <div id="diamond3"><div class="diamond3 color1 top-less-margin" ><div class="icon"><i class="fa fa-eyedropper"></i><br><span>Unlimited Colors</span></div></div></div>
+ <div id="diamond3"><div class="diamond3 top-less-margin"><div class="icon"><i class="fa fa-codepen"></i><br><span>Free Updates</span></div></div></div>
+ <div class="clearfix margin-top2"></div>
+ </div>
+</section>
+
+<!--end section-->
+<div class="clearfix"></div>
+
+<div id="section-5"></div>
+<section class="sec-bpadding-2 margin-top8">
+   <h1 class="font-weight-3 text-center">Our Portfolio</h1>
+    <p class="text-center mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit.In sit amet tortor sit amet quam dignissim euismod vitae a elit.<br>
+Curabitur tincidunt, sem nec blandit rhoncus, massa ligula hendrerit eros, et pulvinar nisl augue nec eros.</p>
+    <div class="demo-juicy-projects">
+      <div class="cbp-panel">
+        <div id="grid-container" class="cbp">
+          <div class="cbp-item graphic identity">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/001.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/001.jpg" class="cbp-caption cbp-lightbox">More info</a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Fashion</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item-->
+          
+          <div class="cbp-item graphic graphic">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/002.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/002.jpg" class="cbp-caption cbp-lightbox">More info</a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Portraits</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item-->
+          
+          <div class="cbp-item graphic identity graphic logos">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/003.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/003.jpg" class="cbp-caption cbp-lightbox">More info</a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Fashion</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item-->
+          
+          <div class="cbp-item graphic graphic">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/004.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/004.jpg" class="cbp-caption cbp-lightbox">More info</a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Landscapes</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item-->
+          
+          <div class="cbp-item graphic identity logos web-design">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/005.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/005.jpg" class="cbp-caption cbp-lightbox">More info</a> </div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Magazine Cover</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item-->
+          
+          <div class="cbp-item graphic identity graphic web-design">
+            <div class="cbp-caption">
+              <div class="cbp-caption-defaultWrap"> <img src="images/media/006.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body"> <a href="images/media/006.jpg" class="cbp-caption cbp-lightbox"><i class="fa fa-search"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="cbp-l-grid-projects-title">Pets</div>
+            <div class="cbp-l-grid-projects-desc">Venenatis Quis</div>
+          </div>
+          <!--end item--> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--end section-->
+<div class="clearfix"></div>
+
+
+<div id="section-6"></div>
+<section class="parallax-section17">
+<div class="parallax-overlay">
+<div class="container">
+<div class="margin-top7"></div>
+<h1 class="font-weight-3 text-center text-white">From The Blog</h1>
+<p class="font-weight-3 text-center text-white">Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et<br> 
+justo Praesent mattis commodo augue.</p>          
+<div class="clearfix margin-top6"></div> 
+</div></div>
+</section>
+<div class="clearfix"></div>
+<div class="container">
+<div class="blog-grid-box">
+<div class="row">
+<div class="col-md-4 col-sm-4 col-xs-12 blog-grid">
+<div class="blog-grid-content">
+<div class="blog-content">
+<h3><a href="#">Lorem ipsum dolor sit amet nectuer adipiscing elit.</a></h3>
+ <p class="font-weight-3 text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus... </p>
+</div>
+</div>
+</div>
+
+<div class="col-md-8 col-sm-8 col-xs-12 nopadding">
+<div class="col-md-12 blog-grid right">
+<div class="blog-grid-content">
+<div class="blog-content">
+<h2><a href="#">Dolor sit amet</a></h2>
+ <p class="font-weight-3 text-white padding-bottom-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.<br>Suspendisse et justo. Praesent mattis commodo augue. </p>
+ <a href="#" class="btn btn-dark-3">View More</a>
+</div>
+</div></div>
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-12 nopadding">
+<div class="sec-padding">
+<h2 class="font-weight-3">Consectetuer adipiscing</h2>
+<p class="font-weight-3">Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue. Aliquam ornare hendrerit augue. Cras tellus. 
+In pulvinar lectus a est. Curabitur eget orci. Suspendisse et justo Praesent mattis commodo... </p>
+<div class="margin-top2"></div>
+<a href="#" class="btn btn-border">View More</a>
+</div></div>
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="blog-grid right2">
+<div class="blog-grid-content">
+<div class="blog-content">
+<h3><a href="#">Lorem ipsum dolor sit amet nectuer adipiscing elit.</a></h3>
+<a href="#" class="btn btn-border">View More</a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="clearfix margin-top7"></div>
+</div>
+
+<!--end section-->
+<div class="clearfix"></div>
+
+
+<!--end section-->
+
+<div id="section-7"></div>
+
+<section class="section-light3">
+<div class="container">
+
+<div class="testimonials2 ">
+<h1 class="font-weight-3 text-white">What Our Client Say</h1>
+<div class="margin-top2"></div>
+<div class="clearfix"></div>
+
+<div id="owl-demo2" class="owl-carousel ">
+              <div class="item">
+                <div class="testimonials3">
+                <div class="image-left">
+                    <div class="imgholder">
+                    <div class="img-inner overflow-hidden"><img src="images/testi-img11.jpg" alt=""/></div>
+                    <h5>Sam Rivers</h5></div>
+                    <div class="arrow-down"></div>
+                    </div>
+                  <div class="textbox">
+                  <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo. Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci. Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci. Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar. </p></div>
+                 <div class="text-box-right">CEO</div>
+                </div>
+              </div>
+              <!--end item-->
+              
+              <div class="item">
+                <div class="testimonials3">
+                <div class="image-left">
+                    <div class="imgholder">
+                    <div class="img-inner overflow-hidden"><img src="images/team-img11.jpg" alt=""/></div>
+                    <h5>Michel John</h5></div>
+                    <div class="arrow-down"></div>
+                  </div>
+                  <div class="textbox">
+                  <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo. In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo.</p></div>                  
+                  
+                  <div class="text-box-right">Manager</div>
+                </div>
+              </div>
+              <!--end item-->
+              
+              <div class="item">
+                <div class="testimonials3">
+                <div class="image-left">
+                    <div class="imgholder">
+                    <div class="img-inner overflow-hidden"><img src="images/team-img1.jpg" alt=""/></div>
+                    <h5>John William</h5></div>
+                     <div class="arrow-down"></div>
+                  </div>
+                  <div class="textbox">
+                  <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo. In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo.</p></div>                  
+                 
+                  <div class="text-box-right">Director</div>
+                </div>
+              </div>
+              <!--end item--> 
+              
+               <div class="item">
+                <div class="testimonials3">
+                <div class="image-left">
+                    <div class="imgholder">
+                    <div class="img-inner overflow-hidden"><img src="images/team-img14.jpg" alt=""/></div>
+                    <h5>Brick Wall</h5></div>
+                    <div class="arrow-down"></div>
+                  </div>
+                  <div class="textbox">
+                  <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit Suspendisse et justo Praesent mattis commodo augue Aliquam ornare hendrerit augue Cras tellus 
+In pulvinar lectus a est Curabitur eget orci. Lorem ipsum dolor sit amet consectetuer adipiscing elit 
+Suspendisse et justo Praesent mattis commodo.</p></div>                  
+                  
+                  <div class="text-box-right">Senior Manager</div>
+                </div>
+              </div>
+              <!--end item-->
+              
+              
+               
+            </div>
+
+</div>
+
+</div>
+</section>
+
+<div class="margin-top8"></div>
+<div class="clearfix"></div>
+
+<div id="section-8"></div>
+
+<div id="map" class="map"><p>This will be replaced with the Google Map.</p></div>
+<section class="section-dark four sec-padding">
+<div class="container">
+<div class="row">
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 colmargin" data-anim-type="fade-in-left" data-anim-delay="100">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 colmargin">
+<div class="iconbox-small round left"><i class="fa fa-phone"></i></div>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 colmargin">
+<h2 class="text-white font-weight-5">Get in Touch<br><span>With Us</span></h2>
+</div>
+</div>
+
+<div class="clearfix margin-top2"></div>
+<p>Vivamus a fringilla nisi. Aliquam laoreet turpis a sem porttitor 
+suscipit. Pellentesque habitant morbi tristique senectus.</p>
+         
+          <ul class="address-info-3 no-border">
+            <li><i class="fa fa-map-marker"></i> Company Inc., 9108 street,  lorem ipsum City, (Country) 90099</li>
+            <li><i class="fa fa-phone"></i> +1 1234-567-89000</li>
+            <li><i class="fa fa-print"></i> +1 1234-567-89000</li>
+            <li class="last"><i class="fa fa-envelope"></i> mail@companyname.com </li>
+          </ul>
+          
+    <ul class="social-icons-3 pull-left">
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+           </ul>
+         
+        </div>
+        
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 colmargin smart-forms" data-anim-type="fade-in-left" data-anim-delay="100">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 colmargin">
+<div class="iconbox-small round left"><i class="fa fa-pencil"></i></div>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-9 col-xs-8 colmargin ">
+<h2 class="text-white">Contact<br><span>Form</span></h2>
+</div>
+</div>
+
+<div class="clearfix margin-top2"></div>
+<form method="post" action="http://codelayers.net/leohunt/corporate/boxed/php/smartprocess.php" id="smart-form">
+              <div>
+                <div class="section col-md-6 col-sm-6">
+                  <label class="field"> 
+                    <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="First Name">
+                    </div>
+                <!-- end section -->
+                
+                 <div class="section col-md-6 col-sm-6">
+                  <label class="field">
+                    <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Last Name">
+                    </div>
+                <!-- end section -->
+                
+                <div class="section col-md-6 col-sm-6">
+                  <label class="field">
+                    <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="e-Mail">
+                    </div>
+                <!-- end section -->
+                
+                <div class="section col-md-6 col-sm-6">
+                  <label class="field">
+                    <input type="tel" name="telephone" id="telephone" class="gui-input" placeholder="Phone">
+                   </div>
+                <!-- end section -->
+                
+              <div class="section col-md-12 col-sm-12">
+                  <label class="field">
+                    <textarea class="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Message"></textarea>
+                    </div>
+                <!-- end section --> 
+                
+             
+                <div class="result"></div>
+                <!-- end .result  section --> 
+                
+              </div>
+              <!-- end .form-body section -->
+              <div class=" col-sm-12">
+                <button type="submit" data-btntext-sending="Sending..." class="btn btn-border">Submit</button>
+                <button type="reset" class="btn btn-border"> Reset </button>
+              </div>
+              <!-- end .form-footer section -->
+            </form>
+</div>
+</div>
+</div></section>
+<!--end section-->
+
+<section class="section-copyrights fulldark3">
+    <div class="container">
+      <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><span class="margin-top1">Copyright © 2017 | <a href="#">yourdomain.com</a>. All rights reserved.</span></div>
+        
+      </div>
+    </div>
+  </section>
+<!--end section-->
+
+<a href="#" class="scrollup orange"><i class="fa fa-angle-up"></i></a>
+</div>
+</div>
+<!-- ========== Style swicher ========== -->
+
+<div id="style-selector" class="text-center"> <a href="javascript:void(0);" class="btn-close"><i class="fa fa-wrench"></i></a>
+  <h5 class="title-big">Choose Theme Options</h5>
+  <div class="style-selector-wrapper">
+    <h5 class="title">Choose Layout</h5>
+    <div class="clearfix"></div>
+   <a class="btn-gray active" href="http://codelayers.net/leohunt/corporate/fullwidth/onepage-corporate2.html">Wide</a> 
+   <a class="btn-gray" href="onepage-corporate2.html">Boxed</a>
+    
+    <div class="clearfix"></div>
+    <br/>
+    <h5 class="title align-left">Predefined Color Skins</h5>
+    <ul class="pre-colors-list">
+      <li><a title="default" href="css/colors/default.css"><span class="pre-color-skin-1"></span></a></li>
+      <li><a title="light blue" href="css/colors/lightblue.css"><span class="pre-color-skin-2"></span></a></li>
+      <li><a title="orange" href="css/colors/orange.css"><span class="pre-color-skin-4"></span></a></li>
+      <li><a title="green" href="css/colors/green.css"><span class="pre-color-skin-3"></span></a></li>
+      <li><a title="pink" href="css/colors/pink.css"><span class="pre-color-skin-5"></span></a></li>
+      <li class="last"><a title="red" href="css/colors/red.css"><span class="pre-color-skin-6"></span></a></li>
+      <li><a title="purple" href="css/colors/purple.css"><span class="pre-color-skin-7"></span></a></li>
+      <li><a title="bridge" href="css/colors/bridge.css"><span class="pre-color-skin-8"></span></a></li>
+      <li><a title="yellow" href="css/colors/yellow.css"><span class="pre-color-skin-9"></span></a></li>
+      <li><a title="violet" href="css/colors/violet.css"><span class="pre-color-skin-10"></span></a></li>
+      <li><a title="blue" href="css/colors/blue.css"><span class="pre-color-skin-11"></span></a></li>
+      <li class="last"><a title="moss green" href="css/colors/mossgreen.css"><span class="pre-color-skin-12"></span></a></li>
+    </ul>
+    <h5 class="title align-left">BG Patterns for Boxed</h5>
+    <ul class="bg-pattrens-list">
+      <li><a href="css/bg-patterns/pattern-1.css"><span class="bg-pattren-1"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-2.css"><span class="bg-pattren-2"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-3.css"><span class="bg-pattren-3"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-4.css"><span class="bg-pattren-4"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-5.css"><span class="bg-pattren-5"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-6.css"><span class="bg-pattren-6"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-7.css"><span class="bg-pattren-7"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-8.css"><span class="bg-pattren-8"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-9.css"><span class="bg-pattren-9"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-10.css"><span class="bg-pattren-10"></span></a></li>
+      <li><a href="css/bg-patterns/pattern-11.css"><span class="bg-pattren-11"></span></a></li>
+      <li class="last"><a href="css/bg-patterns/pattern-12.css"><span class="bg-pattren-12"></span></a></li>
+    </ul>
+  </div>
+</div>
+<!-- ========== end style swicher ========== --> 
+
+<!-- ========== Js Files ========== --> 
+
+<script type="text/javascript" src="js/universal/jquery.js"></script> 
+<script src="js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/ytplayer/jquery.mb.YTPlayer.js"></script> 
+<script type="text/javascript" src="js/ytplayer/elementvideo-custom.js"></script> 
+<script type="text/javascript" src="js/ytplayer/play-pause-btn.js"></script>
+<script src="js/mainmenu/customeUI.js"></script>
+<script src="js/mainmenu/jquery.sticky.js"></script> 
+<script src="js/masterslider/masterslider.min.js"></script> 
+<script>
+(function($) {
+ "use strict";
+	var slider = new MasterSlider();
+	// adds Arrows navigation control to the slider.
+	slider.control('arrows');
+	slider.control('bullets');
+	
+	slider.setup('masterslider6' , {
+		 width:1600,    // slider standard width
+		 height:720,   // slider standard height
+		 space:0,
+		 speed:45,
+		 layout:'fillwidth',
+		 loop:true,
+		 preload:0,
+		 autoplay:true,
+		 view:"parallaxMask"
+	});
+})(jQuery);
+</script>
+<script>
+$(function(){
+   // Add click-event listener
+   $("#header11 .navbar-nav li a").on("click",function(){
+      // Remove the current class from all a tags
+      $("#header11 .navbar-nav li a").removeClass("current");
+      // Add the current class to the clicked a
+      $(this).addClass("current");
+   });
+   
+});
+</script>
+<script type="text/javascript" src="js/cubeportfolio/jquery.cubeportfolio.min.js"></script> 
+<script type="text/javascript" src="js/cubeportfolio/main-juicy.js"></script>
+<script src="js/owl-carousel/owl.carousel.js"></script> 
+<script src="js/owl-carousel/custom.js"></script>
+<script src="js/tabs/assets/js/responsive-tabs.min.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/tabs/smk-accordion.js"></script>
+<script type="text/javascript" src="js/tabs/custom.js"></script> 
+<script src="js/animations/js/animations.min.js" type="text/javascript"></script> 
+<script src="js/animations/js/appear.min.js" type="text/javascript"></script> 
+<script src="js/scrolltotop/totop.js"></script>
+<script src="js/pagescroll/animatescroll.js"></script>
+<script type="text/javascript" src="js/smart-forms/jquery.form.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/jquery.validate.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/additional-methods.min.js"></script> 
+<script type="text/javascript" src="js/smart-forms/smart-form.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="js/gmaps/jquery.gmap.js"></script> 
+<script type="text/javascript" src="js/gmaps/examples.js"></script>
+<script src="js/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script src="js/style-swicher/style-swicher.js"></script> 
+<script src="js/style-swicher/custom.js"></script> 
+<script src="js/scripts/functions.js" type="text/javascript"></script>
+
+</body>
+
+<!-- Mirrored from codelayers.net/leohunt/corporate/boxed/onepage-corporate2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jul 2017 13:24:21 GMT -->
+</html>
