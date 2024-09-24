@@ -52,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
         'telefone' => $_POST['telefone'],
         'cidade' => $_POST['cidade'],
         'estado' => $_POST['estado'],
-        'lista_espera' => $_POST['lista_espera'],
         'data_envio' => date('Y-m-d H:i:s')
     );
     $contatos = carregarContatos($arquivo_contatos);
@@ -108,16 +107,16 @@ $contatos = carregarContatos($arquivo_contatos);
         </div>
       </div>
       
-<div class="form-row">
-  <div class="input-group cidade">
-    <label for="cidade">Cidade</label>
-    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
-  </div>
-  <div class="input-group estado">
-    <label for="estado">Estado</label>
-    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
-  </div>
-</div>
+      <div class="form-row">
+        <div class="input-group cidade">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+        </div>
+        <div class="input-group estado">
+          <label for="estado">Estado</label>
+          <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+        </div>
+      </div>
       
       <div class="input-group">
         <label for="descricao">Descrição do Orçamento</label>
@@ -149,7 +148,6 @@ $contatos = carregarContatos($arquivo_contatos);
                         <th>Telefone</th>
                         <th>Cidade</th>
                         <th>Estado</th>
-                        <th>Lista de Espera</th>
                         <th>Data de Envio</th>
                         <th>Ações</th>
                     </tr>
@@ -162,7 +160,6 @@ $contatos = carregarContatos($arquivo_contatos);
                         <td><?php echo htmlspecialchars($contato['telefone']); ?></td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['lista_espera']); ?></td>
                         <td><?php echo htmlspecialchars($contato['data_envio']); ?></td>
                         <td><a href="?delete=<?php echo $index; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a></td>
                     </tr>
@@ -206,13 +203,7 @@ $contatos = carregarContatos($arquivo_contatos);
                             <label for="estado">Estado</label>
                             <input type="text" id="estado" name="estado" required>
                         </div>
-                        <div class="input-group">
-                            <label>Lista de Espera</label>
-                            <div class="radio-group">
-                                <label><input type="radio" id="sim" name="lista_espera" value="Sim" required> Sim</label>
-                                <label><input type="radio" id="nao" name="lista_espera" value="Não"> Não</label>
-                            </div>
-                        </div>
+                        <!-- Remover o campo "Lista de Espera" -->
                     </div>
                     <button type="submit">Adicionar Contato</button>
                 </form>
@@ -222,23 +213,43 @@ $contatos = carregarContatos($arquivo_contatos);
 
     <!-- Scripts -->
     <script>
-        // Script para abrir e fechar o modal
-        var modal = document.getElementById("add-contact-modal");
-        var btn = document.getElementById("add-contact-btn");
-        var span = document.getElementsByClassName("close-btn")[0];
+        // Script para abrir e fechar o modal de adicionar contato
+        var addModal = document.getElementById("add-contact-modal");
+        var addBtn = document.getElementById("add-contact-btn");
+        var addSpan = document.getElementsByClassName("close-btn")[0];
 
-        btn.onclick = function() {
-            modal.classList.add("show");
+        addBtn.onclick = function() {
+            addModal.classList.add("show");
         }
 
-        span.onclick = function() {
-            modal.classList.remove("show");
+        addSpan.onclick = function() {
+            addModal.classList.remove("show");
         }
 
         // Fecha o modal ao clicar fora dele
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.classList.remove("show");
+            if (event.target == addModal) {
+                addModal.classList.remove("show");
+            }
+        }
+
+        // Script para abrir e fechar o modal de solicitação de orçamento
+        var solicitModal = document.getElementById("contactModal");
+        var solicitBtn = document.getElementById("openModalBtn");
+        var solicitSpan = document.querySelector(".modal .close");
+
+        solicitBtn.onclick = function() {
+            solicitModal.style.display = "block";
+        }
+
+        solicitSpan.onclick = function() {
+            solicitModal.style.display = "none";
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function(event) {
+            if (event.target == solicitModal) {
+                solicitModal.style.display = "none";
             }
         }
     </script>
