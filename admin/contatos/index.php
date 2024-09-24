@@ -138,6 +138,11 @@ $contatos = carregarContatos($arquivo_contatos);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
+<!-- Botão Flutuante -->
+<div class="floating-button">
+  <button id="openModalBtn">Solicitar Orçamento</button>
+</div>
+
 <!-- Modal -->
 <div id="contactModal" class="modal">
   <div class="modal-content">
@@ -215,10 +220,12 @@ $contatos = carregarContatos($arquivo_contatos);
                         <td><?php echo htmlspecialchars($contato['nome']); ?></td>
                         <td><?php echo htmlspecialchars($contato['email']); ?></td>
                         <td>
-                            <?php echo htmlspecialchars($contato['telefone']); ?>
-                            <a href="https://api.whatsapp.com/send/?phone=55<?php echo htmlspecialchars($contato['telefone']); ?>" target="_blank">
-                                <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon" style="width:24px; height:24px;">
-                            </a>
+                            <div class="phone-container">
+                                <?php echo htmlspecialchars($contato['telefone']); ?>
+                                <a href="https://api.whatsapp.com/send/?phone=55<?php echo htmlspecialchars($contato['telefone']); ?>" target="_blank">
+                                    <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon" style="width:24px; height:24px;">
+                                </a>
+                            </div>
                         </td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>

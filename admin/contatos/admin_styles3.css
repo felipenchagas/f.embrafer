@@ -97,12 +97,18 @@ table a.delete-btn:hover {
     text-decoration: underline;
 }
 
+/* Container para telefone e WhatsApp */
+.phone-container {
+    display: flex;
+    align-items: center;
+}
+
 /* Ícone do WhatsApp */
 .whatsapp-icon {
     margin-left: 10px;
     vertical-align: middle;
     cursor: pointer;
-    /* Removido width e height para usar estilos inline */
+    /* Tamanho definido inline no HTML */
 }
 
 /* Modal */
