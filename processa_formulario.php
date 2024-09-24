@@ -75,10 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     file_put_contents('contatos.txt', $dados_json, FILE_APPEND | LOCK_EX);
 
     // Redireciona para a página de sucesso
-    header('Location: index.php?success=true');
+    header('Location: sucesso.html');
     exit();
 } else {
     header('Location: index.php');
     exit();
 }
 ?>
+
+
+
+
