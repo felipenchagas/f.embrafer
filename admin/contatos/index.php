@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Admin - Contatos</title>
     <!-- Link para o CSS -->
-    <link rel="stylesheet" href="admin_styles2.css">
+    <link rel="stylesheet" href="admin_styles3.css">
     <!-- Fonte Personalizada -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <!-- Meta viewport -->
