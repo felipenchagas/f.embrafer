@@ -102,6 +102,7 @@ table a.delete-btn:hover {
     margin-left: 10px;
     vertical-align: middle;
     cursor: pointer;
+    /* Removido width e height para usar estilos inline */
 }
 
 /* Modal */
