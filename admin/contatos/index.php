@@ -46,17 +46,78 @@ if (isset($_GET['delete'])) {
 
 // Processa a adição de contatos
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
+    // Função para sanitizar os dados de entrada
+    function sanitizar($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+        return $data;
+    }
+
+    // Captura e sanitiza os dados do formulário
+    $nome = sanitizar($_POST['nome']);
+    $email = sanitizar($_POST['email']);
+    $telefone = sanitizar($_POST['telefone']);
+    $cidade = sanitizar($_POST['cidade']);
+    $estado = sanitizar($_POST['estado']);
+    $descricao = sanitizar($_POST['descricao']);
+
+    // Validação básica dos campos obrigatórios
+    $erros = array();
+
+    if (empty($nome)) {
+        $erros[] = 'O campo Nome é obrigatório.';
+    }
+
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erros[] = 'E-mail inválido.';
+    }
+
+    if (empty($telefone) || !ctype_digit($telefone)) {
+        $erros[] = 'Telefone inválido.';
+    }
+
+    if (empty($cidade)) {
+        $erros[] = 'O campo Cidade é obrigatório.';
+    }
+
+    if (empty($estado)) {
+        $erros[] = 'O campo Estado é obrigatório.';
+    }
+
+    if (empty($descricao)) {
+        $erros[] = 'O campo Descrição do Orçamento é obrigatório.';
+    }
+
+    // Se houver erros, redireciona de volta para o formulário com mensagens de erro
+    if (!empty($erros)) {
+        // Armazena os erros na sessão para exibição
+        $_SESSION['erros'] = $erros;
+        header('Location: index.php?erro=true');
+        exit();
+    }
+
+    // Prepara os dados para salvar
     $novo_contato = array(
-        'nome' => $_POST['nome'],
-        'email' => $_POST['email'],
-        'telefone' => $_POST['telefone'],
-        'cidade' => $_POST['cidade'],
-        'estado' => $_POST['estado'],
+        'nome' => $nome,
+        'email' => $email,
+        'telefone' => $telefone,
+        'cidade' => $cidade,
+        'estado' => $estado,
+        'descricao' => $descricao,
         'data_envio' => date('Y-m-d H:i:s')
     );
+
+    // Carrega os contatos existentes
     $contatos = carregarContatos($arquivo_contatos);
+    
+    // Adiciona o novo contato
     $contatos[] = $novo_contato;
+    
+    // Salva todos os contatos de volta no arquivo
     salvarContatos($arquivo_contatos, $contatos);
+
+    // Redireciona para a página de sucesso
     header('Location: index.php');
     exit();
 }
@@ -148,6 +209,7 @@ $contatos = carregarContatos($arquivo_contatos);
                         <th>Telefone</th>
                         <th>Cidade</th>
                         <th>Estado</th>
+                        <th>Descrição do Orçamento</th>
                         <th>Data de Envio</th>
                         <th>Ações</th>
                     </tr>
@@ -160,6 +222,7 @@ $contatos = carregarContatos($arquivo_contatos);
                         <td><?php echo htmlspecialchars($contato['telefone']); ?></td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>
+                        <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
                         <td><?php echo htmlspecialchars($contato['data_envio']); ?></td>
                         <td><a href="?delete=<?php echo $index; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a></td>
                     </tr>
@@ -204,6 +267,12 @@ $contatos = carregarContatos($arquivo_contatos);
                             <input type="text" id="estado" name="estado" required>
                         </div>
                         <!-- Remover o campo "Lista de Espera" -->
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="descricao">Descrição do Orçamento</label>
+                            <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+                        </div>
                     </div>
                     <button type="submit">Adicionar Contato</button>
                 </form>
