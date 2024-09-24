@@ -45,7 +45,7 @@
                             <?php echo htmlspecialchars($contato['telefone']); ?>
                             <!-- Ícone do WhatsApp clicável -->
                             <a href="https://api.whatsapp.com/send/?phone=55<?php echo preg_replace('/[^0-9]/', '', $contato['telefone']); ?>" target="_blank">
-                                <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+                                <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon">
                             </a>
                         </td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
