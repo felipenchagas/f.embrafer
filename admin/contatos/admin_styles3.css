@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	font-size: 14px;
 }
 
 body {
@@ -75,7 +76,6 @@ table {
 table th, table td {
     border: 1px solid #424242;
     padding: 12px;
-    text-align: left;
     color: #e0e0e0;
 }
 
