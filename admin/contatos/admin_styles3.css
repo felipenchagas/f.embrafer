@@ -97,6 +97,15 @@ table a.delete-btn:hover {
     text-decoration: underline;
 }
 
+/* Ícone do WhatsApp */
+.whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
 /* Modal */
 .modal {
     display: none;

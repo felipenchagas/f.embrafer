@@ -219,7 +219,12 @@ $contatos = carregarContatos($arquivo_contatos);
                     <tr>
                         <td><?php echo htmlspecialchars($contato['nome']); ?></td>
                         <td><?php echo htmlspecialchars($contato['email']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['telefone']); ?></td>
+                        <td>
+                            <?php echo htmlspecialchars($contato['telefone']); ?>
+                            <a href="https://api.whatsapp.com/send/?phone=55<?php echo htmlspecialchars($contato['telefone']); ?>" target="_blank">
+                                <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon">
+                            </a>
+                        </td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>
                         <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
