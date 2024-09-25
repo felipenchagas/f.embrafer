@@ -159,8 +159,11 @@ table a.delete-btn:hover {
 
 /* Botão Editar */
 table a.edit-btn {
-    background-color: #43a047;
-    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 table a.edit-btn:hover {
