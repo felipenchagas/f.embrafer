@@ -128,7 +128,7 @@ $contatos = carregarContatos($conexao);
                 <button id="add-contact-btn">Adicionar Contato</button>
                 <a href="logout.php" class="logout-btn">Sair</a>
                 <div class="search-container">
-                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
+                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="&nbsp &nbsp Pesquisar...">
                 </div>
             </div>
         </div>
