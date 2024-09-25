@@ -22,7 +22,8 @@ if ($conexao->connect_error) {
 // Funções para carregar e salvar contatos
 function carregarContatos($conexao) {
     $contatos = array();
-    $sql = "SELECT * FROM orcamentos";
+    // Ordenar por data_envio de forma decrescente para exibir os mais recentes primeiro
+    $sql = "SELECT * FROM orcamentos ORDER BY data_envio DESC";
     $result = $conexao->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
