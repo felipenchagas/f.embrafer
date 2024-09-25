@@ -166,6 +166,9 @@ $contatos = carregarContatos($conexao);
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
                                 <i class="fas fa-edit"></i> Editar
                             </a>
+                            <a href="#" class="orcamento-btn" onclick="openOrcamentoModal(<?php echo $contato['id']; ?>)">
+                                <i class="fas fa-file-invoice-dollar"></i> Orçamento
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -266,6 +269,17 @@ $contatos = carregarContatos($conexao);
         </div>
     </div>
 
+    <!-- Modal de Orçamento -->
+    <div id="orcamento-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Detalhes do Orçamento</h2>
+            <div id="orcamento-details">
+                <!-- Detalhes serão preenchidos via JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // Script para abrir e fechar o modal de adicionar contato
@@ -309,6 +323,35 @@ $contatos = carregarContatos($conexao);
             editModal.style.display = "none";
         }
 
+        // Script para abrir e fechar o modal de Orçamento
+        var orcamentoModal = document.getElementById("orcamento-modal");
+        var orcamentoSpan = orcamentoModal.getElementsByClassName("close-btn")[0];
+
+        function openOrcamentoModal(id) {
+            var contato = <?php echo json_encode($contatos); ?>;
+            var contatoSelecionado = contato.find(c => c.id == id);
+            
+            if (contatoSelecionado) {
+                var detalhes = `
+                    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
+                    <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
+                    <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
+                    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
+                    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
+                    <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
+                    <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
+                `;
+                document.getElementById("orcamento-details").innerHTML = detalhes;
+                orcamentoModal.style.display = "block";
+            } else {
+                alert("Contato não encontrado.");
+            }
+        }
+
+        orcamentoSpan.onclick = function() {
+            orcamentoModal.style.display = "none";
+        }
+
         // Fecha os modais ao clicar fora deles
         window.onclick = function(event) {
             if (event.target == addModal) {
@@ -316,6 +359,9 @@ $contatos = carregarContatos($conexao);
             }
             if (event.target == editModal) {
                 editModal.style.display = "none";
+            }
+            if (event.target == orcamentoModal) {
+                orcamentoModal.style.display = "none";
             }
         }
 
@@ -333,8 +379,10 @@ $contatos = carregarContatos($conexao);
                 // Verificação se a coluna é Data
                 if (n === 6) {
                     // Converter para timestamp para comparação
-                    cell1 = new Date(cell1.split('/').reverse().join('-') + ' ' + row1.cells[6].innerText.split(' ')[1]).getTime();
-                    cell2 = new Date(cell2.split('/').reverse().join('-') + ' ' + row2.cells[6].innerText.split(' ')[1]).getTime();
+                    let partes1 = cell1.split('/');
+                    let partes2 = cell2.split('/');
+                    cell1 = new Date(partes1[2], partes1[1]-1, partes1[0], partes1[3].split(':')[0], partes1[3].split(':')[1]).getTime();
+                    cell2 = new Date(partes2[2], partes2[1]-1, partes2[0], partes2[3].split(':')[0], partes2[3].split(':')[1]).getTime();
                 }
 
                 if (cell1 < cell2) return isAscending ? -1 : 1;

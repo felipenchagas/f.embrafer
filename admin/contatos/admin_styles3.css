@@ -132,7 +132,8 @@ table tr:nth-child(even) {
 
 /* Botões de Ação */
 table a.delete-btn,
-table a.edit-btn {
+table a.edit-btn,
+table a.orcamento-btn {
     display: flex;
     align-items: center;
     padding: 6px 12px;
@@ -165,9 +166,21 @@ table a.edit-btn:hover {
     background-color: #388e3c;
 }
 
+/* Botão Orçamento */
+table a.orcamento-btn {
+    background-color: #ffb300;
+    color: #fff;
+    display: none; /* Oculto por padrão */
+}
+
+table a.orcamento-btn:hover {
+    background-color: #ffa000;
+}
+
 /* Espaçamento para ícones nos botões */
 table a.delete-btn i,
-table a.edit-btn i {
+table a.edit-btn i,
+table a.orcamento-btn i {
     margin-right: 8px; /* Espaço aumentado para melhor visualização */
 }
 
@@ -276,4 +289,84 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #1565c0;
+}
+
+/* Media Queries para Mobile */
+@media screen and (max-width: 768px) {
+    /* Ocultar colunas E-mail, Telefone, Descrição do Orçamento, Data de Envio */
+    #contactsTable th:nth-child(2),
+    #contactsTable th:nth-child(3),
+    #contactsTable th:nth-child(6),
+    #contactsTable th:nth-child(7) {
+        display: none;
+    }
+
+    #contactsTable td:nth-child(2),
+    #contactsTable td:nth-child(3),
+    #contactsTable td:nth-child(6),
+    #contactsTable td:nth-child(7) {
+        display: none;
+    }
+
+    /* Ajustar a coluna de Ações para mostrar apenas o botão Orçamento */
+    table a.edit-btn,
+    table a.delete-btn {
+        display: none;
+    }
+
+    table a.orcamento-btn {
+        display: flex; /* Mostrar o botão Orçamento */
+    }
+
+    /* Ajustar a largura da tabela */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+    }
+
+    table th {
+        display: none; /* Ocultar cabeçalhos na visualização mobile */
+    }
+
+    table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #424242;
+    }
+
+    /* Ajustar os botões no mobile */
+    table a.orcamento-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Ajustar o Modal de Orçamento para ocupar mais espaço em telas pequenas */
+    @media screen and (max-width: 480px) {
+        .modal-content {
+            width: 95%;
+            padding: 15px;
+        }
+
+        .close-btn {
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            font-size: 18px;
+        }
+    }
 }
