@@ -1,12 +1,12 @@
 <?php
+// Ativa a exibição de erros para depuração (remova ou comente essas linhas em produção)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
-// Inclui o autoload do Composer (ajuste o caminho conforme necessário)
-require 'vendor/autoload.php';
+// Inclui os arquivos do PHPMailer (ajuste o caminho conforme necessário)
+require_once("novo/class.phpmailer.php");
+require_once("novo/class.smtp.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Função para sanitizar os dados de entrada
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     file_put_contents('contatos.txt', $dados_json, FILE_APPEND | LOCK_EX);
 
     // Envia o e-mail utilizando o PHPMailer
-    $mail = new PHPMailer(true);
+    $mail = new PHPMailer();
 
     try {
         // Configurações do servidor SMTP
@@ -93,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->SMTPAuth   = true;                // Habilitar autenticação SMTP
         $mail->Username   = 'contato@embrafer.com'; // Usuário SMTP
         $mail->Password   = 'eneastroca8081!';       // Senha SMTP
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Criptografia TLS
-        $mail->Port       = 587;                         // Porta SMTP
+        $mail->SMTPSecure = 'tls';               // Criptografia TLS
+        $mail->Port       = 587;                  // Porta SMTP
 
         // Remetente e destinatário
         $mail->setFrom('contato@embrafer.com', 'Site');
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->isHTML(true);
         $mail->Subject = 'CONTATO - SITE - EMBRAFER';
         
-        // Template do e-mail
+        // Montagem do corpo do e-mail
         $mensagemHTML = "
         <p style='text-align: center;'><strong><span style='font-size: 20pt; font-family: Arial;'>Contato do Site</span></strong></p>
         <img src='http://www.estruturametalicasc.com.br/img/logo.png' alt='Logo'> <br />
@@ -152,9 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Redireciona para a página de sucesso
         header('Location: sucesso.html');
         exit();
-    } catch (Exception $e) {
-        // Em caso de erro no envio do e-mail, você pode logar o erro ou exibir uma mensagem
-        // Aqui, vamos redirecionar para uma página de erro
+    } catch (phpmailerException $e) {
+        // Em caso de erro no envio do e-mail, redireciona para uma página de erro
         header('Location: erro.html');
         exit();
     }
