@@ -128,7 +128,8 @@ $contatos = carregarContatos($conexao);
                 <button id="add-contact-btn">Adicionar Contato</button>
                 <a href="logout.php" class="logout-btn">Sair</a>
                 <div class="search-container">
-                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="&nbsp &nbsp &nbsp Pesquisar...">
+                    <i class="fas fa-search"></i> <!-- Ícone de lupa -->
+                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
                 </div>
             </div>
         </div>
@@ -160,10 +161,10 @@ $contatos = carregarContatos($conexao);
                         <td><?php echo date("d/m/Y H:i", strtotime($contato['data_envio'])); ?></td>
                         <td>
                             <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">
-                                <i class="fas fa-trash-alt"></i>&nbsp Del
+                                <i class="fas fa-trash-alt"></i> Deletar
                             </a>
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
-                                <i class="fas fa-edit"></i>&nbsp Edit
+                                <i class="fas fa-edit"></i> Editar
                             </a>
                         </td>
                     </tr>
