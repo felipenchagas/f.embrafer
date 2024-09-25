@@ -30,7 +30,6 @@ function carregarContatos($conexao) {
     $sql = "SELECT * FROM orcamentos ORDER BY data_envio DESC";
     $result = $conexao->query($sql);
     
-    // Verifica se houve erro na execução da consulta SQL
     if ($result === false) {
         die("Erro na consulta SQL: " . $conexao->error);
     }
@@ -44,25 +43,8 @@ function carregarContatos($conexao) {
     return $contatos;
 }
 
-// Processa a exclusão de contatos com verificação de token CSRF
-if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_GET['csrf_token'])) {
-    $id = $_GET['delete'];
-    $sql = "DELETE FROM orcamentos WHERE id=?";
-    $stmt = $conexao->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: index.php');
-        exit();
-    } else {
-        die("Erro ao preparar a consulta de exclusão: " . $conexao->error);
-    }
-}
-
-// Processa a edição de contatos
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
-    $id = $_POST['id'];
+// Processa a adição de contatos
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
     $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
     $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
     $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
@@ -70,15 +52,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
     $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
     $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
 
-    $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
+    $sql = "INSERT INTO orcamentos (nome, email, telefone, cidade, estado, descricao, data_envio) VALUES (?, ?, ?, ?, ?, ?, NOW())";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
-    $stmt->execute();
-    $stmt->close();
-
-    // Redireciona para a página de sucesso
-    header('Location: index.php');
-    exit();
+    if ($stmt) {
+        $stmt->bind_param("ssssss", $nome, $email, $telefone, $cidade, $estado, $descricao);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: index.php');
+        exit();
+    } else {
+        die("Erro ao preparar a consulta de inserção: " . $conexao->error);
+    }
 }
 
 // Carrega os contatos
@@ -142,6 +126,50 @@ $contatos = carregarContatos($conexao);
         <?php endif; ?>
     </div>
 
+    <!-- Modal de adicionar contato -->
+    <div id="add-contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Adicionar Novo Contato</h2>
+            <form action="index.php" method="post" class="add-contact-form">
+                <input type="hidden" name="adicionar" value="1">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="descricao">Descrição do Orçamento</label>
+                        <textarea id="descricao" name="descricao" required></textarea>
+                    </div>
+                </div>
+                <button type="submit">Adicionar Contato</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Modal de edição de contato -->
     <div id="edit-contact-modal" class="modal">
         <div class="modal-content">
@@ -189,20 +217,33 @@ $contatos = carregarContatos($conexao);
 
     <!-- Scripts -->
     <script>
-        var editModal = document.getElementById("edit-contact-modal");
-        var editSpan = document.getElementsByClassName("close-btn")[0];
+        var addModal = document.getElementById("add-contact-modal");
+        var addBtn = document.getElementById("add-contact-btn");
+        var addSpan = document.getElementsByClassName("close-btn")[0];
+
+        addBtn.onclick = function() {
+            addModal.style.display = "block";
+        }
+
+        addSpan.onclick = function() {
+            addModal.style.display = "none";
+        }
+
+        // Fecha o modal ao clicar fora dele
+        window.onclick = function(event) {
+            if (event.target == addModal) {
+                addModal.style.display = "none";
+            }
+        }
 
         // Função para abrir o modal de edição com os dados corretos
         function openEditModal(id) {
+            var editModal = document.getElementById("edit-contact-modal");
             editModal.style.display = "block";
-
-            // Debug: Verifique se a função está sendo chamada corretamente
-            console.log("Abrindo modal para o ID:", id);
 
             var contato = <?php echo json_encode($contatos); ?>;
             var contatoSelecionado = contato.find(c => c.id == id);
 
-            // Preenche os campos com os dados do contato
             document.getElementById("edit-id").value = contatoSelecionado.id;
             document.getElementById("edit-nome").value = contatoSelecionado.nome;
             document.getElementById("edit-email").value = contatoSelecionado.email;
@@ -212,13 +253,14 @@ $contatos = carregarContatos($conexao);
             document.getElementById("edit-descricao").value = contatoSelecionado.descricao;
         }
 
-        // Função para fechar o modal
+        var editSpan = document.getElementsByClassName("close-btn")[1];
         editSpan.onclick = function() {
+            var editModal = document.getElementById("edit-contact-modal");
             editModal.style.display = "none";
         }
 
-        // Fecha o modal ao clicar fora dele
         window.onclick = function(event) {
+            var editModal = document.getElementById("edit-contact-modal");
             if (event.target == editModal) {
                 editModal.style.display = "none";
             }
