@@ -334,17 +334,18 @@ $contatos = carregarContatos($conexao);
             
             if (contatoSelecionado) {
                 var detalhes = `
-                    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
-                    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
-                    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
-                    <button id="mostrar-detalhes-btn">Mostrar Detalhes</button>
-                    <div id="detalhes-orcamento" style="display:none;">
-                        <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
-                        <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
-                        <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
-                        <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
-                    </div>
-                `;
+    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
+    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
+    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
+    <button id="mostrar-detalhes-btn" class="action-btn">Mostrar Detalhes</button>
+    <div id="detalhes-orcamento" style="display:none;">
+        <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
+        <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
+        <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
+        <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
+    </div>
+`;
+
                 document.getElementById("orcamento-details").innerHTML = detalhes;
                 orcamentoModal.style.display = "block";
 

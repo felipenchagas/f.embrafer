@@ -166,6 +166,40 @@ table a.edit-btn:hover {
     background-color: #388e3c;
 }
 
+/* Estilo para o botão "Mostrar Detalhes" */
+.action-btn {
+    padding: 10px 20px; /* Ajusta o padding conforme os outros botões */
+    border: none;
+    background-color: #1e88e5; /* Mesma cor dos botões "Adicionar Contato" e "Sair" */
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #1565c0; /* Cor de hover consistente */
+}
+
+@media screen and (max-width: 768px) {
+    #searchInput {
+        width: 100%;
+        padding: 10px 15px 10px 40px;
+        font-size: 16px;
+    }
+
+    table td {
+        font-size: 16px;
+    }
+
+    .action-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
 /* Botão Orçamento */
 table a.orcamento-btn {
     background-color: #1a5a0c;
