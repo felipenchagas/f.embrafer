@@ -1,3 +1,4 @@
+<?php
 session_start();
 
 // Verifica se o usuário está logado
@@ -23,16 +24,23 @@ if ($conexao->connect_error) {
     die("Falha na conexão com o banco de dados: " . $conexao->connect_error);
 }
 
-// Funções para carregar contatos
+// Função para carregar contatos com verificação de erros
 function carregarContatos($conexao) {
     $contatos = array();
     $sql = "SELECT * FROM orcamentos ORDER BY data_envio DESC";
     $result = $conexao->query($sql);
+    
+    // Verifica se houve erro na execução da consulta SQL
+    if ($result === false) {
+        die("Erro na consulta SQL: " . $conexao->error);
+    }
+
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $contatos[] = $row;
         }
     }
+
     return $contatos;
 }
 
@@ -41,16 +49,31 @@ if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSIO
     $id = $_GET['delete'];
     $sql = "DELETE FROM orcamentos WHERE id=?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $stmt->close();
-    header('Location: index.php');
-    exit();
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: index.php');
+        exit();
+    } else {
+        die("Erro ao preparar a consulta de exclusão: " . $conexao->error);
+    }
 }
 
 // Carrega os contatos
 $contatos = carregarContatos($conexao);
+
+// Verifica se os contatos foram carregados corretamente
+if (empty($contatos)) {
+    echo "Nenhum contato encontrado.";
+} else {
+    // Debug: Exibe os contatos carregados (apenas para depuração)
+    echo "<pre>";
+    var_dump($contatos);
+    echo "</pre>";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -61,6 +84,7 @@ $contatos = carregarContatos($conexao);
 </head>
 
 <body>
+    <!-- Conteúdo principal -->
     <div class="container">
         <div class="top-bar">
             <h1>Lista de Contatos</h1>
@@ -107,9 +131,9 @@ $contatos = carregarContatos($conexao);
         <?php else: ?>
         <p>Nenhum contato encontrado.</p>
         <?php endif; ?>
-
     </div>
 
+    <!-- Scripts -->
     <script>
         // Função para abrir o modal de edição com os dados corretos
         function openEditModal(id) {
