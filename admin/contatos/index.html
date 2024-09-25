@@ -167,7 +167,7 @@ $contatos = carregarContatos($conexao);
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
                                 <i class="fas fa-edit"></i> Editar
                             </a>
-							
+
                             <a href="#" class="orcamento-btn" onclick="openOrcamentoModal(<?php echo $contato['id']; ?>)">
                                 <i class="fas fa-file-invoice-dollar"></i> Orçamento
                             </a>
@@ -338,7 +338,7 @@ $contatos = carregarContatos($conexao);
                     <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
                     <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
                     <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
-                    <button id="mostrar-detalhes-btn" class="botao-detalhes">Mostrar Detalhes</button>
+                    <button id="mostrar-detalhes-btn">Mostrar Detalhes</button>
                     <div id="detalhes-orcamento" style="display:none;">
                         <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
                         <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
