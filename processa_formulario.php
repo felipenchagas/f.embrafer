@@ -26,15 +26,13 @@ $conexao2 = new mysqli($servidor2, $usuario2, $senha2, $banco2);
 
 // Verifica se há erro nas conexões e exibe os erros
 if ($conexao1->connect_error) {
-    echo "Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>";
-} else {
-    echo "Conexão com o primeiro banco de dados (BD1) estabelecida com sucesso.<br>";
+    // Exibe erros de conexão
+    exit("Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>");
 }
 
 if ($conexao2->connect_error) {
-    echo "Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>";
-} else {
-    echo "Conexão com o segundo banco de dados (BD2) estabelecida com sucesso.<br>";
+    // Exibe erros de conexão
+    exit("Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -106,13 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt1->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt1->execute()) {
                 $db1_sucesso = true; // Marca como bem-sucedido no DB1
-                echo "Dados inseridos com sucesso no primeiro banco de dados (BD1).<br>";
-            } else {
-                echo "Erro ao inserir dados no primeiro banco de dados (BD1): " . $stmt1->error . "<br>";
             }
             $stmt1->close();
-        } else {
-            echo "Erro ao preparar a consulta no primeiro banco de dados (BD1): " . $conexao1->error . "<br>";
         }
     }
 
@@ -125,20 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt2->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt2->execute()) {
                 $db2_sucesso = true; // Marca como bem-sucedido no DB2
-                echo "Dados inseridos com sucesso no segundo banco de dados (BD2).<br>";
-            } else {
-                echo "Erro ao inserir dados no segundo banco de dados (BD2): " . $stmt2->error . "<br>";
             }
             $stmt2->close();
-        } else {
-            echo "Erro ao preparar a consulta no segundo banco de dados (BD2): " . $conexao2->error . "<br>";
         }
     }
 
     // Verifica se pelo menos uma inserção foi bem-sucedida
     if (!$db1_sucesso && !$db2_sucesso) {
-        echo "Erro: Não foi possível salvar os dados em nenhum dos bancos de dados.";
-        exit();
+        exit("Erro: Não foi possível salvar os dados em nenhum dos bancos de dados.");
     }
 
     // Fecha as conexões
