@@ -8,38 +8,38 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
-// Caminho para o arquivo de contatos
-$arquivo_contatos = '../../contatos.txt';
+// Conectar ao banco de dados
+$servidor = "localhost"; // Coloque o IP do servidor, se necessário
+$usuario = "embra_usuario";
+$senha = "uRXA1r9Z7pv~Cw";
+$banco = "embra_orcamentos";
+
+$conexao = new mysqli($servidor, $usuario, $senha, $banco);
+if ($conexao->connect_error) {
+    die("Falha na conexão com o banco de dados: " . $conexao->connect_error);
+}
 
 // Funções para carregar e salvar contatos
-function carregarContatos($arquivo) {
+function carregarContatos($conexao) {
     $contatos = array();
-    if (file_exists($arquivo)) {
-        $conteudo = file($arquivo, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($conteudo as $linha) {
-            $contatos[] = json_decode($linha, true);
+    $sql = "SELECT * FROM orcamentos";
+    $result = $conexao->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $contatos[] = $row;
         }
     }
     return $contatos;
 }
 
-function salvarContatos($arquivo, $contatos) {
-    $conteudo = '';
-    foreach ($contatos as $contato) {
-        $conteudo .= json_encode($contato) . PHP_EOL;
-    }
-    file_put_contents($arquivo, $conteudo);
-}
-
 // Processa a exclusão de contatos
 if (isset($_GET['delete'])) {
-    $index = $_GET['delete'];
-    $contatos = carregarContatos($arquivo_contatos);
-    if (isset($contatos[$index])) {
-        unset($contatos[$index]);
-        $contatos = array_values($contatos); // Reindexa o array
-        salvarContatos($arquivo_contatos, $contatos);
-    }
+    $id = $_GET['delete'];
+    $sql = "DELETE FROM orcamentos WHERE id=?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
     header('Location: index.php');
     exit();
 }
@@ -48,10 +48,7 @@ if (isset($_GET['delete'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
     // Função para sanitizar os dados de entrada
     function sanitizar($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-        return $data;
+        return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
     }
 
     // Captura e sanitiza os dados do formulário
@@ -73,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
         $erros[] = 'E-mail inválido.';
     }
 
-    if (empty($telefone) || !ctype_digit($telefone)) {
+    if (empty($telefone)) {
         $erros[] = 'Telefone inválido.';
     }
 
@@ -91,31 +88,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
 
     // Se houver erros, redireciona de volta para o formulário com mensagens de erro
     if (!empty($erros)) {
-        // Armazena os erros na sessão para exibição
         $_SESSION['erros'] = $erros;
         header('Location: index.php?erro=true');
         exit();
     }
 
-    // Prepara os dados para salvar
-    $novo_contato = array(
-        'nome' => $nome,
-        'email' => $email,
-        'telefone' => $telefone,
-        'cidade' => $cidade,
-        'estado' => $estado,
-        'descricao' => $descricao,
-        'data_envio' => date('Y-m-d H:i:s')
-    );
+    // Prepara a inserção no banco de dados
+    $sql = "INSERT INTO orcamentos (nome, email, telefone, cidade, estado, descricao, data_envio) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ssssss", $nome, $email, $telefone, $cidade, $estado, $descricao);
+    $stmt->execute();
+    $stmt->close();
 
-    // Carrega os contatos existentes
-    $contatos = carregarContatos($arquivo_contatos);
-    
-    // Adiciona o novo contato
-    $contatos[] = $novo_contato;
-    
-    // Salva todos os contatos de volta no arquivo
-    salvarContatos($arquivo_contatos, $contatos);
+    // Redireciona para a página de sucesso
+    header('Location: index.php');
+    exit();
+}
+
+// Processa a edição de contatos
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
+    $id = $_POST['id'];
+    $nome = sanitizar($_POST['nome']);
+    $email = sanitizar($_POST['email']);
+    $telefone = sanitizar($_POST['telefone']);
+    $cidade = sanitizar($_POST['cidade']);
+    $estado = sanitizar($_POST['estado']);
+    $descricao = sanitizar($_POST['descricao']);
+
+    // Atualiza o contato no banco de dados
+    $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
+    $stmt->execute();
+    $stmt->close();
 
     // Redireciona para a página de sucesso
     header('Location: index.php');
@@ -123,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
 }
 
 // Carrega os contatos
-$contatos = carregarContatos($arquivo_contatos);
+$contatos = carregarContatos($conexao);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -138,56 +143,6 @@ $contatos = carregarContatos($arquivo_contatos);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<!-- Botão Flutuante -->
-<div class="floating-button">
-  <button id="openModalBtn">Solicitar Orçamento</button>
-</div>
-
-<!-- Modal -->
-<div id="contactModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Solicitar Orçamento</h2>
-    
-    <form action="processa_formulario.php" method="post" id="contact-form">
-      <div class="input-group">
-        <label for="nome">Nome Completo</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-      </div>
-      
-      <div class="input-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-      </div>
-      
-      <div class="input-group">
-        <label for="telefone">Telefone</label>
-        <div class="phone-fields">
-          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
-          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
-        </div>
-      </div>
-      
-      <div class="form-row">
-        <div class="input-group cidade">
-          <label for="cidade">Cidade</label>
-          <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
-        </div>
-        <div class="input-group estado">
-          <label for="estado">Estado</label>
-          <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
-        </div>
-      </div>
-      
-      <div class="input-group">
-        <label for="descricao">Descrição do Orçamento</label>
-        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
-      </div>
-      
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-</div>
 <body>
     <!-- Conteúdo principal -->
     <div class="container">
@@ -215,23 +170,19 @@ $contatos = carregarContatos($arquivo_contatos);
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($contatos as $index => $contato): ?>
+                <?php foreach ($contatos as $contato): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($contato['nome']); ?></td>
                         <td><?php echo htmlspecialchars($contato['email']); ?></td>
-                        <td>
-                            <div class="phone-container">
-                                <?php echo htmlspecialchars($contato['telefone']); ?>
-                                <a href="https://api.whatsapp.com/send/?phone=55<?php echo htmlspecialchars($contato['telefone']); ?>" target="_blank">
-                                    <img src="wts.svg" alt="WhatsApp" class="whatsapp-icon" style="width:24px; height:24px;">
-                                </a>
-                            </div>
-                        </td>
+                        <td><?php echo htmlspecialchars($contato['telefone']); ?></td>
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>
                         <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
                         <td><?php echo htmlspecialchars($contato['data_envio']); ?></td>
-                        <td><a href="?delete=<?php echo $index; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a></td>
+                        <td>
+                            <a href="?delete=<?php echo $contato['id']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a>
+                            <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">Editar</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -241,7 +192,7 @@ $contatos = carregarContatos($arquivo_contatos);
         <p>Nenhum contato encontrado.</p>
         <?php endif; ?>
 
-        <!-- Modal de adicionar contato (inicialmente oculto) -->
+        <!-- Modal de adicionar contato -->
         <div id="add-contact-modal" class="modal">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
@@ -273,7 +224,6 @@ $contatos = carregarContatos($arquivo_contatos);
                             <label for="estado">Estado</label>
                             <input type="text" id="estado" name="estado" required>
                         </div>
-                        <!-- Remover o campo "Lista de Espera" -->
                     </div>
                     <div class="form-row">
                         <div class="input-group">
@@ -285,11 +235,55 @@ $contatos = carregarContatos($arquivo_contatos);
                 </form>
             </div>
         </div>
+
+        <!-- Modal de edição de contato -->
+        <div id="edit-contact-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Editar Contato</h2>
+                <form action="" method="post" class="edit-contact-form">
+                    <input type="hidden" name="id" id="edit-id">
+                    <input type="hidden" name="editar" value="1">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="edit-nome">Nome Completo</label>
+                            <input type="text" id="edit-nome" name="nome" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-email">E-mail</label>
+                            <input type="email" id="edit-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="edit-telefone">Telefone</label>
+                            <input type="text" id="edit-telefone" name="telefone" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-cidade">Cidade</label>
+                            <input type="text" id="edit-cidade" name="cidade" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="edit-estado">Estado</label>
+                            <input type="text" id="edit-estado" name="estado" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="edit-descricao">Descrição do Orçamento</label>
+                            <textarea id="edit-descricao" name="descricao" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit">Salvar Alterações</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        // Script para abrir e fechar o modal de adicionar contato
         var addModal = document.getElementById("add-contact-modal");
         var addBtn = document.getElementById("add-contact-btn");
         var addSpan = document.getElementsByClassName("close-btn")[0];
@@ -309,23 +303,34 @@ $contatos = carregarContatos($arquivo_contatos);
             }
         }
 
-        // Script para abrir e fechar o modal de solicitação de orçamento
-        var solicitModal = document.getElementById("contactModal");
-        var solicitBtn = document.getElementById("openModalBtn");
-        var solicitSpan = document.querySelector(".modal .close");
+        // Função para abrir o modal de edição com os dados corretos
+        function openEditModal(id) {
+            var modal = document.getElementById("edit-contact-modal");
+            modal.classList.add("show");
 
-        solicitBtn.onclick = function() {
-            solicitModal.style.display = "block";
+            // Carrega os dados do contato no modal de edição
+            var contato = <?php echo json_encode($contatos); ?>;
+            var contatoSelecionado = contato.find(c => c.id == id);
+
+            document.getElementById("edit-id").value = contatoSelecionado.id;
+            document.getElementById("edit-nome").value = contatoSelecionado.nome;
+            document.getElementById("edit-email").value = contatoSelecionado.email;
+            document.getElementById("edit-telefone").value = contatoSelecionado.telefone;
+            document.getElementById("edit-cidade").value = contatoSelecionado.cidade;
+            document.getElementById("edit-estado").value = contatoSelecionado.estado;
+            document.getElementById("edit-descricao").value = contatoSelecionado.descricao;
         }
 
-        solicitSpan.onclick = function() {
-            solicitModal.style.display = "none";
+        var editSpan = document.getElementsByClassName("close-btn")[1];
+        editSpan.onclick = function() {
+            var modal = document.getElementById("edit-contact-modal");
+            modal.classList.remove("show");
         }
 
-        // Fecha o modal ao clicar fora dele
         window.onclick = function(event) {
-            if (event.target == solicitModal) {
-                solicitModal.style.display = "none";
+            var modal = document.getElementById("edit-contact-modal");
+            if (event.target == modal) {
+                modal.classList.remove("show");
             }
         }
     </script>
