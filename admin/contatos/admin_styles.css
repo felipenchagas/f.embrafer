@@ -167,6 +167,27 @@ table a.edit-btn:hover {
     background-color: #388e3c;
 }
 
+/* Estilo para o botão "Mostrar Detalhes" */
+.botao-detalhes {
+    background-color: #1e88e5; /* Cor azul semelhante aos outros botões */
+    color: #fff; /* Texto branco */
+    padding: 10px 20px; /* Espaçamento interno consistente */
+    border: none; /* Remover bordas padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    text-decoration: none; /* Remover sublinhado, caso seja um link */
+    transition: background-color 0.3s; /* Transição suave para hover */
+    display: inline-flex; /* Flexível para alinhar ícones e texto */
+    align-items: center; /* Alinhar verticalmente ícones e texto */
+}
+
+/* Efeito de hover para o botão */
+.botao-detalhes:hover {
+    background-color: #1565c0; /* Azul mais escuro ao passar o mouse */
+}
+
+
 /* Botão Orçamento */
 table a.orcamento-btn {
     background-color: #225b12;
