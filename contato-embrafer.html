@@ -215,16 +215,49 @@
           <div class="span5">
           
 <h3>Entre em contato conosco</h3>
-<form method="POST" action="envia.php" class="comment-form">
-<p class="comment-form-author"></label> <input placeholder="Nome * " id="author" name="nomeremetente" type="text" value="" size="30" maxlength="245" required='required' /></p>
-<p class="comment-form-email"></label> <input placeholder="Email * email@email.com.br" id="email" name="emailremetente" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" title="Email Invalido" required='required' /></p>
-<p style="width:60px; float:left;" class="comment-form-url"><input placeholder="(00)" id="url" name="ddd" type="text" value="" size="30" pattern="^\d{2}$" maxlength="2" required title="SEU DDD Código de Área Exemplo (41)" /></p>
-<p style=" float:left;" class="comment-form-url"><input placeholder="00000000" id="url" name="telefone" type="text" value="" size="30" pattern="^\d{8,9}$" maxlength="9" title="Preencher o Telefone Exemplo: 12345678 ou 123456789" required /></p>
-<p class="comment-form-url"><input placeholder="Cidade" id="url" name="cidade" type="text" value="" size="30" maxlength="200" /></p>
-<p class="comment-form-comment">
-<textarea placeholder="Digite aqui detalhes do seu orçamento ou dúvidas" id="comment" name="mensagem" cols="45" rows="8" maxlength="65525"></textarea></p>
-<br /><br /><br /><p class="form-submit"><input name="submit" type="submit" id="submit" class="btn btn-large main-bg" value="Enviar" /></p>
-</form>
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Orçamento</h2>
+    
+    <form action="processa_formulario.php" method="post" id="contact-form">
+      <div class="input-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+      </div>
+      
+      <div class="input-group">
+        <label for="telefone">Telefone</label>
+        <div class="phone-fields">
+          <input type="text" id="ddd" name="ddd" placeholder="DDD" maxlength="2" required>
+          <input type="text" id="telefone" name="telefone" placeholder="Número" required>
+        </div>
+      </div>
+      
+<div class="form-row">
+  <div class="input-group cidade">
+    <label for="cidade">Cidade</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Digite sua cidade" required>
+  </div>
+  <div class="input-group estado">
+    <label for="estado">Estado</label>
+    <input type="text" id="estado" name="estado" placeholder="Digite" maxlength="2" required>
+  </div>
+</div>
+      
+      <div class="input-group">
+        <label for="descricao">Descrição do Orçamento</label>
+        <textarea id="descricao" name="descricao" placeholder="Descreva o serviço ou estrutura metálica que deseja orçar" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 
 <br /><br />
 
