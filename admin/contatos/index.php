@@ -213,36 +213,50 @@ $contatos = carregarContatos($conexao);
         </div>
     </div>
 
-<!-- Modal para edição -->
-<div class="modal" id="editModal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2>Editar Contato</h2>
-        <form method="POST" action="index.php">
-            <input type="hidden" name="id" value="<?php echo $contato['id']; ?>">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" value="<?php echo $contato['nome']; ?>" required>
-            
-            <label for="email">E-mail</label>
-            <input type="email" name="email" value="<?php echo $contato['email']; ?>" required>
-            
-            <label for="telefone">Telefone</label>
-            <input type="text" name="telefone" value="<?php echo $contato['telefone']; ?>" required>
-            
-            <label for="cidade">Cidade</label>
-            <input type="text" name="cidade" value="<?php echo $contato['cidade']; ?>" required>
-            
-            <label for="estado">Estado</label>
-            <input type="text" name="estado" value="<?php echo $contato['estado']; ?>" required>
-            
-            <label for="descricao">Descrição</label>
-            <textarea name="descricao" required><?php echo $contato['descricao']; ?></textarea>
-            
-            <button type="submit" name="editar">Salvar Alterações</button>
-        </form>
+    <!-- Modal de edição de contato -->
+    <div id="edit-contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Editar Contato</h2>
+            <form action="index.php" method="post" class="edit-contact-form">
+                <input type="hidden" name="id" id="edit-id">
+                <input type="hidden" name="editar" value="1">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="edit-nome">Nome Completo</label>
+                        <input type="text" id="edit-nome" name="nome" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-email">E-mail</label>
+                        <input type="email" id="edit-email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="edit-telefone">Telefone</label>
+                        <input type="text" id="edit-telefone" name="telefone" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-cidade">Cidade</label>
+                        <input type="text" id="edit-cidade" name="cidade" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="edit-estado">Estado</label>
+                        <input type="text" id="edit-estado" name="estado" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="edit-descricao">Descrição do Orçamento</label>
+                        <textarea id="edit-descricao" name="descricao" required></textarea>
+                    </div>
+                </div>
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
     </div>
-</div>
-
 
     <!-- Scripts -->
     <script>
