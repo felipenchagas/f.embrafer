@@ -43,6 +43,18 @@ function carregarContatos($conexao) {
     return $contatos;
 }
 
+// Processa a exclusão de contatos com verificação de token CSRF
+if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_GET['csrf_token'])) {
+    $id = $_GET['delete'];
+    $sql = "DELETE FROM orcamentos WHERE id=?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $stmt->close();
+    header('Location: index.php');
+    exit();
+}
+
 // Processa a adição de contatos
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
     $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
@@ -65,16 +77,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
     }
 }
 
+// Processa a edição de contatos
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
+    $id = $_POST['id'];
+    $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+    $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
+    $cidade = htmlspecialchars(trim($_POST['cidade']), ENT_QUOTES, 'UTF-8');
+    $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
+    $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
+
+    // Atualiza o contato no banco de dados
+    $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
+    $stmt->execute();
+    $stmt->close();
+
+    // Redireciona para a página de sucesso
+    header('Location: index.php');
+    exit();
+}
+
 // Carrega os contatos
 $contatos = carregarContatos($conexao);
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Admin - Contatos</title>
     <link rel="stylesheet" href="admin_styles3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -84,21 +120,22 @@ $contatos = carregarContatos($conexao);
             <div class="top-bar-buttons">
                 <button id="add-contact-btn">Adicionar Contato</button>
                 <a href="logout.php" class="logout-btn">Sair</a>
+                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
             </div>
         </div>
 
         <?php if (!empty($contatos)): ?>
         <div class="table-container">
-            <table>
+            <table id="contactsTable">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
-                        <th>Cidade</th>
-                        <th>Estado</th>
-                        <th>Descrição do Orçamento</th>
-                        <th>Data de Envio</th>
+                        <th onclick="sortTable(0)">Nome</th>
+                        <th onclick="sortTable(1)">E-mail</th>
+                        <th onclick="sortTable(2)">Telefone</th>
+                        <th onclick="sortTable(3)">Cidade</th>
+                        <th onclick="sortTable(4)">Estado</th>
+                        <th onclick="sortTable(5)">Descrição do Orçamento</th>
+                        <th onclick="sortTable(6)">Data de Envio</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -111,7 +148,7 @@ $contatos = carregarContatos($conexao);
                         <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
                         <td><?php echo htmlspecialchars($contato['estado']); ?></td>
                         <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
-                        <td><?php echo htmlspecialchars($contato['data_envio']); ?></td>
+                        <td><?php echo date("d/m/Y H:i", strtotime($contato['data_envio'])); ?></td>
                         <td>
                             <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a>
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">Editar</a>
@@ -217,6 +254,7 @@ $contatos = carregarContatos($conexao);
 
     <!-- Scripts -->
     <script>
+        // Script para abrir e fechar o modal de adicionar contato
         var addModal = document.getElementById("add-contact-modal");
         var addBtn = document.getElementById("add-contact-btn");
         var addSpan = document.getElementsByClassName("close-btn")[0];
@@ -264,6 +302,37 @@ $contatos = carregarContatos($conexao);
             if (event.target == editModal) {
                 editModal.style.display = "none";
             }
+        }
+
+        // Função para ordenar as colunas
+        let sortOrder = {};
+        function sortTable(n) {
+            let table = document.getElementById("contactsTable");
+            let rows = Array.from(table.rows).slice(1);
+            let isAscending = !sortOrder[n];
+
+            rows.sort((row1, row2) => {
+                let cell1 = row1.cells[n].innerText.toLowerCase();
+                let cell2 = row2.cells[n].innerText.toLowerCase();
+
+                if (cell1 < cell2) return isAscending ? -1 : 1;
+                if (cell1 > cell2) return isAscending ? 1 : -1;
+                return 0;
+            });
+
+            rows.forEach(row => table.appendChild(row));
+            sortOrder[n] = isAscending;
+        }
+
+        // Função para pesquisar na tabela
+        function searchTable() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let rows = document.querySelectorAll("table tbody tr");
+
+            rows.forEach(row => {
+                let rowText = row.innerText.toLowerCase();
+                row.style.display = rowText.includes(input) ? "" : "none";
+            });
         }
     </script>
 </body>
