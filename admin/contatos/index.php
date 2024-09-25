@@ -163,7 +163,7 @@ $contatos = carregarContatos($conexao);
                                 <i class="fas fa-trash-alt"></i> Del
                             </a>
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
-                                <i class="fas fa-edit"></i> Editar
+                                <i class="fas fa-edit"></i> Edit
                             </a>
                         </td>
                     </tr>
