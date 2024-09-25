@@ -114,6 +114,7 @@ $contatos = carregarContatos($conexao);
     <meta charset="UTF-8">
     <title>Admin - Contatos</title>
     <link rel="stylesheet" href="admin_styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -126,7 +127,9 @@ $contatos = carregarContatos($conexao);
             <div class="top-bar-buttons">
                 <button id="add-contact-btn">Adicionar Contato</button>
                 <a href="logout.php" class="logout-btn">Sair</a>
-                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
+                <div class="search-container">
+                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
+                </div>
             </div>
         </div>
 
@@ -156,8 +159,12 @@ $contatos = carregarContatos($conexao);
                         <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
                         <td><?php echo date("d/m/Y H:i", strtotime($contato['data_envio'])); ?></td>
                         <td>
-                            <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">Deletar</a>
-                            <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">Editar</a>
+                            <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">
+                                <i class="fas fa-trash-alt"></i> Deletar
+                            </a>
+                            <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
