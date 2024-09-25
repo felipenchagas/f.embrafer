@@ -337,7 +337,7 @@ $contatos = carregarContatos($conexao);
                     <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
                     <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
                     <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
-                    <button id="mostrar-detalhes-btn" class="top-bar-buttons">Mostrar Detalhes</button>
+                    <button id="mostrar-detalhes-btn" class="edit-btn">Mostrar Detalhes</button>
                     <div id="detalhes-orcamento" style="display:none;">
                         <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
                         <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
