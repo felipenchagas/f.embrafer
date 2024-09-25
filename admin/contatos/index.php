@@ -24,7 +24,7 @@ if ($conexao->connect_error) {
     die("Falha na conexão com o banco de dados: " . $conexao->connect_error);
 }
 
-// Função para carregar contatos com verificação de erros
+// Função para carregar contatos
 function carregarContatos($conexao) {
     $contatos = array();
     $sql = "SELECT * FROM orcamentos ORDER BY data_envio DESC";
@@ -34,12 +34,9 @@ function carregarContatos($conexao) {
         die("Erro na consulta SQL: " . $conexao->error);
     }
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $contatos[] = $row;
-        }
+    while ($row = $result->fetch_assoc()) {
+        $contatos[] = $row;
     }
-
     return $contatos;
 }
 
@@ -91,7 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
     $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
     $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
 
-    // Atualiza o contato no banco de dados
     $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
     $stmt = $conexao->prepare($sql);
     if ($stmt) {
@@ -108,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
 // Carrega os contatos
 $contatos = carregarContatos($conexao);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
