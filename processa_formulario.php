@@ -1,425 +1,243 @@
 <?php
+// Ativa a exibição de erros para depuração (remova ou comente essas linhas em produção)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Inclui os arquivos do PHPMailer (ajuste o caminho conforme necessário)
+require_once("novo/class.phpmailer.php");
+require_once("novo/class.smtp.php");
+
+// Conectar ao primeiro banco de dados (informações fornecidas)
+$servidor1 = "162.214.145.189"; // IP do banco de dados
+$usuario1 = "empre028_felipe";   // Usuário do banco de dados
+$senha1 = "Iuh86gwt--@Z123";     // Senha do banco de dados
+$banco1 = "empre028_orcamentos"; // Nome do banco de dados
+
+// Conectar ao segundo banco de dados (Locaweb)
+$servidor2 = "localhost"; // Banco de dados local (Locaweb)
+$usuario2 = "embra_usuario";
+$senha2 = "uRXA1r9Z7pv~Cw";
+$banco2 = "embra_orcamentos";
+
+// Criar as conexões
+$conexao1 = new mysqli($servidor1, $usuario1, $senha1, $banco1);
+$conexao2 = new mysqli($servidor2, $usuario2, $senha2, $banco2);
+
+// Verifica se há erro nas conexões e exibe os erros
+if ($conexao1->connect_error) {
+    echo "Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>";
+} else {
+    echo "Conexão com o primeiro banco de dados (BD1) estabelecida com sucesso.<br>";
+    // Exibe erros de conexão
+    exit("Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>");
+}
+
+if ($conexao2->connect_error) {
+    echo "Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>";
+} else {
+    echo "Conexão com o segundo banco de dados (BD2) estabelecida com sucesso.<br>";
+    // Exibe erros de conexão
+    exit("Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>");
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// Função para sanitizar os dados de entrada
+function sanitizar($data) {
+$data = trim($data);
+$data = stripslashes($data);
+$data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+return $data;
+}
+
+// Captura e sanitiza os dados do formulário
+$nome = sanitizar($_POST['nome']);
+$email = sanitizar($_POST['email']);
+$ddd = sanitizar($_POST['ddd']);
+$telefone = sanitizar($_POST['telefone']);
+$cidade = sanitizar($_POST['cidade']);
+$estado = sanitizar($_POST['estado']);
+$descricao = sanitizar($_POST['descricao']);
+
+// Validação básica dos campos obrigatórios
+$erros = array();
+
+if (empty($nome)) {
+$erros[] = 'O campo Nome é obrigatório.';
+}
+
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+$erros[] = 'E-mail inválido.';
+}
+
+if (empty($ddd) || !ctype_digit($ddd) || strlen($ddd) != 2) {
+$erros[] = 'DDD inválido.';
+}
+
+if (empty($telefone) || !ctype_digit($telefone)) {
+$erros[] = 'Telefone inválido.';
+}
+
+if (empty($cidade)) {
+$erros[] = 'O campo Cidade é obrigatório.';
+}
+
+if (empty($estado)) {
+$erros[] = 'O campo Estado é obrigatório.';
+}
+
+if (empty($descricao)) {
+$erros[] = 'O campo Descrição do Orçamento é obrigatório.';
+}
+
+// Se houver erros, redireciona de volta para o formulário com mensagens de erro
+if (!empty($erros)) {
 session_start();
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    // Redireciona para a página de login
-    header('Location: login.php');
-    exit();
+$_SESSION['erros'] = $erros;
+header('Location: index.php?erro=true');
+exit();
 }
 
-// Gera um token CSRF para exclusão segura
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+$db1_sucesso = false;
+$db2_sucesso = false;
+
+// Insere no primeiro banco de dados (se a conexão for bem-sucedida)
+if (!$conexao1->connect_error) {
+$sql = "INSERT INTO orcamentos (nome, email, ddd, telefone, cidade, estado, descricao, data_envio)
+               VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+
+if ($stmt1 = $conexao1->prepare($sql)) {
+$stmt1->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
+if ($stmt1->execute()) {
+$db1_sucesso = true; // Marca como bem-sucedido no DB1
+                echo "Dados inseridos com sucesso no primeiro banco de dados (BD1).<br>";
+            } else {
+                echo "Erro ao inserir dados no primeiro banco de dados (BD1): " . $stmt1->error . "<br>";
+}
+$stmt1->close();
+        } else {
+            echo "Erro ao preparar a consulta no primeiro banco de dados (BD1): " . $conexao1->error . "<br>";
+}
 }
 
-// Conectar ao banco de dados
-$servidor = "localhost";
-$usuario = "embra_usuario";
-$senha = "uRXA1r9Z7pv~Cw";
-$banco = "embra_orcamentos";
+// Insere no segundo banco de dados (se a conexão for bem-sucedida)
+if (!$conexao2->connect_error) {
+$sql = "INSERT INTO orcamentos (nome, email, ddd, telefone, cidade, estado, descricao, data_envio)
+               VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
 
-$conexao = new mysqli($servidor, $usuario, $senha, $banco);
-if ($conexao->connect_error) {
-    die("Falha na conexão com o banco de dados: " . $conexao->connect_error);
+if ($stmt2 = $conexao2->prepare($sql)) {
+$stmt2->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
+if ($stmt2->execute()) {
+$db2_sucesso = true; // Marca como bem-sucedido no DB2
+                echo "Dados inseridos com sucesso no segundo banco de dados (BD2).<br>";
+            } else {
+                echo "Erro ao inserir dados no segundo banco de dados (BD2): " . $stmt2->error . "<br>";
+}
+$stmt2->close();
+        } else {
+            echo "Erro ao preparar a consulta no segundo banco de dados (BD2): " . $conexao2->error . "<br>";
+}
 }
 
-// Função para carregar contatos com verificação de erros
-function carregarContatos($conexao) {
-    $contatos = array();
-    $sql = "SELECT * FROM orcamentos ORDER BY data_envio DESC";
-    $result = $conexao->query($sql);
-    
-    if ($result === false) {
-        die("Erro na consulta SQL: " . $conexao->error);
-    }
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $contatos[] = $row;
-        }
-    }
-
-    return $contatos;
-}
-
-// Processa a exclusão de contatos com verificação de token CSRF
-if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_GET['csrf_token'])) {
-    $id = $_GET['delete'];
-    $sql = "DELETE FROM orcamentos WHERE id=?";
-    $stmt = $conexao->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: index.php');
+// Verifica se pelo menos uma inserção foi bem-sucedida
+if (!$db1_sucesso && !$db2_sucesso) {
+        echo "Erro: Não foi possível salvar os dados em nenhum dos bancos de dados.";
         exit();
-    } else {
-        die("Erro ao preparar a consulta de exclusão: " . $conexao->error);
-    }
+        exit("Erro: Não foi possível salvar os dados em nenhum dos bancos de dados.");
 }
 
-// Processa a adição de contatos
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
-    $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
-    $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
-    $cidade = htmlspecialchars(trim($_POST['cidade']), ENT_QUOTES, 'UTF-8');
-    $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
-    $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
-
-    $sql = "INSERT INTO orcamentos (nome, email, telefone, cidade, estado, descricao, data_envio) VALUES (?, ?, ?, ?, ?, ?, NOW())";
-    $stmt = $conexao->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("ssssss", $nome, $email, $telefone, $cidade, $estado, $descricao);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: index.php');
-        exit();
-    } else {
-        die("Erro ao preparar a consulta de inserção: " . $conexao->error);
-    }
+// Fecha as conexões
+if (!$conexao1->connect_error) {
+$conexao1->close();
+}
+if (!$conexao2->connect_error) {
+$conexao2->close();
 }
 
-// Processa a edição de contatos
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
-    $id = $_POST['id'];
-    $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
-    $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
-    $cidade = htmlspecialchars(trim($_POST['cidade']), ENT_QUOTES, 'UTF-8');
-    $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
-    $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
+// Envia o e-mail utilizando o PHPMailer
+$mail = new PHPMailer();
 
-    // Atualiza o contato no banco de dados
-    $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
-    $stmt = $conexao->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: index.php');
-        exit();
-    } else {
-        die("Erro ao preparar a consulta de edição: " . $conexao->error);
-    }
+try {
+// Configurações do servidor SMTP
+$mail->isSMTP();
+$mail->Host       = 'mail.embrafer.com'; // Endereço do servidor SMTP
+$mail->SMTPAuth   = true;                // Habilitar autenticação SMTP
+$mail->Username   = 'contato@embrafer.com'; // Usuário SMTP
+$mail->Password   = 'eneastroca8081!';       // Senha SMTP
+$mail->SMTPSecure = 'tls';               // Criptografia TLS
+$mail->Port       = 587;                  // Porta SMTP
+
+// Remetente e destinatário
+$mail->setFrom('contato@embrafer.com', 'Site');
+$mail->addAddress('contato@embrafer.com', 'Embrafer'); // Destinatário
+
+// Conteúdo do e-mail
+$mail->isHTML(true);
+$mail->CharSet = 'UTF-8'; // Definindo o charset para UTF-8
+$mail->Subject = 'CONTATO - SITE - EMBRAFER';
+
+// Montagem do corpo do e-mail com meta charset
+$mensagemHTML = "
+       <!DOCTYPE html>
+       <html>
+       <head>
+           <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+           <title>Contato do Site</title>
+       </head>
+       <body>
+           <p style='text-align: center;'><strong><span style='font-size: 20pt; font-family: Arial;'>Contato do Site</span></strong></p>
+           <table style='width: 552px; border-collapse: collapse; font-family: Arial; font-size: 9pt;'>
+               <tbody>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Nome do cliente</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>$nome</td>
+                   </tr>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Email</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>$email</td>
+                   </tr>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Telefone</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>($ddd) $telefone</td>
+                   </tr>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Cidade</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>$cidade</td>
+                   </tr>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Estado</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>$estado</td>
+                   </tr>
+                   <tr>
+                       <td style='width: 270px; border: 1px solid #4472c4; background: #d9e2f3; padding: 5px;'><strong>Descrição do Orçamento</strong></td>
+                       <td style='width: 281px; border: 1px solid #4472c4; padding: 5px;'>$descricao</td>
+                   </tr>
+                   <tr>
+                       <td colspan='2' style='padding: 10px 5px;'>
+                           <strong>Data de Envio:</strong> " . date('d/m/Y H:i:s') . "
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+       </body>
+       </html>
+       ";
+
+$mail->Body = $mensagemHTML;
+
+// Envia o e-mail
+$mail->send();
+
+// Redireciona para a página de sucesso
+header('Location: sucesso.html');
+exit();
+} catch (phpmailerException $e) {
+// Em caso de erro no envio do e-mail, redireciona para uma página de erro
+header('Location: erro.html');
+exit();
 }
-
-// Carrega os contatos
-$contatos = carregarContatos($conexao);
+} else {
+header('Location: index.php');
+exit();
+}
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin - Contatos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Meta Tag Essencial para Responsividade -->
-    <link rel="stylesheet" href="admin_styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-</head>
-
-<body>
-    <div class="container">
-        <div class="top-bar">
-            <h1>Lista de Contatos</h1>
-            <div class="top-bar-buttons">
-                <button id="add-contact-btn">Adicionar Contato</button>
-                <a href="logout.php" class="logout-btn">Sair</a>
-                <div class="search-container">
-                    <i class="fas fa-search"></i> <!-- Ícone de lupa -->
-                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Pesquisar...">
-                </div>
-            </div>
-        </div>
-
-        <?php if (!empty($contatos)): ?>
-        <div class="table-container">
-            <table id="contactsTable">
-                <thead>
-                    <tr>
-                        <th onclick="sortTable(0)">Nome</th>
-                        <th onclick="sortTable(1)">E-mail</th>
-                        <th onclick="sortTable(2)">Telefone</th>
-                        <th onclick="sortTable(3)">Cidade</th>
-                        <th onclick="sortTable(4)">Estado</th>
-                        <th onclick="sortTable(5)">Descrição do Orçamento</th>
-                        <th onclick="sortTable(6)">Data de Envio</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($contatos as $contato): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($contato['nome']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['email']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['telefone']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['cidade']); ?></td>
-                        <td><?php echo htmlspecialchars($contato['estado']); ?></td>
-                        <td><?php echo nl2br(htmlspecialchars($contato['descricao'])); ?></td>
-                        <td><?php echo date("d/m/Y H:i", strtotime($contato['data_envio'])); ?></td>
-                        <td>
-                            <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">
-                                <i class="fas fa-trash-alt"></i> Deletar
-                            </a>
-                            <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <a href="#" class="orcamento-btn" onclick="openOrcamentoModal(<?php echo $contato['id']; ?>)">
-                                <i class="fas fa-file-invoice-dollar"></i> Orçamento
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        <?php else: ?>
-        <p>Nenhum contato encontrado.</p>
-        <?php endif; ?>
-    </div>
-
-    <!-- Modal de adicionar contato -->
-    <div id="add-contact-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Adicionar Novo Contato</h2>
-            <form action="index.php" method="post" class="add-contact-form">
-                <input type="hidden" name="adicionar" value="1">
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" name="nome" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" id="telefone" name="telefone" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="cidade">Cidade</label>
-                        <input type="text" id="cidade" name="cidade" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="estado">Estado</label>
-                        <input type="text" id="estado" name="estado" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="descricao">Descrição do Orçamento</label>
-                        <textarea id="descricao" name="descricao" required></textarea>
-                    </div>
-                </div>
-                <button type="submit">Adicionar Contato</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal de edição de contato -->
-    <div id="edit-contact-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Editar Contato</h2>
-            <form action="index.php" method="post" class="edit-contact-form">
-                <input type="hidden" name="id" id="edit-id">
-                <input type="hidden" name="editar" value="1">
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="edit-nome">Nome Completo</label>
-                        <input type="text" id="edit-nome" name="nome" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="edit-email">E-mail</label>
-                        <input type="email" id="edit-email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="edit-telefone">Telefone</label>
-                        <input type="text" id="edit-telefone" name="telefone" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="edit-cidade">Cidade</label>
-                        <input type="text" id="edit-cidade" name="cidade" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="edit-estado">Estado</label>
-                        <input type="text" id="edit-estado" name="estado" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="edit-descricao">Descrição do Orçamento</label>
-                        <textarea id="edit-descricao" name="descricao" required></textarea>
-                    </div>
-                </div>
-                <button type="submit">Salvar Alterações</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal de Orçamento -->
-    <div id="orcamento-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Detalhes do Orçamento</h2>
-            <div id="orcamento-details">
-                <!-- Detalhes serão preenchidos via JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // Script para abrir e fechar o modal de adicionar contato
-        var addModal = document.getElementById("add-contact-modal");
-        var addBtn = document.getElementById("add-contact-btn");
-        var addSpan = addModal.getElementsByClassName("close-btn")[0];
-
-        addBtn.onclick = function() {
-            addModal.style.display = "block";
-        }
-
-        addSpan.onclick = function() {
-            addModal.style.display = "none";
-        }
-
-        // Script para abrir e fechar o modal de editar contato
-        var editModal = document.getElementById("edit-contact-modal");
-        var editSpan = editModal.getElementsByClassName("close-btn")[0];
-
-        function openEditModal(id) {
-            editModal.style.display = "block";
-
-            var contato = <?php echo json_encode($contatos); ?>;
-            var contatoSelecionado = contato.find(c => c.id == id);
-
-            if (contatoSelecionado) {
-                document.getElementById("edit-id").value = contatoSelecionado.id;
-                document.getElementById("edit-nome").value = contatoSelecionado.nome;
-                document.getElementById("edit-email").value = contatoSelecionado.email;
-                document.getElementById("edit-telefone").value = contatoSelecionado.telefone;
-                document.getElementById("edit-cidade").value = contatoSelecionado.cidade;
-                document.getElementById("edit-estado").value = contatoSelecionado.estado;
-                document.getElementById("edit-descricao").value = contatoSelecionado.descricao;
-            } else {
-                alert("Contato não encontrado.");
-                editModal.style.display = "none";
-            }
-        }
-
-        editSpan.onclick = function() {
-            editModal.style.display = "none";
-        }
-
-        // Script para abrir e fechar o modal de Orçamento
-        var orcamentoModal = document.getElementById("orcamento-modal");
-        var orcamentoSpan = orcamentoModal.getElementsByClassName("close-btn")[0];
-
-        function openOrcamentoModal(id) {
-            var contato = <?php echo json_encode($contatos); ?>;
-            var contatoSelecionado = contato.find(c => c.id == id);
-            
-            if (contatoSelecionado) {
-                var detalhes = `
-                    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
-                    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
-                    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
-                    <button id="mostrar-detalhes-btn" class="edit-btn">Mostrar Detalhes</button>
-                    <div id="detalhes-orcamento" style="display:none;">
-                        <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
-                        <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
-                        <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
-                        <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
-                    </div>
-                `;
-                document.getElementById("orcamento-details").innerHTML = detalhes;
-                orcamentoModal.style.display = "block";
-
-                // Adiciona evento para mostrar detalhes
-                document.getElementById("mostrar-detalhes-btn").addEventListener("click", function() {
-                    var detalhesDiv = document.getElementById("detalhes-orcamento");
-                    if (detalhesDiv.style.display === "none") {
-                        detalhesDiv.style.display = "block";
-                        this.textContent = "Ocultar Detalhes";
-                    } else {
-                        detalhesDiv.style.display = "none";
-                        this.textContent = "Mostrar Detalhes";
-                    }
-                });
-            } else {
-                alert("Contato não encontrado.");
-            }
-        }
-
-        orcamentoSpan.onclick = function() {
-            orcamentoModal.style.display = "none";
-        }
-
-        // Fecha os modais ao clicar fora deles
-        window.onclick = function(event) {
-            if (event.target == addModal) {
-                addModal.style.display = "none";
-            }
-            if (event.target == editModal) {
-                editModal.style.display = "none";
-            }
-            if (event.target == orcamentoModal) {
-                orcamentoModal.style.display = "none";
-            }
-        }
-
-        // Função para ordenar as colunas
-        let sortOrder = {};
-        function sortTable(n) {
-            let table = document.getElementById("contactsTable");
-            let rows = Array.from(table.rows).slice(1);
-            let isAscending = !sortOrder[n];
-
-            rows.sort((row1, row2) => {
-                let cell1 = row1.cells[n].innerText.toLowerCase();
-                let cell2 = row2.cells[n].innerText.toLowerCase();
-
-                // Verificação se a coluna é Data
-                if (n === 6) {
-                    // Converter para timestamp para comparação
-                    let partes1 = cell1.split('/');
-                    let partes2 = cell2.split('/');
-                    cell1 = new Date(partes1[2], partes1[1]-1, partes1[0], partes1[3].split(':')[0], partes1[3].split(':')[1]).getTime();
-                    cell2 = new Date(partes2[2], partes2[1]-1, partes2[0], partes2[3].split(':')[0], partes2[3].split(':')[1]).getTime();
-                }
-
-                if (cell1 < cell2) return isAscending ? -1 : 1;
-                if (cell1 > cell2) return isAscending ? 1 : -1;
-                return 0;
-            });
-
-            rows.forEach(row => table.appendChild(row));
-            sortOrder[n] = isAscending;
-        }
-
-        // Função para pesquisar na tabela
-        function searchTable() {
-            let input = document.getElementById("searchInput").value.toLowerCase();
-            let rows = document.querySelectorAll("table tbody tr");
-
-            rows.forEach(row => {
-                let rowText = row.innerText.toLowerCase();
-                row.style.display = rowText.includes(input) ? "" : "none";
-            });
-        }
-    </script>
-</body>
-</html>
