@@ -160,7 +160,7 @@ $contatos = carregarContatos($conexao);
                         <td><?php echo date("d/m/Y H:i", strtotime($contato['data_envio'])); ?></td>
                         <td>
                             <a href="?delete=<?php echo $contato['id']; ?>&csrf_token=<?php echo $_SESSION['csrf_token']; ?>" class="delete-btn" onclick="return confirm('Tem certeza que deseja deletar este contato?');">
-                                <i class="fas fa-trash-alt"></i> Deletar
+                                <i class="fas fa-trash-alt"></i> Del
                             </a>
                             <a href="#" class="edit-btn" onclick="openEditModal(<?php echo $contato['id']; ?>)">
                                 <i class="fas fa-edit"></i> Editar
