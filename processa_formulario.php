@@ -14,8 +14,8 @@ $usuario1 = "empre028_felipe";   // Usuário do banco de dados
 $senha1 = "Iuh86gwt--@Z123";     // Senha do banco de dados
 $banco1 = "empre028_orcamentos"; // Nome do banco de dados
 
-// Conectar ao segundo banco de dados (caso necessário, substitua pelos detalhes reais)
-$servidor2 = "localhost"; // Outro banco de dados, por exemplo
+// Conectar ao segundo banco de dados (Locaweb)
+$servidor2 = "localhost"; // Banco de dados local (Locaweb)
 $usuario2 = "embra_usuario";
 $senha2 = "uRXA1r9Z7pv~Cw";
 $banco2 = "embra_orcamentos";
@@ -24,9 +24,18 @@ $banco2 = "embra_orcamentos";
 $conexao1 = new mysqli($servidor1, $usuario1, $senha1, $banco1);
 $conexao2 = new mysqli($servidor2, $usuario2, $senha2, $banco2);
 
-// Verifica se há erro nas conexões
-$falha_db1 = $conexao1->connect_error ? true : false;
-$falha_db2 = $conexao2->connect_error ? true : false;
+// Verifica se há erro nas conexões e exibe os erros
+if ($conexao1->connect_error) {
+    echo "Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>";
+} else {
+    echo "Conexão com o primeiro banco de dados (BD1) estabelecida com sucesso.<br>";
+}
+
+if ($conexao2->connect_error) {
+    echo "Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>";
+} else {
+    echo "Conexão com o segundo banco de dados (BD2) estabelecida com sucesso.<br>";
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Função para sanitizar os dados de entrada
@@ -89,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db2_sucesso = false;
 
     // Insere no primeiro banco de dados (se a conexão for bem-sucedida)
-    if (!$falha_db1) {
+    if (!$conexao1->connect_error) {
         $sql = "INSERT INTO orcamentos (nome, email, ddd, telefone, cidade, estado, descricao, data_envio)
                 VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
 
@@ -97,13 +106,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt1->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt1->execute()) {
                 $db1_sucesso = true; // Marca como bem-sucedido no DB1
+                echo "Dados inseridos com sucesso no primeiro banco de dados (BD1).<br>";
+            } else {
+                echo "Erro ao inserir dados no primeiro banco de dados (BD1): " . $stmt1->error . "<br>";
             }
             $stmt1->close();
+        } else {
+            echo "Erro ao preparar a consulta no primeiro banco de dados (BD1): " . $conexao1->error . "<br>";
         }
     }
 
     // Insere no segundo banco de dados (se a conexão for bem-sucedida)
-    if (!$falha_db2) {
+    if (!$conexao2->connect_error) {
         $sql = "INSERT INTO orcamentos (nome, email, ddd, telefone, cidade, estado, descricao, data_envio)
                 VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
 
@@ -111,8 +125,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt2->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt2->execute()) {
                 $db2_sucesso = true; // Marca como bem-sucedido no DB2
+                echo "Dados inseridos com sucesso no segundo banco de dados (BD2).<br>";
+            } else {
+                echo "Erro ao inserir dados no segundo banco de dados (BD2): " . $stmt2->error . "<br>";
             }
             $stmt2->close();
+        } else {
+            echo "Erro ao preparar a consulta no segundo banco de dados (BD2): " . $conexao2->error . "<br>";
         }
     }
 
@@ -123,10 +142,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Fecha as conexões
-    if (!$falha_db1) {
+    if (!$conexao1->connect_error) {
         $conexao1->close();
     }
-    if (!$falha_db2) {
+    if (!$conexao2->connect_error) {
         $conexao2->close();
     }
 
@@ -162,7 +181,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </head>
         <body>
             <p style='text-align: center;'><strong><span style='font-size: 20pt; font-family: Arial;'>Contato do Site</span></strong></p>
-
             <table style='width: 552px; border-collapse: collapse; font-family: Arial; font-size: 9pt;'>
                 <tbody>
                     <tr>
