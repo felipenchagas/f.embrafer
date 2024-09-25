@@ -158,7 +158,7 @@ table a.delete-btn:hover {
 
 /* Botão Editar */
 table a.edit-btn {
-    background-color: #43a047;
+    background-color: #17541a;
     color: #fff;
 }
 
@@ -168,7 +168,7 @@ table a.edit-btn:hover {
 
 /* Botão Orçamento */
 table a.orcamento-btn {
-    background-color: #ffb300;
+    background-color: #17541a;
     color: #fff;
     display: none; /* Oculto por padrão */
 }
