@@ -48,11 +48,15 @@ if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSIO
     $id = $_GET['delete'];
     $sql = "DELETE FROM orcamentos WHERE id=?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $stmt->close();
-    header('Location: index.php');
-    exit();
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: index.php');
+        exit();
+    } else {
+        die("Erro ao preparar a consulta de exclusão: " . $conexao->error);
+    }
 }
 
 // Processa a adição de contatos
@@ -90,13 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
     // Atualiza o contato no banco de dados
     $sql = "UPDATE orcamentos SET nome=?, email=?, telefone=?, cidade=?, estado=?, descricao=? WHERE id=?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
-    $stmt->execute();
-    $stmt->close();
-
-    // Redireciona para a página de sucesso
-    header('Location: index.php');
-    exit();
+    if ($stmt) {
+        $stmt->bind_param("ssssssi", $nome, $email, $telefone, $cidade, $estado, $descricao, $id);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: index.php');
+        exit();
+    } else {
+        die("Erro ao preparar a consulta de edição: " . $conexao->error);
+    }
 }
 
 // Carrega os contatos
@@ -257,7 +263,7 @@ $contatos = carregarContatos($conexao);
         // Script para abrir e fechar o modal de adicionar contato
         var addModal = document.getElementById("add-contact-modal");
         var addBtn = document.getElementById("add-contact-btn");
-        var addSpan = document.getElementsByClassName("close-btn")[0];
+        var addSpan = addModal.getElementsByClassName("close-btn")[0];
 
         addBtn.onclick = function() {
             addModal.style.display = "block";
@@ -267,38 +273,39 @@ $contatos = carregarContatos($conexao);
             addModal.style.display = "none";
         }
 
-        // Fecha o modal ao clicar fora dele
-        window.onclick = function(event) {
-            if (event.target == addModal) {
-                addModal.style.display = "none";
-            }
-        }
+        // Script para abrir e fechar o modal de editar contato
+        var editModal = document.getElementById("edit-contact-modal");
+        var editSpan = editModal.getElementsByClassName("close-btn")[0];
 
-        // Função para abrir o modal de edição com os dados corretos
         function openEditModal(id) {
-            var editModal = document.getElementById("edit-contact-modal");
             editModal.style.display = "block";
 
             var contato = <?php echo json_encode($contatos); ?>;
             var contatoSelecionado = contato.find(c => c.id == id);
 
-            document.getElementById("edit-id").value = contatoSelecionado.id;
-            document.getElementById("edit-nome").value = contatoSelecionado.nome;
-            document.getElementById("edit-email").value = contatoSelecionado.email;
-            document.getElementById("edit-telefone").value = contatoSelecionado.telefone;
-            document.getElementById("edit-cidade").value = contatoSelecionado.cidade;
-            document.getElementById("edit-estado").value = contatoSelecionado.estado;
-            document.getElementById("edit-descricao").value = contatoSelecionado.descricao;
+            if (contatoSelecionado) {
+                document.getElementById("edit-id").value = contatoSelecionado.id;
+                document.getElementById("edit-nome").value = contatoSelecionado.nome;
+                document.getElementById("edit-email").value = contatoSelecionado.email;
+                document.getElementById("edit-telefone").value = contatoSelecionado.telefone;
+                document.getElementById("edit-cidade").value = contatoSelecionado.cidade;
+                document.getElementById("edit-estado").value = contatoSelecionado.estado;
+                document.getElementById("edit-descricao").value = contatoSelecionado.descricao;
+            } else {
+                alert("Contato não encontrado.");
+                editModal.style.display = "none";
+            }
         }
 
-        var editSpan = document.getElementsByClassName("close-btn")[1];
         editSpan.onclick = function() {
-            var editModal = document.getElementById("edit-contact-modal");
             editModal.style.display = "none";
         }
 
+        // Fecha os modais ao clicar fora deles
         window.onclick = function(event) {
-            var editModal = document.getElementById("edit-contact-modal");
+            if (event.target == addModal) {
+                addModal.style.display = "none";
+            }
             if (event.target == editModal) {
                 editModal.style.display = "none";
             }
@@ -314,6 +321,13 @@ $contatos = carregarContatos($conexao);
             rows.sort((row1, row2) => {
                 let cell1 = row1.cells[n].innerText.toLowerCase();
                 let cell2 = row2.cells[n].innerText.toLowerCase();
+
+                // Verificação se a coluna é Data
+                if (n === 6) {
+                    // Converter para timestamp para comparação
+                    cell1 = new Date(cell1.split('/').reverse().join('-') + ' ' + row1.cells[6].innerText.split(' ')[1]).getTime();
+                    cell2 = new Date(cell2.split('/').reverse().join('-') + ' ' + row2.cells[6].innerText.split(' ')[1]).getTime();
+                }
 
                 if (cell1 < cell2) return isAscending ? -1 : 1;
                 if (cell1 > cell2) return isAscending ? 1 : -1;
