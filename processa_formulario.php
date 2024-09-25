@@ -30,14 +30,17 @@ $conexao2 = new mysqli($servidor2, $usuario2, $senha2, $banco2);
 if ($conexao1->connect_error) {
     die("Erro ao conectar ao primeiro banco de dados (BD1): " . $conexao1->connect_error . "<br>");
 } else {
-    echo "Conexão com o primeiro banco de dados (BD1) estabelecida com sucesso.<br>";
+    // Conexão bem-sucedida, sem saída
+    // Opcional: Logar a conexão
+    // error_log("Conexão com o primeiro banco de dados (BD1) estabelecida com sucesso.");
 }
 
-// Verifica se há erro na conexão com BD2
 if ($conexao2->connect_error) {
     die("Erro ao conectar ao segundo banco de dados (BD2): " . $conexao2->connect_error . "<br>");
 } else {
-    echo "Conexão com o segundo banco de dados (BD2) estabelecida com sucesso.<br>";
+    // Conexão bem-sucedida, sem saída
+    // Opcional: Logar a conexão
+    // error_log("Conexão com o segundo banco de dados (BD2) estabelecida com sucesso.");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -109,7 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt1->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt1->execute()) {
                 $db1_sucesso = true; // Marca como bem-sucedido no DB1
-                echo "Dados inseridos com sucesso no primeiro banco de dados (BD1).<br>";
+                // Opcional: Logar a inserção
+                // error_log("Dados inseridos com sucesso no primeiro banco de dados (BD1).");
             } else {
                 echo "Erro ao inserir dados no primeiro banco de dados (BD1): " . $stmt1->error . "<br>";
             }
@@ -128,7 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt2->bind_param("sssssss", $nome, $email, $ddd, $telefone, $cidade, $estado, $descricao);
             if ($stmt2->execute()) {
                 $db2_sucesso = true; // Marca como bem-sucedido no DB2
-                echo "Dados inseridos com sucesso no segundo banco de dados (BD2).<br>";
+                // Opcional: Logar a inserção
+                // error_log("Dados inseridos com sucesso no segundo banco de dados (BD2).");
             } else {
                 echo "Erro ao inserir dados no segundo banco de dados (BD2): " . $stmt2->error . "<br>";
             }
