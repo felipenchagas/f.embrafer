@@ -3,7 +3,6 @@ session_start();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    // Redireciona para a página de login
     header('Location: login.php');
     exit();
 }
@@ -40,7 +39,7 @@ function carregarContatos($conexao) {
     return $contatos;
 }
 
-// Processa a exclusão de contatos com verificação de token CSRF
+// Processa a exclusão de contatos
 if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_GET['csrf_token'])) {
     $id = $_GET['delete'];
     $sql = "DELETE FROM orcamentos WHERE id=?";
@@ -53,28 +52,6 @@ if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSIO
         exit();
     } else {
         die("Erro ao preparar a consulta de exclusão: " . $conexao->error);
-    }
-}
-
-// Processa a adição de contatos
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
-    $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
-    $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
-    $cidade = htmlspecialchars(trim($_POST['cidade']), ENT_QUOTES, 'UTF-8');
-    $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
-    $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
-
-    $sql = "INSERT INTO orcamentos (nome, email, telefone, cidade, estado, descricao, data_envio) VALUES (?, ?, ?, ?, ?, ?, NOW())";
-    $stmt = $conexao->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("ssssss", $nome, $email, $telefone, $cidade, $estado, $descricao);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: index.php');
-        exit();
-    } else {
-        die("Erro ao preparar a consulta de inserção: " . $conexao->error);
     }
 }
 
@@ -101,9 +78,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editar'])) {
     }
 }
 
-// Carrega os contatos
-$contatos = carregarContatos($conexao);
-?>
+// Processa a adição de contatos
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar'])) {
+    $nome = htmlspecialchars(trim($_POST['nome']), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+    $telefone = htmlspecialchars(trim($_POST['telefone']), ENT_QUOTES, 'UTF-8');
+    $cidade = htmlspecialchars(trim($_POST['cidade']), ENT_QUOTES, 'UTF-8');
+    $estado = htmlspecialchars(trim($_POST['estado']), ENT_QUOTES, 'UTF-8');
+    $descricao = htmlspecialchars(trim($_POST['descricao']), ENT_QUOTES, 'UTF-8');
+
+    $sql = "INSERT INTO orcamentos (nome, email, telefone, cidade, estado, descricao, data_envio) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    $stmt = $conexao->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("ssssss", $nome, $email, $telefone, $cidade, $estado, $descricao);
+        $stmt->execute();
+        $stmt->close();
+        header('Location: index.php');
+        exit();
+    } else {
+        die("Erro ao preparar a consulta de inserção: " . $conexao->error);
+    }
+}
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">

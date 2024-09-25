@@ -87,32 +87,29 @@ table tr:nth-child(even) {
     background-color: #1a1a1a;
 }
 
-/* Botões de editar e deletar */
-table a.edit-btn,
+/* Link de deletar */
 table a.delete-btn {
-    color: #ffffff; /* Texto branco */
+    color: #e53935;
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    display: inline-block; /* Para garantir que não se sobreponha */
-}
-
-table a.edit-btn {
-    background-color: #43a047; /* Verde */
-}
-
-table a.edit-btn:hover {
-    background-color: #1b5e20; /* Verde mais escuro */
-}
-
-table a.delete-btn {
-    background-color: #e53935; /* Vermelho */
 }
 
 table a.delete-btn:hover {
-    background-color: #c62828; /* Vermelho mais escuro */
+    text-decoration: underline;
+}
+
+/* Botão pesquisar */
+#search-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #1e88e5;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #1565c0;
 }
 
 /* Modal */
@@ -139,57 +136,11 @@ table a.delete-btn:hover {
 }
 
 .modal-content {
-    background-color: #1e1e1e;
-    border-radius: 5px;
+    background-color: #212121;
+    margin: 15% auto;
     padding: 20px;
-}
-
-.modal-content h2 {
-    color: #e0e0e0;
-    margin-bottom: 20px;
-    text-align: center; /* Centraliza o título */
-}
-
-.modal-content label {
-    color: #e0e0e0;
-    margin-top: 10px;
-}
-
-.modal-content input,
-.modal-content textarea {
-    width: 100%;
-    padding: 10px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 600px;
     border-radius: 5px;
-    border: 1px solid #424242;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin-bottom: 15px;
-}
-
-.modal-content button[type="submit"] {
-    background-color: #1e88e5;
-    color: #fff; /* Texto branco */
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-.modal-content button[type="submit"]:hover {
-    background-color: #1565c0;
-}
-
-/* Container para telefone e WhatsApp */
-.phone-container {
-    display: flex;
-    align-items: center;
-}
-
-/* Ícone do WhatsApp */
-.whatsapp-icon {
-    margin-left: 10px;
-    vertical-align: middle;
-    cursor: pointer;
-    /* Tamanho definido inline no HTML */
 }
