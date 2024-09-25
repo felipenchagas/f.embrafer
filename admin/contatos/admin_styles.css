@@ -133,7 +133,8 @@ table tr:nth-child(even) {
 /* Botões de Ação */
 table a.delete-btn,
 table a.edit-btn,
-table a.orcamento-btn {
+table a.orcamento-btn,
+.action-btn { /* Incluindo .action-btn para o botão Mostrar Detalhes */
     display: flex;
     align-items: center;
     padding: 6px 12px;
@@ -166,43 +167,9 @@ table a.edit-btn:hover {
     background-color: #388e3c;
 }
 
-/* Estilo para o botão "Mostrar Detalhes" */
-.action-btn {
-    padding: 10px 20px; /* Ajusta o padding conforme os outros botões */
-    border: none;
-    background-color: #1e88e5; /* Mesma cor dos botões "Adicionar Contato" e "Sair" */
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.action-btn:hover {
-    background-color: #1565c0; /* Cor de hover consistente */
-}
-
-@media screen and (max-width: 768px) {
-    #searchInput {
-        width: 100%;
-        padding: 10px 15px 10px 40px;
-        font-size: 16px;
-    }
-
-    table td {
-        font-size: 16px;
-    }
-
-    .action-btn {
-        font-size: 16px;
-        padding: 12px 24px;
-    }
-}
-
 /* Botão Orçamento */
 table a.orcamento-btn {
-    background-color: #1a5a0c;
+    background-color: #ffb300;
     color: #fff;
     display: none; /* Oculto por padrão */
 }
@@ -211,10 +178,25 @@ table a.orcamento-btn:hover {
     background-color: #ffa000;
 }
 
+/* Botão Mostrar Detalhes */
+.action-btn {
+    background-color: #1e88e5; /* Mesma cor dos botões "Adicionar Contato" e "Sair" */
+    color: #fff;
+    padding: 10px 20px; /* Ajusta o padding para ser consistente */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #1565c0; /* Cor de hover consistente */
+}
+
 /* Espaçamento para ícones nos botões */
 table a.delete-btn i,
 table a.edit-btn i,
-table a.orcamento-btn i {
+table a.orcamento-btn i,
+.action-btn i {
     margin-right: 8px; /* Espaço aumentado para melhor visualização */
 }
 
@@ -372,35 +354,44 @@ button[type="submit"]:hover {
         padding: 10px;
         border: none;
         border-bottom: 1px solid #424242;
+        font-size: 16px; /* Aumentar a fonte para melhor legibilidade */
     }
 
     /* Ajustar os botões no mobile */
     table a.orcamento-btn {
         width: 100%;
         justify-content: center;
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Media Queries para Telas Menores (480px) */
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
     }
 
-    /* Ajustar o Modal de Orçamento para ocupar mais espaço em telas pequenas */
-    @media screen and (max-width: 480px) {
-        .modal-content {
-            width: 95%;
-            padding: 15px;
-        }
+    .close-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+    }
 
-        .close-btn {
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-        }
+    .input-group input,
+    .input-group textarea {
+        font-size: 16px;
+    }
 
-        .input-group input,
-        .input-group textarea {
-            font-size: 16px;
-        }
+    button[type="submit"] {
+        width: 100%;
+        font-size: 18px;
+    }
 
-        button[type="submit"] {
-            width: 100%;
-            font-size: 18px;
-        }
+    /* Ajustar o botão "Mostrar Detalhes" */
+    .action-btn {
+        padding: 12px 24px;
+        font-size: 16px;
     }
 }

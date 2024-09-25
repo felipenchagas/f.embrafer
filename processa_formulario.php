@@ -114,7 +114,7 @@ $contatos = carregarContatos($conexao);
     <meta charset="UTF-8">
     <title>Admin - Contatos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Meta Tag Essencial para Responsividade -->
-    <link rel="stylesheet" href="admin_styles3.css">
+    <link rel="stylesheet" href="admin_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -334,18 +334,17 @@ $contatos = carregarContatos($conexao);
             
             if (contatoSelecionado) {
                 var detalhes = `
-    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
-    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
-    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
-    <button id="mostrar-detalhes-btn" class="action-btn">Mostrar Detalhes</button>
-    <div id="detalhes-orcamento" style="display:none;">
-        <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
-        <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
-        <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
-        <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
-    </div>
-`;
-
+                    <p><strong>Nome:</strong> ${contatoSelecionado.nome}</p>
+                    <p><strong>Cidade:</strong> ${contatoSelecionado.cidade}</p>
+                    <p><strong>Estado:</strong> ${contatoSelecionado.estado}</p>
+                    <button id="mostrar-detalhes-btn" class="action-btn">Mostrar Detalhes</button>
+                    <div id="detalhes-orcamento" style="display:none;">
+                        <p><strong>E-mail:</strong> ${contatoSelecionado.email}</p>
+                        <p><strong>Telefone:</strong> ${contatoSelecionado.telefone}</p>
+                        <p><strong>Descrição do Orçamento:</strong> ${contatoSelecionado.descricao}</p>
+                        <p><strong>Data de Envio:</strong> ${new Date(contatoSelecionado.data_envio).toLocaleString('pt-BR')}</p>
+                    </div>
+                `;
                 document.getElementById("orcamento-details").innerHTML = detalhes;
                 orcamentoModal.style.display = "block";
 
