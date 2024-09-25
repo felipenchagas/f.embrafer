@@ -62,16 +62,6 @@ if (isset($_GET['delete']) && isset($_GET['csrf_token']) && hash_equals($_SESSIO
 
 // Carrega os contatos
 $contatos = carregarContatos($conexao);
-
-// Verifica se os contatos foram carregados corretamente
-if (empty($contatos)) {
-    echo "Nenhum contato encontrado.";
-} else {
-    // Debug: Exibe os contatos carregados (apenas para depuração)
-    echo "<pre>";
-    var_dump($contatos);
-    echo "</pre>";
-}
 ?>
 
 <!DOCTYPE html>
