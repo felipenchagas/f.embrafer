@@ -21,7 +21,7 @@ body {
 }
 
 .floating-button button {
-  background-color: #c96c08; /* Azul mais escuro */
+  background-color: #8a0a10; /* Azul mais escuro */
   color: white;
   padding: 15px 25px;
   border: none;
@@ -33,7 +33,7 @@ body {
 }
 
 .floating-button button:hover {
-  background-color: #1158c7; /* Azul mais escuro no hover */
+  background-color: #811abc; /* Azul mais escuro no hover */
   box-shadow: 0 4px 12px rgba(0, 86, 179, 0.4);
 }
 
@@ -117,7 +117,7 @@ body {
 
 .modal-content .input-group input:focus,
 .modal-content .input-group textarea:focus {
-  border-color: #c96c08; /* Azul no foco */
+  border-color: #8a0a10; /* Azul no foco */
   box-shadow: 0 0 8px rgba(31, 111, 235, 0.5); /* Sombra azul no foco */
   outline: none;
 }
@@ -143,7 +143,7 @@ body {
 
 /* Botão de envio */
 button[type="submit"] {
-  background-color: #c96c08; /* Azul escuro */
+  background-color: #8a0a10; /* Azul escuro */
   color: white;
   padding: 15px;
   width: 100%;
@@ -156,7 +156,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #1158c7; /* Azul mais escuro no hover */
+  background-color: #811abc; /* Azul mais escuro no hover */
   box-shadow: 0 4px 10px rgba(31, 111, 235, 0.5);
 }
 
